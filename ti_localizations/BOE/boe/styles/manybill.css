@@ -1,0 +1,19 @@
+table th {
+	BACKGROUND: url(../images/TH_back.png) #ededed repeat top;
+	BORDER: 1px solid #d9d9d9;
+}
+ 
+table th label {
+	font-size: 10px !important;
+}
+ 
+table td {
+	table-layout: fixed;
+	BORDER: 1px solid #d9d9d9;
+	CURSOR: pointer;
+	white-space: nowrap;
+}
+ 
+.button {
+	BACKGROUND: url(../img/but.gif) #ededed repeat top;
+}

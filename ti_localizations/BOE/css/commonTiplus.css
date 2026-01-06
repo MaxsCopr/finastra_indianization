@@ -1,0 +1,68 @@
+table th {
+	BACKGROUND: url(../images/TH_back.png) #ededed repeat top;
+	BORDER: 1px solid #d9d9d9;
+}
+ 
+table th label {
+	font-size : 10px !important;
+}
+ 
+table td {
+	table-layout: fixed;
+	BORDER: 1px solid #d9d9d9;
+	CURSOR: pointer;
+	white-space: nowrap;
+}
+.button{
+	 BACKGROUND: url(../images/but.gif) #ededed repeat top;
+ 
+}
+ 
+ 
+/******** Table Horizontal and Vertical Scroll  *****************/
+ 
+.table
+	{
+	    max-height: 500px;
+	    width:1025px;
+	    overflow-y: scroll;
+	    overflow-x: scroll;
+	}
+	.grid
+	{
+	    max-height: 150px;
+	    width:900px;
+	    overflow-y: scroll;
+	    overflow-x: scroll;
+	}
+	.col1 
+	{ 
+	width:12%; 
+	}
+	.col2 
+	{ 
+	width:8%; 
+	}
+	.col3
+	{ 
+	width:5%; 
+	}
+.welcome {
+	color:#009edc;
+	width:500px;
+	height:20px;
+}
+.welcome li{ 
+	list-style: none; 
+}
+ 
+ 
+.errors {
+	background-color:#FFCCCC;
+	border:1px solid #CC0000;
+	width:500px;
+	height:20px;
+}
+.errors li{ 
+	list-style: none; 
+}
