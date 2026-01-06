@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd"> 
+<struts>
+<constant name="struts.multipart.maxSize" value="50000000" />
+<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+<constant name="struts.devMode" value="false" />
+<constant name="struts.custom.i18n.resources"
+		value="in.co.myshare.resources.ApplicationResources, in.co.myshare.resources.RepAppResources,in.co.myshare.resources.NGOAppResources, in.co.myshare.resources.Displaytag" />
+<constant name="struts.ui.theme" value="simple" />
+<constant name="struts.mapper.action.prefix.enabled" value="true"/><!--Newly added for struts upgrade  -->
+ 
+	<package name="default" extends="struts-default,json-default"
+		namespace="/">
+<global-results>
+<result name="Exception">/view/common/system_error.jsp</result>
+<result name="securityerror">/view/common/fail.jsp</result> 
+<result name="error">/view/common/fail.jsp</result> 
+</global-results>
+ 
+		<global-exception-mappings>
+<exception-mapping exception="in.co.stp.dao.exception.ApplicationException"
+				result="Exception" />
+<exception-mapping exception="org.apache.struts.register.exceptions.SecurityBreachException" result="securityerror" /> 
+<exception-mapping exception="java.lang.Exception" result="error" /> 
+<exception-mapping exception="java.lang.IllegalArgumentException" result="error" /> 
+</global-exception-mappings>
+<!-- Bulk Upload Maker Screen Starts -->
+ 
+		<action name="maker" class="in.co.stp.action.MakerHomeAction" method="landingPage">
+<result name="success">/view/maker.jsp</result>
+</action>
+<!-- 	<action name="loadInvoice" class="in.co.stp.action.MakerHomeAction">
+<interceptor-ref name="basicStack"/>
+<interceptor-ref name="excelLoad">
+<param name="maximumSize">5000000</param>
+<param name="maximumSize">17825792</param>
+</interceptor-ref> 
+<result name="success">/view/maker.jsp</result>	
+</action>	 -->	
+
+<action name="buyerBranchSelection" class="in.co.stp.action.MakerHomeAction" method="buyerBranchSelection">
+<result name="success">/view/buyerbranchselection.jsp</result>
+</action>
+<action name="buyerBranch" class="in.co.stp.action.MakerHomeAction">
+<result name="success">/view/maker.jsp</result>
+</action>
+<action name="buyerCustListCancel" class="in.co.stp.action.MakerHomeAction">
+<result name="success">/view/maker.jsp</result>
+</action>
+ 
+		<action name="loadInvoice" class="in.co.stp.action.MakerHomeAction" method="excelLoad">
+<result name="success">/view/maker.jsp</result>
+</action>
+<action name="listofinvoice" class="in.co.stp.action.MakerHomeAction" method="excelValidate">
+<result name="success">/view/maker.jsp</result>
+</action>
+<action name="downloadExcel" class="in.co.stp.action.MakerHomeAction" method="downloadExcel">
+<result name="json" type="stream">
+<param name="contentType">"application/vnd.ms-excel"</param>
+<param name="inputName">excelStream</param>
+<param name="contentDisposition">contentDisposition</param>
+<param name="bufferSize">1024</param>
+</result>
+</action>
+<action name="downloadExcel1" class="in.co.stp.action.MakerHomeAction" method="downloadExcel1">
+<result name="json" type="stream">
+<param name="contentType">"application/vnd.ms-excel"</param>
+<param name="inputName">excelStream</param>
+<param name="contentDisposition">contentDisposition</param>
+<param name="bufferSize">1024</param>
+</result>
+</action>
+
+<!--  <action name="makeruploadall" class="in.co.stp.action.MakerHomeAction" method="makerUpload">
+<result name="success">/view/success.jsp</result>
+<result name="fail">/view/fail.jsp</result>
+</action>	
+<action name="makerrejectall" class="in.co.stp.action.MakerHomeAction" method="makerrejectAll">
+<result name="success">/view/maker.jsp</result>
+<result name="fail">/view/fail.jsp</result>
+</action>	 --> 
+<action name="makeruploadall" class="in.co.stp.action.MakerHomeAction" method="makerUpload">
+<interceptor-ref name="token"></interceptor-ref>
+<interceptor-ref name="defaultStack"></interceptor-ref>
+<interceptor-ref name="basicStack"></interceptor-ref>
+<result name="success">/view/success.jsp</result>
+<result name="fail">/view/fail.jsp</result>
+<result name="invalid.token">/view/common/invalidToken.jsp</result> 
+</action>	
+<action name="makerrejectall" class="in.co.stp.action.MakerHomeAction" method="makerrejectAll">
+<result name="success">/view/maker.jsp</result>
+<result name="fail">/view/fail.jsp</result>
+</action> 
+
+<!-- Bulk Upload Maker Screen Ends -->
+
+<!-- Bulk Upload Checker Screen Starts -->
+
+<action name="checker" class="in.co.stp.action.CheckerHomeAction" >
+<result name="success">/view/checker.jsp</result>
+</action>
+
+<action name="search" class="in.co.stp.action.CheckerHomeAction" method="fetchInvoiceDetails">
+<result name="success">/view/checker.jsp</result>
+</action>
+
+<action name="checkerDownloadExcel" class="in.co.stp.action.CheckerHomeAction" method="checkerDownloadExcel">
+<result name="json" type="stream">
+<param name="contentType">"application/vnd.ms-excel"</param>
+<param name="inputName">excelStream</param>
+<param name="contentDisposition">contentDisposition</param>
+<param name="bufferSize">1024</param>
+</result>
+</action>
+
+<!-- <action name="fetch" class="in.co.stp.action.CheckerHomeAction" method="fetchInvoiceList">
+<result name="success">/view/checker.jsp</result>
+</action> -->
+<action name="fetch" class="in.co.stp.action.CheckerHomeJSONAction">
+<result name="json" type="json">
+<param name="ignoreHierarchy">false</param>
+</result>
+</action>
+<action name="checkeruploadall" class="in.co.stp.action.CheckerHomeAction" method="checkerUpload">
+<result name="success">/view/success.jsp</result>
+<result name="fail">/view/fail.jsp</result>
+</action>	
+<action name="checkerrejectall" class="in.co.stp.action.CheckerHomeAction" method="checkerUpload">
+<result name="success">/view/success.jsp</result>
+<result name="fail">/view/fail.jsp</result>
+</action>	
+
+<!-- Bulk Upload Checker Screen Ends -->
+
+<!-- Bulk Upload Status Screen Starts -->
+<action name="status" class="in.co.stp.action.StatusHomeAction" >
+<result name="success">/view/status.jsp</result>
+</action>
+<action name="viewerSearch" class="in.co.stp.action.StatusHomeAction" method="fetchInvoiceDetails">
+<result name="success">/view/status.jsp</result>
+</action>
+<action name="statusDownloadExcel" class="in.co.stp.action.StatusHomeAction" method="statusDownloadExcel">
+<result name="json" type="stream">
+<param name="contentType">"application/vnd.ms-excel"</param>
+<param name="inputName">excelStream</param>
+<param name="contentDisposition">contentDisposition</param>
+<param name="bufferSize">1024</param>
+</result>
+</action>
+<action name="viewerFetch" class="in.co.stp.action.StatusHomeAction" method="fetchInvoiceList">
+<result name="success">/view/status.jsp</result>
+</action>
+
+<!-- Bulk Upload Status Screen Ends -->
+<!-- Close button -->
+<action name="close" class="in.co.stp.action.BaseAction" method="closeWindow">
+</action>
+
+ 
+	</package>
+</struts>

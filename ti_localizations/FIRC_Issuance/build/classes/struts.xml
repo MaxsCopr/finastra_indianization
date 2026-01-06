@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+   "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<!--  <!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd"> -->
+<struts>
+      <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+      <constant name="struts.devMode" value="false" />
+      <constant name="struts.custom.i18n.resources"
+            value="in.co.FIRC.resources.ApplicationResources" />
+      <constant name="struts.ui.theme" value="simple" />
+
+       <package name="default" extends="struts-default,json-default" namespace="/">
+      
+                  <global-results>
+                        <result name="Exception">/view/common/system_error.jsp</result>               
+                </global-results>
+
+               <action name="home" class="in.co.FIRC.action.FircHomeAction">
+                          <result name="maker" type="redirectAction">makerProcess</result>
+                          <result name="checker" type="redirectAction">checkerProcess</result>
+                          <result name="both">/view/maker_checker_home.jsp</result>
+                          <result name="viewer">/view/fail.jsp</result>
+               </action>
+       
+             <action name="makerProcess" class="in.co.FIRC.action.FircHomeAction" method="makerProcess">
+                         <result name="success">/view/home.jsp</result>
+                  </action>
+        
+              <action name="checkerProcess" class="in.co.FIRC.action.FircHomeAction" method="checkerProcess">
+                        <result name="success">/view/checker/firccheckerhome.jsp</result>
+              </action>       
+              
+              <!-- Maker Starts -->
+              
+                  <!-- Maker - Our Bank Screen Starts -->
+            
+                  <action name="fircOurBank" class="in.co.FIRC.action.FIRCOurBankAction">
+                        <result name="success">/view/OurBank/fircourbank.jsp</result>
+                  </action>
+            
+                  <action name="fetchOurBankDetails" class="in.co.FIRC.action.FIRCOurBankAction"  method="fetchOurBankDetails">
+                        <result name="success">/view/OurBank/fircourbank.jsp</result>
+                  </action>
+                  
+                  <action name="validateOurBankDetails" class="in.co.FIRC.action.FIRCOurBankAction"  method="validateOurBankDetails">
+                        <result name="success">/view/OurBank/fircourbank.jsp</result>
+                  </action>
+                  
+                  <action name="insertOurBankDetails" class="in.co.FIRC.action.FIRCOurBankAction"  method="insertOurBankDetails">
+                        <result name="success">/view/OurBank/fircourbank.jsp</result>
+                  </action>
+                  
+                  <!-- Maker - Our Bank Screen Ends -->
+                  
+                  <!-- Maker - Issuance Search Screen Starts -->
+                  
+                  <action name="fircIssuance" class="in.co.FIRC.action.FIRCIssuanceAction">
+                        <result name="success">/view/issuanceHome.jsp</result>
+                  </action>
+                  
+                  <action name="single" class="in.co.FIRC.action.FIRCIssuanceAction">
+                        <result name="success">/view/IssuanceSearch/fircIssuanceSearch.jsp</result>
+                  </action>
+                  
+                  <action name="bulk" class="in.co.FIRC.action.FIRCIssuanceAction">
+                        <result name="success">/view/IssuanceSearch/fircIssuanceSearchBulk.jsp</result>
+                  </action>
+                  
+                        <!-- Bulk Printing -->
+                  <action name="fircIssuanceBulk" class="in.co.FIRC.action.FIRCIssuanceAction">
+                        <result name="success">/view/IssuanceSearch/fircIssuanceSearchBulk.jsp</result>
+                  </action>
+                  
+                  <action name="fircIssuanceSearchBulk" class="in.co.FIRC.action.FIRCIssuanceAction" method = "fircIssuanceSearch">
+                        <result name="success">/view/IssuanceSearch/fircIssuanceSearchBulk.jsp</result>
+                  </action>   
+                  
+                  <action name="firaPrintActionBulk" class="in.co.FIRC.action.FIRCIssuanceAction" method = "firaPrintActionBulk">
+                        <result name="success">/view/IssuanceSearch/fircIssuanceSearchBulk.jsp</result>
+                  </action>
+                  
+                  <action name="fircPrintAdviceActionBulk" class="in.co.FIRC.action.FIRCIssuanceAction" method = "fircPrintAdviceActionBulk">
+                        
+                        <result name="success">/view/mailSuccess.jsp</result>
+                        <result name="fail">/view/mailFail.jsp</result>
+                        
+                  </action>               
+                  
+                  <action name="customerCifCode" class="in.co.FIRC.action.FIRCIssuanceAction" method="customerCifCode">
+                  <result name="success">/view/IssuanceSearch/fircIssuanceCustomerSearch.jsp</result>
+            </action>
+            
+            <action name="fetchCustomer" class="in.co.FIRC.action.FIRCIssuanceAction"
+                  method="fetchCustomer">
+                  <result name="success">/view/IssuanceSearch/fircIssuanceCustomerSearch.jsp</result>
+                  </action>
+                  
+                  <action name="gotoHome" class="in.co.FIRC.action.FIRCIssuanceAction"
+                  method="gotoHome">
+                  <result name="success">/view/IssuanceSearch/fircIssuanceSearchBulk.jsp</result>
+                </action>
+                  
+                  
+                  <action name="printStatus"    class="in.co.FIRC.action.ajax.GetEventListJSONAction" method = "printStatus">
+                        <result type="json" />
+                  </action>
+                  
+                  <action name="fircIssuanceSearch" class="in.co.FIRC.action.FIRCIssuanceAction" method = "fircIssuanceSearch">
+                        <result name="success">/view/IssuanceSearch/fircIssuanceSearch.jsp</result>
+                  </action>   
+                  
+                  <action name="fircPrintAction" class="in.co.FIRC.action.FIRCIssuanceAction" method = "fircPrintAction">
+                        <result name="success">/view/IssuanceSearch/fircIssuanceSearch.jsp</result>
+                  </action>   
+                  
+                  <action name="fircDupPrintAction" class="in.co.FIRC.action.FIRCIssuanceAction" method = "fircDupPrintAction">
+                        <result name="success">/view/IssuanceSearch/fircIssuanceSearch.jsp</result>
+                  </action>
+                  
+                  <action name="firaPrintAction" class="in.co.FIRC.action.FIRCIssuanceAction" method = "firaPrintAction">
+                        <result name="success">/view/IssuanceSearch/fircIssuanceSearch.jsp</result>
+                  </action>
+                  
+                  <action name="fircPrintAdviceAction" class="in.co.FIRC.action.FIRCIssuanceAction" method = "fircPrintAdviceAction">
+                        <result name="success">/view/mailSuccess.jsp</result>
+                        <result name="fail">/view/mailFail.jsp</result>
+                  </action>               
+                  
+                  
+                  <!-- Maker - Issuance Search Screen Ends -->
+                  
+            <!-- Maker Ends -->
+            
+            <!-- Checker Starts -->
+            
+                  <action name="checkerAction" class="in.co.FIRC.action.FIRCCheckerAction" method="fetchPendingOurBankDetails">
+                        <result name="success">/view/checker/fircourbankchecker.jsp</result>                      
+                  </action>
+                  
+                  <action name="fircOurBankApproval" class="in.co.FIRC.action.FIRCCheckerAction" method="fetchPendingOurBankDetails">
+                        <result name="success">/view/checker/fircourbankchecker.jsp</result>                      
+                  </action>
+            
+                  <action name="checkerUpdateAction" class="in.co.FIRC.action.FIRCCheckerAction" method="updateStatus" >
+                        <result name="success">/view/checker/fircourbankchecker.jsp</result>
+                  </action>
+                  
+                  <action name="resetAction" class="in.co.FIRC.action.FIRCCheckerAction" method="resetInputDetails">
+                        <result name="success">/view/checker/fircourbankchecker.jsp</result>                      
+                  </action>
+            
+            <!-- Checker Ends -->   
+                  
+                  
+                  <!-- IRM Extension Starts  -->
+                  
+                  <action name="irmExtension" class="in.co.FIRC.action.IRMAction" >
+                           <result name="success">/view/IRM/irmExtension.jsp</result>
+                </action>
+                
+                <action name="fetchIRMData" class="in.co.FIRC.action.IRMAction"  method = "fetchIRMData">
+                           <result name="success">/view/IRM/irmExtension.jsp</result>
+                </action>
+                
+                <action name="validateIRMExData" class="in.co.FIRC.action.IRMAction"  method = "validateIRMExData">
+                           <result name="success">/view/IRM/irmExtension.jsp</result>
+                </action>
+                
+                <action name="storeIRMExData" class="in.co.FIRC.action.IRMAction"  method = "storeIRMExData">
+                           <result name="success">/view/IRM/irmExtension.jsp</result>
+                </action>           
+                  
+                  
+                  <action name="irmExtensionChecker" class="in.co.FIRC.action.IRMCheckerAction" >
+                           <result name="success">/view/checker/irmExtensionChecker.jsp</result>
+                </action>                 
+                  
+                  <action name="extensionSearch" class="in.co.FIRC.action.IRMCheckerAction" method = "fetchIrmExtension" >
+                           <result name="success">/view/checker/irmExtensionChecker.jsp</result>
+                </action>
+                  
+                  <action name="updateExtensionChecker" class="in.co.FIRC.action.IRMCheckerAction" method = "updateIRMExtensionStatus" >
+                           <result name="success">/view/checker/irmExtensionChecker.jsp</result>
+                </action>
+                
+                <!-- IRM Extension Ends  -->
+                
+                
+                <!-- IRM Closure Starts  -->
+                  
+                  <action name="irmClosure" class="in.co.FIRC.action.IRMClosureAction" >
+                           <result name="success">/view/IRM/irmClosure.jsp</result>
+                </action>
+                
+                 <action name="fetchIRMClosureData" class="in.co.FIRC.action.IRMClosureAction"  method = "fetchIRMClosureData">
+                           <result name="success">/view/IRM/irmClosure.jsp</result>
+                </action>
+                
+                
+                <action name="validateIRMClosureData" class="in.co.FIRC.action.IRMClosureAction"  method = "validateIRMClosureData">
+                           <result name="success">/view/IRM/irmClosure.jsp</result>
+                </action>
+                
+                <action name="storeIRMClosureData" class="in.co.FIRC.action.IRMClosureAction"  method = "storeIRMClosureData">
+                           <result name="success">/view/IRM/irmClosure.jsp</result>
+                </action>
+                
+                
+                <action name="irmClosureChecker" class="in.co.FIRC.action.IRMCheckerAction" method = "irmClosureChecker">
+                           <result name="success">/view/checker/irmClosureChecker.jsp</result>
+                </action>
+                  
+                  <action name="closureSearch" class="in.co.FIRC.action.IRMCheckerAction" method = "fetchIrmClosure" >
+                           <result name="success">/view/checker/irmClosureChecker.jsp</result>
+                </action>
+                  
+            
+                  
+                  <action name="updateClosureChecker" class="in.co.FIRC.action.IRMCheckerAction" method = "updateClosureCheckerStatus" >
+                           <result name="success">/view/checker/irmClosureChecker.jsp</result>
+                </action>
+                  
+                  
+                  <!-- IRM Closure Ends  -->
+                  
+                  
+                  <!-- Maker - Extension Search / Closure Screen Starts -->
+                  
+                  <action name="irmExSearch" class="in.co.FIRC.action.FIRCIssuanceAction" method="irmExSearch">
+                        <result name="success">/view/IRM/irmExSearch.jsp</result>
+                  </action>
+                  
+                  <action name="irmAdjSearch" class="in.co.FIRC.action.FIRCIssuanceAction" method="irmAdjSearch">
+                        <result name="success">/view/IRM/irmClSearch.jsp</result>
+                  </action>
+                  
+                  <!-- Close URL -->
+                  
+                  <action name="closeWindow" class="in.co.FIRC.action.FircHomeAction" method="closeWindow">
+                              
+                  </action>
+                  
+                  <!-- EDPMS Search Advance Payment Starts -->
+                  
+                  <action name="irmSearch" class="in.co.FIRC.action.FIRCIssuanceAction" method="irmSearch">
+                        <result name="success">/view/IRM/advanceIRMSearch.jsp</result>
+                  </action>
+                  
+                  <action name="fecthIRMSearch" class="in.co.FIRC.action.FIRCIssuanceAction" method="fecthIRMSearch">
+                        <result name="success">/view/IRM/advanceIRMSearch.jsp</result>
+                  </action>
+                  
+                  <!-- EDPMS Search Advance Payment Ends -->
+                  
+                  <!-- IFSC Search Starts -->
+                  
+                  <action name="ifscSearch" class="in.co.FIRC.action.FIRCIssuanceAction" method="ifscSearch">
+                        <result name="success">/view/IRM/ifscSearch.jsp</result>
+                  </action>
+                  
+                  <action name="fecthIFSCSearch" class="in.co.FIRC.action.FIRCIssuanceAction" method="fecthIFSCSearch">
+                        <result name="success">/view/IRM/ifscSearch.jsp</result>
+                  </action>               
+                  
+                  <!-- IFSC Search Ends -->
+                  
+            
+      </package>
+</struts>

@@ -1,0 +1,4 @@
+1.Change URL [Close] Button JSP Page->/view/maker.jsp 
+2.Change Boostrap URL 
+3.Chanage Web.xml [CAS]
+4.Change DB Connection Utility

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+   "http://struts.apache.org/dtds/struts-2.3.dtd"> 
+<struts>
+<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+<constant name="struts.devMode" value="false" />
+<constant name="struts.custom.i18n.resources"
+		value="in.co.myshare.resources.ApplicationResources, in.co.myshare.resources.RepAppResources,in.co.myshare.resources.NGOAppResources, in.co.myshare.resources.Displaytag" />
+<constant name="struts.ui.theme" value="simple" />
+ 
+	<package name="default" extends="struts-default,json-default"
+		namespace="/">
+<global-results>
+<result name="Exception">/view/common/system_error.jsp</result>
+<result name="redirectPaid">/view/payment/paid.jsp</result>
+</global-results>
+ 
+		<global-exception-mappings>
+<exception-mapping exception="in.co.ebrc.dao.exception.ApplicationException"
+				result="Exception" />
+</global-exception-mappings>
+<action name="getEbrcValue" class="in.co.ebrc.action.EbrcCustomerAction" method="getEbrcDataValue">
+<result name="success">/view/bankRealisationCertificate.jsp</result>
+</action>
+<action name="storeEbrcData" class="in.co.ebrc.action.EbrcCustomerAction" method="storeEbrcMatchingData">
+<result name="success">/view/bankRealisationCertificate.jsp</result>
+</action>
+<action name="editEbrcData" class="in.co.ebrc.action.EbrcCustomerAction" method="fetchEbrcData">
+<result name="success">/view/bankRealisationCertificate.jsp</result>
+</action>
+<action name="generateEBRCXml" class="in.co.ebrc.action.EbrcCustomerAction" method="generateEBRCXmlData">
+<result name="success" type="stream">
+<param name="contentType">application/octet-stream</param>
+<param name="inputName">inputStream</param>
+<param name="contentDisposition">attachment;filename="${fileName}"</param>
+<param name="bufferSize">4096</param>
+</result>
+<result name="error">/view/bankRealisationCertificate.jsp</result>
+</action>
+<action name="generateIFSCXml" class="in.co.ebrc.action.EbrcCustomerAction" method="generateIFSCXmlData">
+<result name="success">/view/bankRealisationCertificate.jsp</result>
+</action>
+<action name="validateEbrc" class="in.co.ebrc.action.EbrcCustomerAction" method="validateEbrcData">
+<result name="success">/view/bankRealisationCertificate.jsp</result>
+</action>
+<action name="home" class="in.co.ebrc.action.EbrcHomeAction" method="ebrcProcess">
+<result name="success">/view/bankRealisationCertificate.jsp</result>
+</action>	
+<!-- Close Button -->
+<action name="close" class="in.co.ebrc.action.EbrcHomeAction" method="closeWindow">
+</action>
+
+</package>
+</struts>
