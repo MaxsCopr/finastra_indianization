@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+
+   "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+
+   "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+<constant name="struts.devMode" value="false" />
+<constant name="struts.ui.theme" value="simple" />
+ 
+	<package name="default" extends="struts-default,json-default"
+
+		namespace="/">
+<global-results>
+<result name="Exception">/view/common/system_error.jsp</result>
+<result name="redirectPaid">/view/payment/paid.jsp</result>
+</global-results>
+ 
+		<global-exception-mappings>
+<exception-mapping exception="in.co.prishipment.dao.exception.ApplicationException"
+
+				result="Exception" />
+</global-exception-mappings>
+ 
+ 
+		<action name="home" class="in.co.prishipment.action.PreShipmentAction">
+<result name="success">/view/home.jsp</result>
+</action>
+<action name="searchPreShip" class="in.co.prishipment.action.PreShipmentAction" method="fetchPreShip">
+<result name="success">/view/home.jsp</result>
+</action>
+<action name="processPreship" class="in.co.prishipment.action.PreShipmentAction" method="processPreship">
+<result name="success">/view/home.jsp</result>
+</action>
+<!-- 	startJIRA 6818 -->
+<action name="deletePreship" class="in.co.prishipment.action.PreShipmentAction" method="deletePreship">
+<result name="success">/view/delete.jsp</result>
+</action>
+<action name="fetchdeletePreship" class="in.co.prishipment.action.PreShipmentAction" method="fetchdeletePreship">
+<result name="success"  >/view/delete.jsp</result>
+</action>
+<action name="deletefetchPreship" class="in.co.prishipment.action.PreShipmentAction" method="deletefetchPreship">
+<result name="success"  type="redirectAction">deletePreship</result>
+</action>
+<!-- 	endJIRA 6818 -->
+<action name="searchCustomer" class="in.co.prishipment.action.PreShipmentAction" method="searchCustomer">
+<result name="success">/view/customerSelection.jsp</result>
+</action>
+<action name="fetchCustomer" class="in.co.prishipment.action.PreShipmentAction" method="fetchCustomer">
+<result name="success">/view/customerSelection.jsp</result>
+</action>
+<action name="gotoPreShip" class="in.co.prishipment.action.PreShipmentAction" method="returnPreShip">
+<result name="success">/view/home.jsp</result>
+</action>
+<action name="close" class="in.co.prishipment.action.PreShipmentAction" method="closeWindow">
+</action>
+ 
+	</package>
+</struts>

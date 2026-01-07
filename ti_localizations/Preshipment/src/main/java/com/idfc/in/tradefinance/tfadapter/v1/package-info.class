@@ -1,0 +1,7 @@
+package com.idfc.in.tradefinance.tfadapter.v1;
+ 
+import javax.xml.bind.annotation.XmlNsForm;
+import javax.xml.bind.annotation.XmlSchema;
+ 
+@XmlSchema(namespace="http://www.idfc.com/IN/TradeFinance/TFAdapter/v1", elementFormDefault=XmlNsForm.QUALIFIED)
+abstract interface package-info {}

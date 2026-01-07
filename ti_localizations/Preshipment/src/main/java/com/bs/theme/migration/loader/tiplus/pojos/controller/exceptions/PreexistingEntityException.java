@@ -1,0 +1,25 @@
+package com.bs.theme.migration.loader.tiplus.pojos.controller.exceptions;
+ 
+public class PreexistingEntityException
+
+  extends Exception
+
+{
+
+  public PreexistingEntityException(String message, Throwable cause)
+
+  {
+
+    super(message, cause);
+
+  }
+
+  public PreexistingEntityException(String message)
+
+  {
+
+    super(message);
+
+  }
+
+}

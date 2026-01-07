@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+
+   "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+
+   "http://struts.apache.org/dtds/struts-2.3.dtd"> 
+<struts>
+<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+<constant name="struts.devMode" value="false" />
+<constant name="struts.custom.i18n.resources" value="in.co.localization.resources.ApplicationResources" />
+<constant name="struts.ui.theme" value="simple" />
+<!-- <constant name="struts.multipart.maxSize" value="10000000" /> -->
+<constant name="struts.multipart.maxSize" value="50000000" />
+
+ 
+	<package name="default" extends="struts-default,json-default" namespace="/">
+<global-results>
+<result name="Exception">/view/common/system_error.jsp</result>
+</global-results>
+ 
+		<global-exception-mappings>
+<exception-mapping exception="in.co.localization.dao.exception.ApplicationException" result="Exception" />
+</global-exception-mappings>
+
+<action name="home" class="in.co.localization.action.LocalizationHomeAction" method="landingPage">
+<result name="success">/view/home.jsp</result>
+</action>	
+<action name="adTransfer" class="in.co.localization.action.AdTransferAction">
+<result name="success">/view/localization/adTransfer.jsp</result>
+</action>
+<action name="xmlUpload" class="in.co.localization.action.EdpmsXMLUploadAction">
+<interceptor-ref name="basicStack"/>
+<interceptor-ref name="fileUpload">
+<param name="maximumSize">50000000</param> 
+<!-- <param name="maximumSize">17825792</param> -->
+</interceptor-ref> 
+<result name="success">/view/localization/EdpmsXMLUpload.jsp</result>	
+</action>		
+<action name="acknowledgement" class="in.co.localization.action.AcknowledgementAction">
+<result name="success">/view/localization/acknowledgementList.jsp</result>
+</action>	
+<action name="edpmsSearch" class="in.co.localization.action.EDPMSUtilizeSearch">
+<result name="success">/view/localization/edpmsSearch.jsp</result>
+</action>	
+<action name="edpmsSearchData" class="in.co.localization.action.EDPMSUtilizeSearch" method="fetchGRData">
+<result name="success">/view/localization/edpmsSearch.jsp</result>
+</action>	
+<action name="fetchAdTransfer" class="in.co.localization.action.AdTransferAction" method="fetchAdTranferValue">
+<result name="success">/view/localization/adTransfer.jsp</result>
+<result name="confirm" type="redirectAction">adTransfer</result>
+</action>
+<action name="editAdTranfer" class="in.co.localization.action.AdTransferAction" method="fetchAdTranferValue">
+<result name="success">/view/localization/adTransfer.jsp</result>
+</action>	
+<!-- XML UPLOAD -->	
+<action name="FileUploadView" class="in.co.localization.action.EdpmsXMLUploadAction" method="fileUpload">
+<result name="success">/view/localization/EdpmsXMLUpload.jsp</result>
+<!-- <result name="json" type="stream">
+<param name="contentType">"application/vnd.ms-excel"</param>
+<param name="inputName">excelStream</param>
+<param name="contentDisposition">contentDisposition</param>
+<param name="bufferSize">1024</param>
+</result> -->
+</action>	
+
+<action name="rodAckAction" class="in.co.localization.action.AcknowledgementAction" method="fetchRodData">
+<result name="success">/view/localization/rodAckList.jsp</result>
+</action>
+<action name="penAckAction" class="in.co.localization.action.AcknowledgementAction" method="fetchPenData">
+<result name="success">/view/localization/penAckList.jsp</result>
+</action>
+<action name="trrAckAction" class="in.co.localization.action.AcknowledgementAction" method="fetchTrrData">
+<result name="success">/view/localization/trrAckList.jsp</result>
+</action> 
+<action name="prnAckAction" class="in.co.localization.action.AcknowledgementAction" method="fetchPrnData">
+<result name="success">/view/localization/prnAckList.jsp</result>
+</action>
+<action name="wsnAckAction" class="in.co.localization.action.AcknowledgementAction" method="fetchWsnData">
+<result name="success">/view/localization/wsnAckList.jsp</result>
+</action>
+<action name="irmAckAction" class="in.co.localization.action.AcknowledgementAction" method="fetchIrmData">
+<result name="success">/view/localization/irmAckList.jsp</result>
+</action>		
+<action name="irFircAckAction" class="in.co.localization.action.AcknowledgementAction" method="fetchIRFIRcData">
+<result name="success">/view/localization/irFircAckList.jsp</result>
+</action>
+
+<!-- SB Outstanding Payment Search Starts -->
+<action name="sbUnUntilizeAction" class="in.co.localization.action.EDPMSUtilizeSearch" method = "fetchSBUnUtilizeBills">
+<result name="success">/view/localization/search.jsp</result>
+</action>
+<action name="resetSBUnUntilize" class="in.co.localization.action.EDPMSUtilizeSearch" method = "resetSBUnUntilize">
+<result name="success">/view/localization/search.jsp</result>
+</action>
+
+<!--  SB Outstanding Payment Search Ends -->
+<!-- SB UnUtilize Search Starts -->
+<action name="mdfUnUntilizeAction" class="in.co.localization.action.EDPMSUtilizeSearch" method = "fetchMDFUnUtilizeBills">
+<result name="success">/view/localization/mdfUnUntilizeSearch.jsp</result>
+</action>			
+<!-- SB UnUtilize Search Ends -->	
+<!-- PRN Cancel Functionality Starts -->
+<action name="prnCancelAction" class="in.co.localization.action.RealizationAction">
+<result name="success">/view/localization/cancelPrnAckView.jsp</result>
+</action>
+<action name="fetchPRNAckData" class="in.co.localization.action.RealizationAction" method = "fetchPRNAckData">
+<result name="success">/view/localization/cancelPrnAckView.jsp</result>
+</action>		
+<action name="prnAckDataView" class="in.co.localization.action.RealizationAction" method = "prnAckDataView">
+<result name="success">/view/localization/prnAckView.jsp</result>
+</action>
+<action name="storeCancelPRNData" class="in.co.localization.action.RealizationAction" method = "storeCancelPRNData">
+<result name="error">/view/localization/prnAckView.jsp</result>
+<result name="success">/view/localization/cancelPrnAckView.jsp</result>
+</action>	
+<!-- PRN Cancel Functionality Ends -->		
+
+<!-- EOD Download Starts -->
+<action name="eodDownloadAction" class="in.co.localization.action.EodDownloadAction">
+<result name="success">/view/localization/eodDownloadSearch.jsp</result>
+</action>
+<action name="fetchEodFileType" class="in.co.localization.action.EodDownloadAction" method="fetchEodFileType">
+<result name="success">/view/localization/eodDownloadSearch.jsp</result>
+</action>
+<action name="downloadEodFiles" class="in.co.localization.action.EodDownloadAction" method="downloadEodFiles">				
+<result name="success" type="stream">
+<param name="contentType">application/octet-stream</param>
+<param name="inputName">inputStream</param>
+<param name="contentDisposition">attachment;filename="${fileName}"</param>
+<param name="bufferSize">4096</param>
+</result>
+<result name="error">/view/localization/eodDownloadSearch.jsp</result>
+</action>
+
+<!-- EOD Download Ends -->
+
+<!-- Close URL -->
+<action name="closeWindow" class="in.co.localization.action.AdTransferAction" method="closeWindow"></action>		
+ <!-- Link to get Uploded XML file Error List -->
+<action name="getXMLErrorPage" class="in.co.localization.action.EdpmsXMLUploadAction" method="getXMLErrorPage">
+<result name="success">/view/localization/mdfErrorListpage.jsp</result>
+</action>
+<action name="getFileDownload" class="in.co.localization.action.EdpmsXMLUploadAction" method="getFileDownload">
+<result name="success">/view/localization/mdfErrorListpage.jsp</result>
+<result name="json" type="stream">
+<param name="contentType">"application/vnd.ms-excel"</param>
+<param name="inputName">excelStream</param>
+<param name="contentDisposition">contentDisposition</param>
+<param name="bufferSize">1024</param>
+</result>
+</action>
+<action name="getFileList" class="in.co.localization.action.EdpmsXMLUploadAction" method="getXMLFileList">
+<result name="success">/view/localization/mdfErrorListpage.jsp</result>
+</action>
+<!-- Ends -->
+
+<!-- EOD Online Download Page -->
+<action name="edpmsOnlineFileDownload" class="in.co.localization.action.EDPMSCustomJobAction">
+<result name="success">/view/localization/edpmsOnlineDownload.jsp</result>
+</action>	
+<!-- EOD Online Download Page -->
+
+<!-- IRM EOD Download Starts -->
+<action name="irmFileDownload" class="in.co.localization.action.EDPMSCustomJobAction" method ="processIRMjob">
+<result name="success" type="stream">
+<param name="contentType">application/octet-stream</param>
+<param name="inputName">inputStream</param>
+<param name="contentDisposition">attachment;filename="${fileName}"</param>
+<param name="bufferSize">4096</param>
+</result>
+<result name="nodatafound">/view/localization/edpmsOnlineDownload.jsp</result>
+<result name="error">/view/localization/edpmsOnlineDownload.jsp</result>
+</action>	
+<!-- IRM EOD Download Ends -->
+<!-- ROD EOD Download Starts -->
+<action name="rodFileDownload" class="in.co.localization.action.EDPMSCustomJobAction" method ="processRODjob">
+<result name="success" type="stream">
+<param name="contentType">application/octet-stream</param>
+<param name="inputName">inputStream</param>
+<param name="contentDisposition">attachment;filename="${fileName}"</param>
+<param name="bufferSize">4096</param>
+</result>
+<result name="nodatafound">/view/localization/edpmsOnlineDownload.jsp</result>
+<result name="error">/view/localization/edpmsOnlineDownload.jsp</result>
+</action>	
+<!-- ROD EOD Download Ends -->
+<!-- PRN EOD Download Starts -->
+<action name="prnFileDownload" class="in.co.localization.action.EDPMSCustomJobAction" method ="processPRN">
+<result name="success" type="stream">
+<param name="contentType">application/octet-stream</param>
+<param name="inputName">inputStream</param>
+<param name="contentDisposition">attachment;filename="${fileName}"</param>
+<param name="bufferSize">4096</param>
+</result>
+<result name="nodatafound">/view/localization/edpmsOnlineDownload.jsp</result>
+<result name="error">/view/localization/edpmsOnlineDownload.jsp</result>
+</action>	
+<!-- PRN EOD Download Ends -->
+
+<!-- WSN EOD Download Starts -->
+<action name="wsnFileDownload" class="in.co.localization.action.EDPMSCustomJobAction" method ="processWSN">
+<result name="success" type="stream">
+<param name="contentType">application/octet-stream</param>
+<param name="inputName">inputStream</param>
+<param name="contentDisposition">attachment;filename="${fileName}"</param>
+<param name="bufferSize">4096</param>
+</result>
+<result name="nodatafound">/view/localization/edpmsOnlineDownload.jsp</result>
+<result name="error">/view/localization/edpmsOnlineDownload.jsp</result>
+</action>	
+<!-- WSN EOD Download Ends -->
+<!-- PEN EOD Download Starts -->
+<action name="penFileDownload" class="in.co.localization.action.EDPMSCustomJobAction" method ="processPENjob">
+<result name="success" type="stream">
+<param name="contentType">application/octet-stream</param>
+<param name="inputName">inputStream</param>
+<param name="contentDisposition">attachment;filename="${fileName}"</param>
+<param name="bufferSize">4096</param>
+</result>
+<result name="nodatafound">/view/localization/edpmsOnlineDownload.jsp</result>
+<result name="error">/view/localization/edpmsOnlineDownload.jsp</result>
+</action>	
+<!-- PEN EOD Download Ends -->
+<!-- TRR EOD Download Starts -->
+<action name="trrFileDownload" class="in.co.localization.action.EDPMSCustomJobAction" method ="processTRRjob">
+<result name="success" type="stream">
+<param name="contentType">application/octet-stream</param>
+<param name="inputName">inputStream</param>
+<param name="contentDisposition">attachment;filename="${fileName}"</param>
+<param name="bufferSize">4096</param>
+</result>
+<result name="nodatafound">/view/localization/edpmsOnlineDownload.jsp</result>
+<result name="error">/view/localization/edpmsOnlineDownload.jsp</result>
+</action>	
+<!-- TRR EOD Download Ends -->
+<!-- EBRC EOD Download Starts -->
+<action name="ebrcFileDownload" class="in.co.localization.action.EDPMSCustomJobAction" method ="processEBRC">
+<result name="success" type="stream">
+<param name="contentType">application/octet-stream</param>
+<param name="inputName">inputStream</param>
+<param name="contentDisposition">attachment;filename="${fileName}"</param>
+<param name="bufferSize">4096</param>
+</result>
+<result name="nodatafound">/view/localization/edpmsOnlineDownload.jsp</result>
+<result name="error">/view/localization/edpmsOnlineDownload.jsp</result>
+</action>	
+<!-- EBRC EOD Download Ends -->
+<!-- IRFIRC EOD Download Starts -->
+<action name="irfircFileDownload" class="in.co.localization.action.EDPMSCustomJobAction" method ="processIRFIRCjob">
+<result name="success" type="stream">
+<param name="contentType">application/octet-stream</param>
+<param name="inputName">inputStream</param>
+<param name="contentDisposition">attachment;filename="${fileName}"</param>
+<param name="bufferSize">4096</param>
+</result>
+<result name="nodatafound">/view/localization/edpmsOnlineDownload.jsp</result>
+<result name="error">/view/localization/edpmsOnlineDownload.jsp</result>
+</action>	
+<!-- IRFIRC EOD Download Ends -->
+<!-- IREXT EOD Download Starts -->
+<action name="irextFileDownload" class="in.co.localization.action.EDPMSCustomJobAction" method ="processIRMEXjob">
+<result name="success" type="stream">
+<param name="contentType">application/octet-stream</param>
+<param name="inputName">inputStream</param>
+<param name="contentDisposition">attachment;filename="${fileName}"</param>
+<param name="bufferSize">4096</param>
+</result>
+<result name="nodatafound">/view/localization/edpmsOnlineDownload.jsp</result>
+<result name="error">/view/localization/edpmsOnlineDownload.jsp</result>
+</action>	
+<!-- IREXT EOD Download Ends -->
+<!-- IRCLS EOD Download Starts -->
+<action name="irclsFileDownload" class="in.co.localization.action.EDPMSCustomJobAction" method ="processIRMCL">
+<result name="success" type="stream">
+<param name="contentType">application/octet-stream</param>
+<param name="inputName">inputStream</param>
+<param name="contentDisposition">attachment;filename="${fileName}"</param>
+<param name="bufferSize">4096</param>
+</result>
+<result name="nodatafound">/view/localization/edpmsOnlineDownload.jsp</result>
+<result name="error">/view/localization/edpmsOnlineDownload.jsp</result>
+</action>	
+<!-- IRCLS EOD Download Ends -->
+</package>
+</struts>
