@@ -22,7 +22,7 @@ public class ServiceLoggingUtil
     HashMap<String, String> map = new HashMap();
     try
     {
-      con = DBConnectionUtility.getThemebridgeConnection();
+      con = DBConnectionUtility.getWiseConnection();
       stmt = con.createStatement();
       res = stmt.executeQuery("SELECT * FROM BRIDGEPROPERTIES");
       while (res.next()) {
@@ -78,7 +78,7 @@ public class ServiceLoggingUtil
     PreparedStatement ps = null;
     try
     {
-      con = DBConnectionUtility.getThemebridgeConnection();
+      con = DBConnectionUtility.getWiseConnection();
       if (con != null)
       {
         String bridgePropQuery = "SELECT ID, ZONE, BRANCH, KEY, VALUE, CATEGORY FROM BRIDGEPROPERTIES WHERE KEY = ? ";
@@ -200,7 +200,7 @@ public class ServiceLoggingUtil
  
  
       logger.info("IDPMS.ServiceLoggingQuery : " + serviceLoggingQuery);
-      con = DBConnectionUtility.getThemebridgeConnection();
+      con = DBConnectionUtility.getWiseConnection();
       pstmt = con.prepareStatement(serviceLoggingQuery);
       pstmt.setString(1, service);
       pstmt.setString(2, operation);
@@ -260,7 +260,7 @@ public class ServiceLoggingUtil
  
  
       logger.info("IDPMS.BatchCustomJobsLogQuery : " + customJobsLogQuery);
-      conn = DBConnectionUtility.getThemebridgeConnection();
+      conn = DBConnectionUtility.getWiseConnection();
       pstmt = conn.prepareStatement(customJobsLogQuery);
       pstmt.setString(1, service);
       pstmt.setString(2, operation);

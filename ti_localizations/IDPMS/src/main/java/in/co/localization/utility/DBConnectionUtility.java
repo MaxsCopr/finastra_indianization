@@ -85,7 +85,7 @@ public class DBConnectionUtility
     }
     return connection;
   }
-  public static Connection getConnectionThemeBridge()
+  public static Connection getWiseConnection()
     throws SQLException
   {
     Connection connection = null;
@@ -140,7 +140,7 @@ public class DBConnectionUtility
       }
       catch (Exception e)
       {
-        logger.info("Exception-- getConnectionThemeBridge--Connection-----------------" + e);
+        logger.info("Exception-- getWiseConnection--Connection-----------------" + e);
         e.getMessage();
       }
     }
@@ -181,7 +181,7 @@ public class DBConnectionUtility
       }
       catch (Exception e)
       {
-        logger.info("Exception-- getConnectionThemeBridge--Connection-----------------" + e);
+        logger.info("Exception-- getWiseConnection--Connection-----------------" + e);
         e.getMessage();
       }
     }
@@ -251,7 +251,7 @@ public class DBConnectionUtility
         Properties param = new Properties();
         param.put("java.naming.factory.initial", "com.ibm.websphere.naming.WsnInitialContextFactory");
         Context initialContext = new InitialContext(param);
-        DataSource dataSource = (DataSource)initialContext.lookup("jdbc/themebridge");
+        DataSource dataSource = (DataSource)initialContext.lookup("jdbc/wiseconnect");
         connection = dataSource.getConnection();
         if (connection != null) {
           break label245;

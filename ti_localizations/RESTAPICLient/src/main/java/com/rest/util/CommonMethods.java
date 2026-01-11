@@ -79,7 +79,7 @@ public class CommonMethods
     System.out.println(" Entering getProperties ");
     try
     {
-      con = getThemebridgeConnection();
+      con = getWiseConnection();
       String query = "SELECT * FROM Bridgeproperties ";
       pst = con.prepareStatement(query);
       rs = pst.executeQuery();
@@ -164,7 +164,7 @@ public class CommonMethods
     return date;
   }
  
-  public static Connection getThemebridgeConnection()
+  public static Connection getWiseConnection()
   {
     Connection connection = null;
     try
@@ -177,7 +177,7 @@ public class CommonMethods
 
 
       Context initialContext = new InitialContext(param);
-      DataSource dataSource = (DataSource)initialContext.lookup("jdbc/themebridge");
+      DataSource dataSource = (DataSource)initialContext.lookup("jdbc/wiseconnect");
       connection = dataSource.getConnection();
     }
     catch (NamingException e)
