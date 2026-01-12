@@ -1,6 +1,6 @@
-package com.bs.theme.migration.loader.utility;
+package com.bs.wiseconnect.migration.loader.utility;
  
-public class ThemeDBConstant
+public class WiseconnectDBConstant
 
 {
 

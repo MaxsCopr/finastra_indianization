@@ -1,11 +1,8 @@
-package com.bs.theme.migration.loader.data.handler;
+package com.bs.wiseconnect.migration.loader.data.handler;
  
-import com.bs.theme.migration.loader.tiplus.pojos.TFBuyFin;
-
-import com.bs.theme.migration.loader.utility.CommonUtils;
-
-import com.bs.theme.migration.loader.utility.MessageUtil;
-
+import com.bs.wiseconnect.migration.loader.tiplus.pojos.TFBuyFin;
+import com.bs.wiseconnect.migration.loader.utility.CommonUtils;
+import com.bs.wiseconnect.migration.loader.utility.MessageUtil;
 import com.misys.tiplus2.apps.ti.service.common.GWRCustomer;
 
 import com.misys.tiplus2.apps.ti.service.common.GatewayContext;

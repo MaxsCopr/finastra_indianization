@@ -1,10 +1,10 @@
-package com.bs.theme.migration.loader.utility;
+package com.bs.wiseconnect.migration.loader.utility;
 
-import com.bs.theme.migration.loader.data.handler.TFBuyerFinHandler;
-import com.bs.theme.migration.loader.data.handler.TFinvdtoHandler;
-import com.bs.theme.migration.loader.db.connection.ThemeDB;
-import com.bs.theme.migration.loader.tiplus.pojos.InvoiceCustomer;
-import com.bs.theme.migration.loader.tiplus.pojos.TFBuyFin;
+import com.bs.wiseconnect.migration.loader.data.handler.TFBuyerFinHandler;
+import com.bs.wiseconnect.migration.loader.data.handler.TFinvdtoHandler;
+import com.bs.wiseconnect.migration.loader.db.connection.WiseconnectDB;
+import com.bs.wiseconnect.migration.loader.tiplus.pojos.InvoiceCustomer;
+import com.bs.wiseconnect.migration.loader.tiplus.pojos.TFBuyFin;
 import com.misys.tiplus2.services.control.ServiceRequest;
 import java.io.IOException;
 import java.io.InputStream;
@@ -81,7 +81,7 @@ public class QueryBuilder
     Statement s2 = null;
     try
     {
-      con = ThemeDB.getDBConnection();
+      con = WiseconnectDB.getDBConnection();
       s2 = con.createStatement();
      
       String staginginsert = "insert into ETTDM_BUYFIN_STAGING(INVOICENUMBER,PROGRAMME,SELLER,BUYER,MNEMONIC,BRANCH,CUSTOMER,BEHALFOFBRANCH,FINANCECCY,RECEIVEDON,FINANCEDATE,OUTSTANDINGAMT,OUTSTANDINGAMTCCY,STATUS,THEIRREF,MASTERREF,MATURITYDATE,BATCHID) select INVOICENUMBER,PROGRAMME, SELLER,BUYER, MNEMONIC, BRANCH,CUSTOMER, BEHALFOFBRANCH,FINANCECCY,TO_CHAR(ISSUEDATE,'YYYY-MM-DD'),TO_CHAR(FINANCEDATE,'YYYY-MM-DD'),OUTSTANDINGAMT,OUTSTANDINGAMTCCY, 'WAITING', THEIRREF,MASTERREF,TO_CHAR(ISSUEDATE,'YYYY-MM-DD'),ETTDM_BUYFIN_BACTH_ID.nextval  FROM buyerfin_db_table_view where  INVOICENUMBER='" +
@@ -125,7 +125,7 @@ public class QueryBuilder
     String xmlToPost = null;
     try
     {
-      connection = ThemeDB.getDBConnection();
+      connection = WiseconnectDB.getDBConnection();
      
       queryStatement = connection.createStatement();
       String query = getQuery1(table, inputFile, lowRange, highRange, invoiceno, batchid);
@@ -136,7 +136,7 @@ public class QueryBuilder
       List<ServiceRequest> sRequestItems = new ArrayList();
      
 
-      connection = ThemeDB.getDBConnection();
+      connection = WiseconnectDB.getDBConnection();
       queryStatement = connection.createStatement();
       ResultSet resultSet1 = null;
       String max = null;
@@ -214,7 +214,7 @@ public class QueryBuilder
     ResultSet resultSet = null;
     try
     {
-      connection = ThemeDB.getDBConnection();
+      connection = WiseconnectDB.getDBConnection();
       queryStatement = connection.createStatement();
       logger.info("****Generating Query****\n");
       logger.info(lowRange + "-" + "-" + highRange);

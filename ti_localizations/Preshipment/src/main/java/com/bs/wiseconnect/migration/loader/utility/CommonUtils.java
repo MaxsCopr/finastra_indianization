@@ -1,6 +1,6 @@
-package com.bs.theme.migration.loader.utility;
+package com.bs.wiseconnect.migration.loader.utility;
 
-import com.bs.theme.migration.loader.db.connection.ThemeDB;
+import com.bs.wiseconnect.migration.loader.db.connection.WiseconnectDB;
 import com.misys.tiplus2.apps.ti.service.common.EnigmaBoolean;
 import com.misys.tiplus2.apps.ti.service.common.GWRAdditionalData;
 import com.misys.tiplus2.apps.ti.service.common.GWRAdditionalData.DataItem;
@@ -402,7 +402,7 @@ public class CommonUtils
       BigDecimal bi = null;
       try
       {
-        connection = ThemeDB.getTIPLUSConnection();
+        connection = WiseconnectDB.getTIPLUSConnection();
         preparedStatement = connection.prepareCall("SELECT C8CED FROM C8PF WHERE C8CCY=?");
         preparedStatement.setString(1, currency);
        
@@ -445,7 +445,7 @@ public class CommonUtils
       BigDecimal bi = null;
       try
       {
-        connection = ThemeDB.getTIPLUSConnection();
+        connection = WiseconnectDB.getTIPLUSConnection();
         preparedStatement = connection.prepareCall("SELECT C8CED FROM C8PF WHERE C8CCY=?");
         preparedStatement.setString(1, currency);
        

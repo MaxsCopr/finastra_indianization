@@ -1,4 +1,4 @@
-package com.bs.theme.migration.loader.tiplus.pojos;
+package com.bs.wiseconnect.migration.loader.tiplus.pojos;
  
 public class MT754Model
 

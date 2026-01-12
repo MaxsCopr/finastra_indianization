@@ -1,12 +1,11 @@
-package com.bs.theme.migration.loader.action.manager;
+package com.bs.wiseconnect.migration.loader.action.manager;
  
-import com.bs.theme.migration.loader.utility.DBPropertiesLoader;
-
-import com.bs.theme.migration.loader.utility.QueryBuilder;
-
 import org.slf4j.Logger;
 
 import org.slf4j.LoggerFactory;
+
+import com.bs.wiseconnect.migration.loader.utility.DBPropertiesLoader;
+import com.bs.wiseconnect.migration.loader.utility.QueryBuilder;
  
 public class FGBDataMigration
 

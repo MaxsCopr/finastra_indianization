@@ -1,9 +1,5 @@
-package com.bs.theme.migration.loader.db.connection;
+package com.bs.wiseconnect.migration.loader.db.connection;
  
-import com.bs.theme.migration.loader.utility.DBPropertiesLoader;
-
-import com.bs.theme.migration.loader.utility.DataSource;
-
 import java.beans.PropertyVetoException;
 
 import java.io.IOException;
@@ -17,8 +13,11 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 
 import java.util.logging.Logger;
+
+import com.bs.wiseconnect.migration.loader.utility.DBPropertiesLoader;
+import com.bs.wiseconnect.migration.loader.utility.DataSource;
  
-public class ThemeDB
+public class WiseconnectDB
 
 {
 
@@ -74,7 +73,7 @@ public class ThemeDB
 
     {
 
-      Logger.getLogger(ThemeDB.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(WiseconnectDB.class.getName()).log(Level.SEVERE, null, ex);
 
     }
 
@@ -171,7 +170,7 @@ public class ThemeDB
 
   }
 
-  public static Connection getThemeBridgeDBConnection()
+  public static Connection getWiseconnectDBConnection()
 
     throws SQLException
 

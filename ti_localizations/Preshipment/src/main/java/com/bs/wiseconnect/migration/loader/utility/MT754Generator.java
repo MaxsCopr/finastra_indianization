@@ -1,6 +1,6 @@
-package com.bs.theme.migration.loader.utility;
+package com.bs.wiseconnect.migration.loader.utility;
 
-import com.bs.theme.migration.loader.tiplus.pojos.MT754Model;
+import com.bs.wiseconnect.migration.loader.tiplus.pojos.MT754Model;
 import com.prowidesoftware.swift.io.parser.SwiftParser;
 import com.prowidesoftware.swift.model.SwiftBlock2;
 import com.prowidesoftware.swift.model.SwiftMessage;

@@ -1,4 +1,4 @@
-package com.bs.theme.migration.loader.utility;
+package com.bs.wiseconnect.migration.loader.utility;
  
 import java.io.ByteArrayOutputStream;
 
@@ -20,7 +20,7 @@ public class JAXBTransformUtil
 
     String result = "";
 
-    if (ThemeBridgeUtil.isValidObject(toDoObject))
+    if (WiseconnectUtil.isValidObject(toDoObject))
 
     {
 

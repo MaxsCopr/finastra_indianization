@@ -1,9 +1,7 @@
-package com.bs.theme.migration.loader.data.handler;
+package com.bs.wiseconnect.migration.loader.data.handler;
  
-import com.bs.theme.migration.loader.tiplus.pojos.TiattdocExtra;
-
-import com.bs.theme.migration.loader.utility.MessageUtil;
-
+import com.bs.wiseconnect.migration.loader.tiplus.pojos.TiattdocExtra;
+import com.bs.wiseconnect.migration.loader.utility.MessageUtil;
 import com.misys.tiplus2.apps.ti.service.common.GatewayContext;
 
 import com.misys.tiplus2.apps.ti.service.custom.Event;

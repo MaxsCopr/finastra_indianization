@@ -1,11 +1,8 @@
-package com.bs.theme.migration.loader.tiplus.pojos.controller;
+package com.bs.wiseconnect.migration.loader.tiplus.pojos.controller;
  
-import com.bs.theme.migration.loader.tiplus.pojos.InvoiceCustomer;
-
-import com.bs.theme.migration.loader.tiplus.pojos.controller.exceptions.NonexistentEntityException;
-
-import com.bs.theme.migration.loader.tiplus.pojos.controller.exceptions.PreexistingEntityException;
-
+import com.bs.wiseconnect.migration.loader.tiplus.pojos.InvoiceCustomer;
+import com.bs.wiseconnect.migration.loader.tiplus.pojos.controller.exceptions.NonexistentEntityException;
+import com.bs.wiseconnect.migration.loader.tiplus.pojos.controller.exceptions.PreexistingEntityException;
 import com.misys.tiplus2.services.control.StatusEnum;
 
 import java.io.Serializable;

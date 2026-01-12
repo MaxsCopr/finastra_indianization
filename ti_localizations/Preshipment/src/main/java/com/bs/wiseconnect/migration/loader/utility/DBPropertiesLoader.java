@@ -1,4 +1,4 @@
-package com.bs.theme.migration.loader.utility;
+package com.bs.wiseconnect.migration.loader.utility;
  
 import java.io.FileNotFoundException;
 

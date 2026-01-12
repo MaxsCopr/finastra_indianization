@@ -1,4 +1,4 @@
-package com.bs.theme.migration.loader.tiplus.pojos.controller.exceptions;
+package com.bs.wiseconnect.migration.loader.tiplus.pojos.controller.exceptions;
  
 public class PreexistingEntityException
 

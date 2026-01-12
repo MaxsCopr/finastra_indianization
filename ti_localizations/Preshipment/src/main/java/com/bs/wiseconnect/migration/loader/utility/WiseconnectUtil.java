@@ -1,4 +1,4 @@
-package com.bs.theme.migration.loader.utility;
+package com.bs.wiseconnect.migration.loader.utility;
 
 import com.misys.tiplus2.services.control.ServiceResponse;
 import java.io.BufferedReader;
@@ -25,9 +25,9 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import org.apache.log4j.Logger;
 
-public class ThemeBridgeUtil
+public class WiseconnectUtil
 {
-  public static Logger logger = Logger.getLogger("ThemeBridgeUtil");
+  public static Logger logger = Logger.getLogger("WiseconnectUtil");
   public static Properties property = null;
  
   public static boolean isValidObject(Object object)
@@ -259,7 +259,7 @@ public class ThemeBridgeUtil
     if (!isValidObject(property))
     {
       property = new Properties();
-      InputStream inputStream = ThemeBridgeUtil.class.getClassLoader()
+      InputStream inputStream = WiseconnectUtil.class.getClassLoader()
         .getResourceAsStream("dummyFile.properties");
       try
       {

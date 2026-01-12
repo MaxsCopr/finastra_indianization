@@ -1,6 +1,6 @@
-package com.bs.theme.migration.loader.utility;
+package com.bs.wiseconnect.migration.loader.utility;
 
-import com.bs.theme.migration.loader.db.connection.ThemeDB;
+import com.bs.wiseconnect.migration.loader.db.connection.WiseconnectDB;
 import com.misys.tiplus2.services.control.ServiceResponse;
 import com.misys.tiplus2.services.control.ServiceResponse.ResponseHeader;
 import com.misys.tiplus2.services.control.StatusEnum;
@@ -39,7 +39,7 @@ public class MigrationUtil
     PreparedStatement preparedStatement = null;
     try
     {
-      connection = ThemeDB.getDBConnection();
+      connection = WiseconnectDB.getDBConnection();
       preparedStatement = connection.prepareStatement(createupdateQuery(tableName));
       preparedStatement.setString(1, statusEnum.toString());
       preparedStatement.setString(2, originalMasterReference);
@@ -72,7 +72,7 @@ public class MigrationUtil
     PreparedStatement preparedStatement = null;
     try
     {
-      connection = ThemeDB.getDBConnection();
+      connection = WiseconnectDB.getDBConnection();
       preparedStatement = connection.prepareStatement(createupdateQuery(tableName));
       preparedStatement.setString(1, statusEnum.toString());
       preparedStatement.setString(2, originalMasterReference);
@@ -96,7 +96,7 @@ public class MigrationUtil
     PreparedStatement preparedStatement = null;
     try
     {
-      connection = ThemeDB.getDBConnection();
+      connection = WiseconnectDB.getDBConnection();
       preparedStatement = connection.prepareStatement("UPDATE " + tableName + " SET STATUS = ?,ERRORDTLS=? WHERE TICORRID = ?");
       preparedStatement.setString(1, statusEnum.toString());
       preparedStatement.setString(2, errorDtls);
@@ -123,7 +123,7 @@ public class MigrationUtil
     PreparedStatement preparedStatement = null;
     try
     {
-      connection = ThemeDB.getDBConnection();
+      connection = WiseconnectDB.getDBConnection();
       preparedStatement = connection.prepareStatement("UPDATE " + tableName + " SET STATUS = ?,ERRORDTLS=? WHERE LOGID=?");
       preparedStatement.setString(1, statusEnum.toString());
       preparedStatement.setString(2, errorDtls);
@@ -183,7 +183,7 @@ public class MigrationUtil
     String sbb = "";
     try
     {
-      connection = ThemeDB.getThemeBridgeDBConnection();
+      connection = WiseconnectDB.getWiseconnectDBConnection();
       preparedStatement = connection.prepareStatement("SELECT MBE FROM SOURCESYSTEMLOOKUP WHERE SOURCESYSTEM = ?");
       preparedStatement.setString(1, sourceSystem);
      
@@ -204,7 +204,7 @@ public class MigrationUtil
     return sbb;
   }
  
-  public static String getAnalysisCodeFromThemeBridge(String sourceSystem)
+  public static String getAnalysisCodeFromWiseconnect(String sourceSystem)
   {
     Connection connection = null;
     PreparedStatement preparedStatement = null;
@@ -212,7 +212,7 @@ public class MigrationUtil
     String analysisCode = "";
     try
     {
-      connection = ThemeDB.getThemeBridgeDBConnection();
+      connection = WiseconnectDB.getWiseconnectDBConnection();
       preparedStatement = connection.prepareStatement("SELECT ANALYSISCODE FROM SOURCESYSTEMLOOKUP WHERE SOURCESYSTEM = ?");
       preparedStatement.setString(1, sourceSystem);
      
@@ -242,7 +242,7 @@ public class MigrationUtil
     logger.info("Master reference ->" + masterReference);
     try
     {
-      connection = ThemeDB.getTIPLUSConnection();
+      connection = WiseconnectDB.getTIPLUSConnection();
       preparedStatement = connection.createStatement();
       resultSet = preparedStatement.executeQuery("SELECT pricustmnm FROM master WHERE master_ref='" + masterReference + "' and takeon='Y' and status in ('LIV','EXP')");
       while (resultSet.next())
@@ -275,7 +275,7 @@ public class MigrationUtil
     String sbb = "";
     try
     {
-      connection = ThemeDB.getThemeBridgeDBConnection();
+      connection = WiseconnectDB.getWiseconnectDBConnection();
       preparedStatement = connection.prepareStatement("SELECT BRANCH FROM SOURCESYSTEMLOOKUP WHERE SOURCESYSTEM = ?");
       preparedStatement.setString(1, sourceSystem);
      
@@ -304,7 +304,7 @@ public class MigrationUtil
     String custType = "";
     try
     {
-      connection = ThemeDB.getThemeBridgeDBConnection();
+      connection = WiseconnectDB.getWiseconnectDBConnection();
       preparedStatement = connection.prepareStatement("SELECT CUSTOMERTYPE FROM CUSTOMERTYPELOOKUP WHERE COUNTERPARTYTYPE = ? AND ZONE='UAE' AND BRANCH='BNK'");
       preparedStatement.setString(1, counterPartyType);
      
@@ -333,7 +333,7 @@ public class MigrationUtil
     String accType = "";
     try
     {
-      connection = ThemeDB.getThemeBridgeDBConnection();
+      connection = WiseconnectDB.getWiseconnectDBConnection();
       preparedStatement = connection.prepareStatement("SELECT ACCOUNTTYPE FROM ACCOUNTTYPELOOKUP WHERE CATEGORYCODE = ?");
       preparedStatement.setString(1, catagoryCode);
      
@@ -468,7 +468,7 @@ public class MigrationUtil
     String eventRef = "";
     try
     {
-      connection = ThemeDB.getTIPLUSConnection();
+      connection = WiseconnectDB.getTIPLUSConnection();
      
       statement = connection.createStatement();
      
