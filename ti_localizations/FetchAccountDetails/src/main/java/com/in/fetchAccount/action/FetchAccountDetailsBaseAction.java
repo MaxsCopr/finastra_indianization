@@ -146,7 +146,7 @@ public class FetchAccountDetailsBaseAction
 
     logger.info("FetchAccountDetailsBaseAction : getUserIdBasedOnSession : Started");
 
-    Connection them_con = null;
+    Connection wise_con = null;
 
     LoggableStatement lst = null;
 
@@ -158,13 +158,13 @@ public class FetchAccountDetailsBaseAction
 
     {
 
-      them_con = DBConnectionUtility.getGlobalConnection();
+    	wise_con = DBConnectionUtility.getGlobalConnection();
 
       String get_User_ID = "SELECT SCT.USERNAME AS USER_ID FROM CENTRAL_SESSION_DETAILS SCT,LOCAL_SESSION_DETAILS LOC  WHERE SCT.CENTRAL_ID=LOC.CENTRAL_ID AND SCT.ENDED  IS NULL AND LOC.LOCAL_ID= ? ";
 
  
  
-      lst = new LoggableStatement(them_con, get_User_ID);
+      lst = new LoggableStatement(wise_con, get_User_ID);
 
       lst.setString(1, sessionUserName);
 
@@ -194,7 +194,7 @@ public class FetchAccountDetailsBaseAction
 
     {
 
-      DBConnectionUtility.surrenderDB(them_con, lst, rst);
+      DBConnectionUtility.surrenderDB(wise_con, lst, rst);
 
     }
 

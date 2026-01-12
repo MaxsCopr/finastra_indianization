@@ -96,9 +96,9 @@ public class LocalizationBaseAction
 
         {
 
-          Connection them_con = null;
+          Connection wise_con = null;
 
-          them_con = DBConnectionUtility.getConnectionThemeBridge();
+          wise_con = DBConnectionUtility.getWiseConnection();
 
  
           userName = request.getRequestedSessionId();
@@ -107,7 +107,7 @@ public class LocalizationBaseAction
 
  
  
-          LoggableStatement lst = new LoggableStatement(them_con, get_User_ID);
+          LoggableStatement lst = new LoggableStatement(wise_con, get_User_ID);
 
           lst.setString(1, userName);
 
@@ -126,7 +126,7 @@ public class LocalizationBaseAction
 
           }
 
-          DBConnectionUtility.surrenderDB(them_con, lst, rst);
+          DBConnectionUtility.surrenderDB(wise_con, lst, rst);
 
           logger.info("userName-----------" + userName);
 

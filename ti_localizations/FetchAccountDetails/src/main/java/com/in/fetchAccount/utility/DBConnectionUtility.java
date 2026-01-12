@@ -202,7 +202,7 @@ public class DBConnectionUtility
 
   }
 
-  public static Connection getThemeBridgeConnection()
+  public static Connection getWiseConnection()
 
   {
 
@@ -218,7 +218,7 @@ public class DBConnectionUtility
 
       Context initialContext = new InitialContext(param);
 
-      DataSource dataSource = (DataSource)initialContext.lookup("jdbc/themebridge");
+      DataSource dataSource = (DataSource)initialContext.lookup("jdbc/wiseconnect");
 
       connection = dataSource.getConnection();
 
@@ -228,7 +228,7 @@ public class DBConnectionUtility
 
     {
 
-      logger.info("DBConnectionUtility : ThemeBridge JNDI NamingException! " + e.getMessage());
+      logger.info("DBConnectionUtility : Wiseconnect JNDI NamingException! " + e.getMessage());
 
       logger.error(e);
 
@@ -238,7 +238,7 @@ public class DBConnectionUtility
 
     {
 
-      logger.info("DBConnectionUtility : ThemeBridge JNDI SQLException! " + e.getMessage());
+      logger.info("DBConnectionUtility : Wiseconnect JNDI SQLException! " + e.getMessage());
 
       logger.error(e);
 
@@ -248,7 +248,7 @@ public class DBConnectionUtility
 
     {
 
-      logger.info("DBConnectionUtility : Themebridge JNDI Exception! " + e.getMessage());
+      logger.info("DBConnectionUtility : Wiseconnect JNDI Exception! " + e.getMessage());
 
       logger.error(e);
 

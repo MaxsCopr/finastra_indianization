@@ -143,7 +143,7 @@ public class DBConnectionUtility
 
   }
 
-  public static Connection getConnectionThemeBridge()
+  public static Connection getWiseConnection()
 
     throws SQLException
 
@@ -228,7 +228,7 @@ public class DBConnectionUtility
 
       {
 
-        logger.info("Exception-- getConnectionThemeBridge--Connection-----------------" + e);
+        logger.info("Exception-- getWiseConnection--Connection-----------------" + e);
 
         e.getMessage();
 

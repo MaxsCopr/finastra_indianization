@@ -36,7 +36,7 @@ public class AccountFetchLog
 
  
  
-      con = DBConnectionUtility.getThemeBridgeConnection();
+      con = DBConnectionUtility.getWiseConnection();
 
       ps = con.prepareStatement(query);
 
