@@ -4005,7 +4005,7 @@ public class ChargeScheduleDAO
     logger.info("Inside getting URL");
     try
     {
-      con = DBConnectionUtility.getThemeBridgeConnection();
+      con = DBConnectionUtility.getWiseConnection();
       logger.info("Getting themebridge connection");
       pst = con.prepareStatement(getWatchListService);
       rst = pst.executeQuery();
@@ -4151,7 +4151,7 @@ public class ChargeScheduleDAO
         if (sessionUserName == null)
         {
           Connection them_con = null;
-          them_con = DBConnectionUtility.getConnectionThemeBridge();
+          them_con = DBConnectionUtility.getWiseConnection();
          
 
           sessionUserName = request.getRequestedSessionId();
