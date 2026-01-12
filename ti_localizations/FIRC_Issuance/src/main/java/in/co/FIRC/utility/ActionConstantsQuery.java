@@ -4,7 +4,7 @@ public abstract interface ActionConstantsQuery
 {
   public static final String url = "jdbc:oracle:thin:@103.230.85.236:1521/XE";
   public static final String userName = "tizone2";
-  public static final String password = "theme123";
+  public static final String password = "wiseConnect123";
   public static final String TEAMKEY = "teamkey";
   public static final String OPENING_VALUE_DATE = "OPENING_VALUE_DATE";
   public static final String CURRENCY_CODE = "CURRENCY_CODE";

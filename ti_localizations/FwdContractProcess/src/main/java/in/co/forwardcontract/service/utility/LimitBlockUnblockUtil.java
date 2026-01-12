@@ -390,7 +390,7 @@ public class LimitBlockUnblockUtil
     logger.info("insertLimitDetails : " + query);
     try
     {
-      con = DBConnectionUtility.getThemeBridgeConnection();
+      con = DBConnectionUtility.getWiseConnection();
       ps = con.prepareStatement(query);
       ps.setString(1, masterRef);
       ps.setString(2, eventRef);
@@ -466,7 +466,7 @@ public class LimitBlockUnblockUtil
     String query = "SELECT SERIALNO FROM LIMITDETAILS WHERE MASTERREF = ? AND LIMITID = ? ORDER BY SNO DESC";
     try
     {
-      con = DBConnectionUtility.getThemeBridgeConnection();
+      con = DBConnectionUtility.getWiseConnection();
       ps = con.prepareStatement(query);
       ps.setString(1, masterRef);
       ps.setString(2, limitId);
@@ -500,7 +500,7 @@ public class LimitBlockUnblockUtil
     String query = "INSERT INTO SERVICELOG (ID,SERVICE,OPERATION,ZONE,BRANCH,SOURCESYSTEM,TARGETSYSTEM,MASTERREFERENCE,EVENTREFERENCE,STATUS,PROCESSTIME,TIREQUEST,TIRESPONSE,BANKREQUEST,BANKRESPONSE,TIREQTIME,BANKREQTIME,BANKRESTIME,TIRESTIME,TRANSACTIONKEY1,STATICKEY1,NARRATIVE1,NARRATIVE2,ISRESUBMITTED,RESUBMITTEDCOUNT,RESUBMITTEDTIME,DESCRIPTION,TYPEFLAG,NODE,VALUEDATE) VALUES (SERVICELOG_SEQ.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     try
     {
-      con = DBConnectionUtility.getThemeBridgeConnection();
+      con = DBConnectionUtility.getWiseConnection();
       ps = con.prepareStatement(query);
      
       ps.setString(1, service);

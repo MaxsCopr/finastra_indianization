@@ -186,7 +186,7 @@ public class EmailNotification
 
  
       logger.info("FIRCServiceLoggingQuery: " + serviceLoginsertQuery);
-      conn = DatabaseUtility.getThemebridgeConnection();
+      conn = DatabaseUtility.getWiseConnection();
       pst = conn.prepareStatement(serviceLoginsertQuery);
       pst.setString(1, service);
       pst.setString(2, operation);
@@ -216,7 +216,7 @@ public class EmailNotification
     catch (Exception e)
     {
       logger.info("FIRC ServiceLogging failed (" + masterRef + "-" + eventRef + ") " + result);
-      logger.error("FIRC ThemeBridge.Servicelog exception! " + e.getMessage());
+      logger.error("FIRC WiseConnect.Servicelog exception! " + e.getMessage());
       e.printStackTrace();
       int i = result;return i;
     }

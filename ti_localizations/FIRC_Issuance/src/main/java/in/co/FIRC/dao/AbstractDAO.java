@@ -24,7 +24,7 @@ public class AbstractDAO
     logger.debug("Entering Method");
     Connection conn = null;
     String userName = "tizone2";
-    String password = "theme123";
+    String password = "wiseConnect123";
 
  
  

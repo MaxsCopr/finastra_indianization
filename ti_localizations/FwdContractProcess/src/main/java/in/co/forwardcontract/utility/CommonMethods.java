@@ -430,7 +430,7 @@ public class CommonMethods
     System.out.println(" Entering getProperties ");
     try
     {
-      con = DBConnectionUtility.getThemeBridgeConnection();
+      con = DBConnectionUtility.getWiseConnection();
       String query = "SELECT * FROM Bridgeproperties ";
       pst = con.prepareStatement(query);
       rs = pst.executeQuery();

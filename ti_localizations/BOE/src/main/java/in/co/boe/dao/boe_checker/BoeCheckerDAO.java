@@ -1,6 +1,6 @@
 package in.co.boe.dao.boe_checker;
 
-import com.bs.theme.tiemail.notification.ExtEmailNotificationClient;
+import com.bs.wiseConnect.tiemail.notification.ExtEmailNotificationClient;
 import in.co.boe.dao.AbstractDAO;
 import in.co.boe.dao.exception.DAOException;
 import in.co.boe.utility.ActionConstants;

@@ -281,7 +281,7 @@ public class ChargeScheduleAction
         if (sessionUserName == null)
         {
           Connection them_con = null;
-          them_con = DBConnectionUtility.getConnectionThemeBridge();
+          them_con = DBConnectionUtility.getWiseConnection();
          
 
           sessionUserName = request.getRequestedSessionId();

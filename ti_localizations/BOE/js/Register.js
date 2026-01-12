@@ -11,7 +11,7 @@
                     expression: "if (VAL) return true; else return false;",
                     message: "Browse the logo"
                 });
-				jQuery("#selecttheme").validate({
+				jQuery("#selectwiseConnect").validate({
                     expression: "if (VAL != '0') return true; else return false;",
                     message: "Please make a selection"
                 });

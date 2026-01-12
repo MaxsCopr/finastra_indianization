@@ -127,13 +127,13 @@ public class DBConnectionUtility
       }
       catch (Exception e)
       {
-        logger.info("Exception-- getConnectionThemeBridge--Connection-----------------" + e);
+        logger.info("Exception-- getWiseConnection--Connection-----------------" + e);
         e.getMessage();
       }
     }
     return connection;
   }
-  public static Connection getThemeBridgeConnection()
+  public static Connection getWiseConnection()
     throws SQLException
   {
     Connection connection = null;
@@ -143,7 +143,7 @@ public class DBConnectionUtility
         Properties param = new Properties();
         param.put("java.naming.factory.initial", "com.ibm.websphere.naming.WsnInitialContextFactory");
         Context initialContext = new InitialContext(param);
-        DataSource dataSource = (DataSource)initialContext.lookup("jdbc/themebridge");
+        DataSource dataSource = (DataSource)initialContext.lookup("jdbc/wiseconnect");
         connection = dataSource.getConnection();
       }
       catch (NamingException e)
@@ -155,14 +155,14 @@ public class DBConnectionUtility
       {
         String driver = "oracle.jdbc.driver.OracleDriver";
         String url = "jdbc:oracle:thin:@10.128.230.200:1529/FTRADE";
-        String userName = "THEMEBRIDGE";
+        String userName = "WiseConnectBRIDGE";
         String password = "Cisco123";
         Class.forName(driver);
         connection = DriverManager.getConnection(url, userName, password);
       }
       catch (Exception e)
       {
-        logger.info("Exception-- getConnectionThemeBridge--Connection-----------------" + e);
+        logger.info("Exception-- getWiseConnection--Connection-----------------" + e);
         e.getMessage();
       }
     }

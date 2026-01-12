@@ -70,7 +70,7 @@ public class FIRCBaseAction
         if (userName == null)
         {
           Connection them_con = null;
-          them_con = DBConnectionUtility.getConnectionThemeBridge();
+          them_con = DBConnectionUtility.getWiseConnection();
 
  
           userName = request.getRequestedSessionId();

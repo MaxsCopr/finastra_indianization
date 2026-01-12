@@ -94,7 +94,7 @@ public class DBConnectionUtility
     }
     return connection;
   }
-  public static Connection getConnectionThemeBridge()
+  public static Connection getWiseConnection()
     throws SQLException
   {
     Connection connection = null;
@@ -147,7 +147,7 @@ public class DBConnectionUtility
       }
       catch (Exception e)
       {
-        logger.info("Exception-- getConnectionThemeBridge--Connection-----------------" + e);
+        logger.info("Exception-- getWiseConnection--Connection-----------------" + e);
         e.getMessage();
       }
     }

@@ -247,7 +247,7 @@ public class CommonMethods
     PreparedStatement ps = null;
     try
     {
-      con = DBConnectionUtility.getThemebridgeConnection();
+      con = DBConnectionUtility.getWiseConnection();
       if (con != null)
       {
         String bridgePropQuery = "SELECT ID, ZONE, BRANCH, KEY, VALUE, CATEGORY FROM BRIDGEPROPERTIES WHERE KEY = ? ";

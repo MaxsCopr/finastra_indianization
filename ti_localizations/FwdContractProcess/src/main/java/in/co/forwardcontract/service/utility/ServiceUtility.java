@@ -62,7 +62,7 @@ public class ServiceUtility
     logger.info(" Entering getProperties ");
     try
     {
-      con = DBConnectionUtility.getThemeBridgeConnection();
+      con = DBConnectionUtility.getWiseConnection();
       String query = "SELECT * FROM Bridgeproperties ";
       pst = con.prepareStatement(query);
       rs = pst.executeQuery();
@@ -129,7 +129,7 @@ public class ServiceUtility
     PreparedStatement ps = null;
     try
     {
-      con = DBConnectionUtility.getThemeBridgeConnection();
+      con = DBConnectionUtility.getWiseConnection();
       if (con != null)
       {
         String bridgePropQuery = "SELECT ID, ZONE, BRANCH, KEY, VALUE, CATEGORY FROM BRIDGEPROPERTIES WHERE KEY = ? ";

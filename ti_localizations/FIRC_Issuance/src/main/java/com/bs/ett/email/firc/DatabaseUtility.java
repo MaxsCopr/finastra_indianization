@@ -17,10 +17,10 @@ public class DatabaseUtility
   private static Logger logger = LogManager.getLogger(DatabaseUtility.class);
   public static void main(String[] args)
   {
-    logger.info(getThemebridgeConnection());
+    logger.info(getWiseConnection());
     logger.info(getTizoneConnection());
   }
-  public static Connection getThemebridgeConnection()
+  public static Connection getWiseConnection()
   {
     Connection connection = null;
     try
@@ -28,20 +28,20 @@ public class DatabaseUtility
       Properties param = new Properties();
       param.put("java.naming.factory.initial", "com.ibm.websphere.naming.WsnInitialContextFactory");
       Context initialContext = new InitialContext(param);
-      DataSource dataSource = (DataSource)initialContext.lookup("jdbc/themebridge");
+      DataSource dataSource = (DataSource)initialContext.lookup("jdbc/wiseconnect");
       connection = dataSource.getConnection();
       if (connection == null) {
-        logger.error("ThemeBridge connection failed!");
+        logger.error("WiseConnect connection failed!");
       }
     }
     catch (NamingException e)
     {
-      logger.error("ThemeBridge NamingException!" + e.getMessage(), e);
+      logger.error("WiseConnect NamingException!" + e.getMessage(), e);
       e.printStackTrace();
     }
     catch (SQLException e)
     {
-      logger.error("ThemeBridge SQLException!" + e.getMessage(), e);
+      logger.error("WiseConnect SQLException!" + e.getMessage(), e);
       e.printStackTrace();
     }
     return connection;

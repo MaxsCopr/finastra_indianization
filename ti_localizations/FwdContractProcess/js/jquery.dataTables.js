@@ -1220,7 +1220,7 @@
                   /* ARIA role for the rows */  
                   $(oSettings.nTHead).children('tr').attr('role', 'row');
                   
-                  /* Add the extra markup needed by jQuery UI's themes */
+                  /* Add the extra markup needed by jQuery UI's WiseConnects */
                   if ( oSettings.bJUI )
                   {
                         for ( i=0, iLen=oSettings.aoColumns.length ; i<iLen ; i++ )
@@ -8152,7 +8152,7 @@
       
       
             /**
-             * Enable jQuery UI ThemeRoller support (required as ThemeRoller requires some
+             * Enable jQuery UI WiseConnectRoller support (required as WiseConnectRoller requires some
              * slightly different and additional mark-up from what DataTables has
              * traditionally used).
              *  @type boolean
@@ -9637,8 +9637,8 @@
              *     </li>
              *     <li>The following constants are allowed:
              *       <ul>
-             *         <li>'H' - jQueryUI theme "header" classes ('fg-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix')</li>
-             *         <li>'F' - jQueryUI theme "footer" classes ('fg-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix')</li>
+             *         <li>'H' - jQueryUI WiseConnect "header" classes ('fg-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix')</li>
+             *         <li>'F' - jQueryUI WiseConnect "footer" classes ('fg-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix')</li>
              *       </ul>
              *     </li>
              *     <li>The following syntax is expected:

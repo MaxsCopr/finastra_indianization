@@ -18,7 +18,7 @@ public class Checkking_Valid_User
     ResultSet rst = null;
     try
     {
-      them_con = DBConnectionUtility.getConnectionThemeBridge();
+      them_con = DBConnectionUtility.getWiseConnection();
       if (them_con == null) {
         logger.info("Global Connection is Null-----------------");
       }

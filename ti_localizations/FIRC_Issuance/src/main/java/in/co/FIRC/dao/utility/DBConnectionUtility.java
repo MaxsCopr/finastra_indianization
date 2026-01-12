@@ -47,7 +47,7 @@ public class DBConnectionUtility
     }
     return connection;
   }
-  public static Connection getConnectionThemeBridge()
+  public static Connection getWiseConnection()
   {
     Connection connection = null;
     try

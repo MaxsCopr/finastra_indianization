@@ -36,7 +36,7 @@
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
 <script type="text/javascript" src="js/date_search.js"></script>
-<script type="text/javascript" src="js/Theme.js"></script>
+<script type="text/javascript" src="js/WiseConnect.js"></script>
 <script type="text/javascript" src="js/commonTiplus.js"></script>
  
  

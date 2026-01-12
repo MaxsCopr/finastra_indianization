@@ -38,7 +38,7 @@ public class NotificationUtil
     HashMap<String, String> map = new HashMap();
     try
     {
-      connection = DatabaseUtility.getThemebridgeConnection();
+      connection = DatabaseUtility.getWiseConnection();
       statement = connection.createStatement();
       resultSet = statement.executeQuery(CONFIG_SELECT_QUERY);
       while (resultSet.next()) {

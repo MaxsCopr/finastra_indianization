@@ -117,7 +117,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 
                         classes = "ui-slider-range" +
                         // note: this isn't the most fittingly semantic framework class for this element,
-                        // but worked best visually with a variety of themes
+                        // but worked best visually with a variety of wiseConnect
                         " ui-widget-header ui-corner-all";
                   } else {
                         this.range.removeClass( "ui-slider-range-min ui-slider-range-max" )

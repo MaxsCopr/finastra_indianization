@@ -353,13 +353,13 @@ public class PostingUtil
    
     String query = "INSERT INTO CUSTOM_FWC_POSTING(CATEGORY,FWC_REFERENCE,CUSTOMER_ID,DR_CR_FLAG,POSTING_ACCT_NO,POSTING_BRANCH,POSTING_AMOUNT,POSTING_CCY,VALUE_DATE, POSTING_DESC,POSTING_SEQNO, POSTING_TIMESTAMP) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?,SYSTIMESTAMP) ";
    
-    Connection themeConnec = null;
+    Connection wiseConnec = null;
    
     PreparedStatement pstmt = null;
     try
     {
-      themeConnec = DBConnectionUtility.getZoneConnection();
-      pstmt = themeConnec.prepareStatement(query);
+      wiseConnec = DBConnectionUtility.getZoneConnection();
+      pstmt = wiseConnec.prepareStatement(query);
      
       pstmt.setString(1, category);
       pstmt.setString(2, fwdContractNo);
@@ -383,7 +383,7 @@ public class PostingUtil
       try
       {
         pstmt.close();
-        themeConnec.close();
+        wiseConnec.close();
       }
       catch (SQLException e)
       {
@@ -396,7 +396,7 @@ public class PostingUtil
       try
       {
         pstmt.close();
-        themeConnec.close();
+        wiseConnec.close();
       }
       catch (SQLException e)
       {
@@ -408,7 +408,7 @@ public class PostingUtil
       try
       {
         pstmt.close();
-        themeConnec.close();
+        wiseConnec.close();
       }
       catch (SQLException e)
       {
