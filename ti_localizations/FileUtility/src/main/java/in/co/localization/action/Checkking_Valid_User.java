@@ -12,16 +12,16 @@ public class Checkking_Valid_User
   {
     boolean userstatus = false;
     LoggableStatement lst = null;
-    Connection them_con = null;
+    Connection wise_con = null;
     ResultSet rst = null;
     try
     {
-      them_con = DBConnectionUtility.getConnectionThemeBridge();
-      if (them_con == null) {
+    	wise_con = DBConnectionUtility.getGlobalWiseConnection();
+      if (wise_con == null) {
         logger.info("Global Connection is Null-----------------");
       }
       String Check_Valid_User = "SELECT * FROM SS_USER WHERE USERNAME=?";
-      lst = new LoggableStatement(them_con, Check_Valid_User);
+      lst = new LoggableStatement(wise_con, Check_Valid_User);
       lst.setString(1, username);
 
  
@@ -46,8 +46,8 @@ public class Checkking_Valid_User
       if (rst != null) {
         rst.close();
       }
-      if (them_con != null) {
-        them_con.close();
+      if (wise_con != null) {
+    	  wise_con.close();
       }
     }
     return userstatus;

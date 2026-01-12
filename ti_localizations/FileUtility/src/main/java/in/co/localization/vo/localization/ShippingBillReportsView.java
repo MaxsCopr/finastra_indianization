@@ -1,17 +1,11 @@
 package in.co.localization.vo.localization;
  
-import com.bs.theme.tiemail.notification.DatabaseUtility;
-
+import in.co.localization.action.DBConnectionUtility;
 import java.io.PrintStream;
-
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
-
 import java.sql.ResultSet;
-
 import java.util.ArrayList;
-
 import java.util.List;
  
 public class ShippingBillReportsView
@@ -36,7 +30,7 @@ public class ShippingBillReportsView
 
     {
 
-      conn = DatabaseUtility.getTizoneConnection();
+      conn = DBConnectionUtility.getConnection();
 
       String query = "  SELECT DATE_OF_LODGEMENT, MASTER_REF, EVENT_REF, CCY, BILL_AMOUNT,  SHIPPING_BILL_NO, SHIPPING_BILL_DATE, FORM_NO, PORT_CODE, SB_CCY, SB_AMOUNT, IECODE  FROM REP_SHB_VB_VIEW WHERE FORM_NO = '" + 
 

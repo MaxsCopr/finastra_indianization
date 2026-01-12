@@ -58,7 +58,7 @@ public class DBConnectionUtility
     }
     return connection;
   }
-  public static Connection getConnectionThemeBridge()
+  public static Connection getGlobalWiseConnection()
     throws SQLException
   {
     Connection connection = null;
@@ -88,7 +88,7 @@ public class DBConnectionUtility
       }
       catch (Exception e)
       {
-        logger.info("Exception-- getConnectionThemeBridge--Connection-----------------" + e);
+        logger.info("Exception-- getGlobalWiseConnection--Connection-----------------" + e);
         e.getMessage();
       }
     }
@@ -129,7 +129,7 @@ public class DBConnectionUtility
       }
       catch (Exception e)
       {
-        logger.info("Exception-- getConnectionThemeBridge--Connection-----------------" + e);
+        logger.info("Exception-- getGlobalConnection--Connection-----------------" + e);
         e.getMessage();
       }
     }
@@ -188,44 +188,44 @@ public class DBConnectionUtility
       logger.info("Close Connection Failed!" + e.getMessage());
     }
   }
-  public static Connection getThemebridgeConnection()
+  public static Connection getWiseConnection()
   {
     Connection connection = null;
     if (isJNDIConn.booleanValue())
     {
-      logger.info("THEMEBRIDGE JNDI Connection Encountered");
+      logger.info("Wiseconnect JNDI Connection Encountered");
       try
       {
         Properties param = new Properties();
         param.put("java.naming.factory.initial", "com.ibm.websphere.naming.WsnInitialContextFactory");
         Context initialContext = new InitialContext(param);
-        DataSource dataSource = (DataSource)initialContext.lookup("jdbc/themebridge");
+        DataSource dataSource = (DataSource)initialContext.lookup("jdbc/wiseconnect");
         connection = dataSource.getConnection();
         if (connection != null) {
           break label245;
         }
-        logger.info("THEMEBRIDGE connection failed! ");
+        logger.info("Wiseconnect JDBC connection failed! ");
       }
       catch (NamingException e)
       {
-        logger.info("THEMEBRIDGE JNDI NamingException! " + e.getMessage());
+        logger.info("Wiseconnect JNDI NamingException! " + e.getMessage());
         e.printStackTrace();
       }
       catch (SQLException e)
       {
-        logger.info("THEMEBRIDGE JNDI SQLException! " + e.getMessage());
+        logger.info("Wiseconnect JNDI SQLException! " + e.getMessage());
         e.printStackTrace();
       }
     }
     else
     {
-      logger.info("THEMEBRIDGE JDBC Connection Encountered");
+      logger.info("Wiseconnect JDBC Connection Encountered");
       try
       {
         String driver = "oracle.jdbc.driver.OracleDriver";
         String url = "jdbc:oracle:thin:@10.10.20.137:1530:orcl";
-        String userName = "THEMEBRIDGE";
-        String password = "themebridge_123";
+        String userName = "WISECONNECT";
+        String password = "Wiseconnect_123";
 
  
  
@@ -236,17 +236,17 @@ public class DBConnectionUtility
       }
       catch (SQLException e)
       {
-        logger.info("THEMEBRIDGE JDBC SQLException! " + e.getMessage());
+        logger.info("Wiseconnect JDBC SQLException! " + e.getMessage());
         e.printStackTrace();
       }
       catch (Exception e)
       {
-        logger.info("THEMEBRIDGE JDBC Exception! " + e.getMessage());
+        logger.info("Wiseconnect JDBC Exception! " + e.getMessage());
         e.printStackTrace();
       }
     }
     label245:
-    logger.info("THEMEBRIDGE JNDI Connection returns! " + connection);
+    logger.info("Wiseconnect JNDI Connection returns! " + connection);
     return connection;
   }
   public static void surrenderPrepdConnection(Connection aConnection, PreparedStatement aPreparedStatement, ResultSet aResultset)
