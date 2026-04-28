@@ -1,0 +1,5 @@
+1. Change [Close] Button maker_checker_home
+ 
+2. Change Web.xml [CAS]
+3. Change DB COnnection 
+4. Check DB Structure

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+   "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+      <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+      <constant name="struts.devMode" value="false" />
+      <constant name="struts.custom.i18n.resources"
+            value="in.co.myshare.resources.ApplicationResources, in.co.myshare.resources.RepAppResources,in.co.myshare.resources.NGOAppResources, in.co.myshare.resources.Displaytag" />
+      <constant name="struts.ui.theme" value="simple" />
+
+      <package name="default" extends="struts-default,json-default"
+            namespace="/">
+            <global-results>
+                  <result name="Exception">/view/common/system_error.jsp</result>
+                  <result name="redirectPaid">/view/payment/paid.jsp</result>
+            </global-results>
+
+            <global-exception-mappings>
+                  <exception-mapping exception="in.co.barcode.dao.exception.ApplicationException"
+                        result="Exception" />
+            </global-exception-mappings>
+            <action name="home"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="landingPage">
+                  <result name="success">/view/maker_checker_home.jsp</result>
+                  <!-- <result name="maker" type="redirectAction">makerProcess</result>
+                  <result name="checker" type="redirectAction">checkerProcess</result>
+                  <result name="both">/view/maker_checker_home.jsp</result>
+                  <result name="viewer">/view/forwardcontract_enquiry.jsp</result> -->
+            </action>
+
+            <action name="makerProcess"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="loadMakerProcessData">
+                  <result name="success">/view/forwardcontract_maker.jsp</result>
+                  <result name="fail">/view/fail.jsp</result>
+            </action>
+
+            <action name="bookingProcess"
+                  class="in.co.forwardcontract.action.ForwardContractAction">
+                  <result name="success">/view/forwardcontract_book.jsp</result>
+            </action>
+
+            <action name="insertBookingDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="insertBookingDetails">
+                  <result name="success">/view/forwardcontract_maker.jsp</result>
+                  <result name="book">/view/forwardcontract_book.jsp</result>
+                  <result name="cancel">/view/forwardcontract_cancel.jsp</result>
+            </action>
+            
+            <action name="saveBookingDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="saveBookingDetails">
+                  <result name="success">/view/forwardcontract_maker.jsp</result>
+                  <result name="book">/view/forwardcontract_book.jsp</result>
+                  <result name="cancel">/view/forwardcontract_cancel.jsp</result>
+            </action>
+
+            <action name="validateBookingDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="validateBookingDetails">
+                  <result name="success">/view/forwardcontract_maker.jsp</result>
+                  <result name="book">/view/forwardcontract_book.jsp</result>
+                  <result name="cancel">/view/forwardcontract_cancel.jsp</result>
+            </action>
+            
+            <action name="generateFWCPostings"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="generateFWCPostings">
+                  <result name="success">/view/forwardcontract_book.jsp</result>
+            </action>
+            
+            <action name="getFWCPostingsToReverse"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="getFWCPostingsToReverse">
+                  <result name="success">/view/forwardcontract_cancel.jsp</result>
+            </action>
+            
+            <action name="deleteBookingDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="deleteBookingDetails">
+                  <result name="success">/view/forwardcontract_maker.jsp</result>
+            </action>
+
+            <action name="fetchMakerFwdcontractDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchFwdContractDetails">
+                  <result name="success">/view/forwardcontract_maker.jsp</result>
+            </action>
+
+            <action name="editForwardContractBooking"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchParticularFwdContractDetailstoModify">
+                  <result name="success">/view/forwardcontract_book.jsp</result>
+            </action>
+            
+            <action name="editForwardContractCancellation"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchParticularFwdContractDetailstoModify">
+                  <result name="success">/view/forwardcontract_cancel.jsp</result>
+            </action>
+
+            <action name="cancelForwardContract"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="loadCancelProcessData">
+                  <result name="success">/view/forwardcontract_cancel.jsp</result>
+            </action>
+            
+            <action name="cancelProcess"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="loadCancelData">
+                  <result name="success">/view/forwardcontract_cancel.jsp</result>
+            </action>
+
+            <action name="cancelBookingDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="cancelBookingDetails">
+                  <result name="success">/view/forwardcontract_maker.jsp</result>
+            </action>
+
+            <action name="checkerProcess"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="loadCheckerProcessData">
+                  <result name="success">/view/forwardcontract_checker.jsp</result>
+                  <result name="fail">/view/fail.jsp</result>
+            </action>
+
+            <action name="fetchCheckerFwdcontractDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchFwdContractDetails">
+                  <result name="success">/view/forwardcontract_checker.jsp</result>
+            </action>
+
+
+            <!-- TODO changes starts here -->
+
+            <action name="enquiryProcess"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="loadEnquiryProcessData">
+                  <result name="success">/view/forwardcontract_enquiry.jsp</result>
+            </action>
+
+            <action name="fetchEnquiryFwdcontractDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchFwdContractDetails">
+                  <result name="success">/view/forwardcontract_enquiry.jsp</result>
+            </action>
+            
+            <action name="fetchEnquiryFWCDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchFwdContractEnquiryDetails">
+                  <result name="success">/view/forwardcontract_enquiry.jsp</result>
+            </action>
+
+            <action name="fetchDataView"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchParticularFwdContractDetails">
+                  <result name="success">/view/forwardcontract_enquiry_view.jsp</result>
+            
+            </action>
+             <action name="fetchDataCancelView"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchParticularCancelFwdContractDetails">
+                  <result name="success">/view/forwardcontract_enquiry_cancel.jsp</result>
+            </action>
+            
+
+            <action name="checkerProcessActionView"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchParticularFwdContractDetails">
+                  <result name="success">/view/forwardcontract_checker_action.jsp</result>
+            </action>
+            
+            <!-- changes on 29-03-2022 -->
+            <action name="checkerProcesscancelActionView"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchParticularCancelFwdContractDetails">
+                  <result name="success">/view/forwardcontract_checker_cancel.jsp</result>
+            </action>
+
+            <action name="approveFwdContract"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="approveFWC">
+                  <result name="success">/view/forwardcontract_checker.jsp</result>
+            </action>
+
+            <action name="rejectFwdContract"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="rejectFWC">
+                  <result name="success">/view/forwardcontract_checker.jsp</result>
+            </action>
+            
+            <action name="deleteFwdContract"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="deleteFWC">
+                  <result name="success">/view/forwardcontract_checker.jsp</result>
+            </action>
+
+            <!-- TODO changes ends here -->
+
+            <action name="customerStaticDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="staticDetails">
+                  <result name="success">/view/customer_static_details.jsp</result>
+            </action>
+            <action name="accountStaticDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="staticDetails">
+                  <result name="success">/view/account_static_details.jsp</result>
+            </action>
+            <action name="branchStaticDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="staticDetails">
+                  <result name="success">/view/branch_static_details.jsp</result>
+            </action>
+            <action name="currencyStaticDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="staticDetails">
+                  <result name="success">/view/currency_static_details.jsp</result>
+            </action>
+
+            <action name="treasuryRefDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="staticDetails">
+                  <result name="success">/view/treasury_details.jsp</result>
+            </action>
+            
+            <action name="fwdContractDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="staticDetails">
+                  <result name="success">/view/forwardcontract_details.jsp</result>
+            </action>
+
+            <action name="limit_details"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="staticDetails">
+                  <result name="success">/view/limit_details.jsp</result>
+            </action>
+
+            <action name="fetchCustomerStaticData"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchCustomerStaticData">
+                  <result name="success">/view/customer_static_details.jsp</result>
+            </action>
+
+            <action name="fetchAccountStaticData"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchAccountStaticData">
+                  <result name="success">/view/account_static_details.jsp</result>
+            </action>
+
+            <action name="fetchBranchStaticData"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchBranchStaticData">
+                  <result name="success">/view/branch_static_details.jsp</result>
+            </action>
+
+            <action name="fetchCurrencyStaticData"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchCurrencyStaticData">
+                  <result name="success">/view/currency_static_details.jsp</result>
+            </action>
+
+            <action name="fetchTreasuryDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchTreasuryDetails">
+                  <result name="success">/view/treasury_details.jsp</result>
+            </action>
+            
+            <action name="fetchFwdContractDetailsToCancel"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchFwdContractDetailsToCancel">
+                  <result name="success">/view/forwardcontract_details.jsp</result>
+            </action>
+            
+            <action name="fetchFWCCancelDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchFWCCancelDetails">
+                  <result name="success">/view/forwardcontract_cancel.jsp</result>
+            </action>
+            
+            <action name="fetchFWCReferenceDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchFWCReferenceDetails">
+                  <result name="success">/view/forwardcontract_cancel.jsp</result>
+            </action>
+
+            <action name="fetchLimitDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchLimitDetails">
+                  <result name="success">/view/limit_details.jsp</result>
+            </action>
+            
+            <action name="fetchBookingTreasuryDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchDependentTreasuryDetails">
+                  <result name="success">/view/forwardcontract_book.jsp</result>
+            </action>
+            
+            <action name="fetchCancelTreasuryDetails"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="fetchDependentTreasuryCancelDetailsWithPostings">
+                  <result name="success">/view/forwardcontract_cancel.jsp</result>
+            </action>
+
+            <action name="closeURL"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="closeWindow">
+                  <result></result>
+            </action>
+            
+            <action name="reset"
+                  class="in.co.forwardcontract.action.ForwardContractAction" method="resetval">
+                  <result name="success">/view/forwardcontract_maker.jsp</result>
+                  <result name="book">/view/forwardcontract_book.jsp</result>
+                  <result name="cancel">/view/forwardcontract_cancel.jsp</result>
+            </action>
+            
+
+
+      </package>
+</struts>

@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+   "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+      <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+      <constant name="struts.devMode" value="false" />
+      <constant name="struts.custom.i18n.resources"
+            value="in.co.localization.resources.ApplicationResources" />
+      <constant name="struts.ui.theme" value="simple" />
+      <constant name="struts.multipart.maxSize" value="50000000" />  <!-- Total 17 17825792 MB -->
+
+      <package name="default" extends="struts-default,json-default"
+            namespace="/">
+
+            <global-results>
+                  <result name="Exception">/view/common/system_error.jsp</result>
+            </global-results>
+
+            <global-exception-mappings>
+                  <exception-mapping
+                        exception="in.co.localization.dao.exception.ApplicationException"
+                        result="Exception" />
+            </global-exception-mappings>
+
+            <action name="home" class="in.co.localization.action.FileUtilityAction"
+                  method="landingPage">
+                  <result name="success">/view/home.jsp</result>
+            </action>
+
+            <!-- <action name="fileUploadHome" class="in.co.localization.action.FileUtilityAction" method="uploadLandingPage">
+                  <result name="success">/view/localization/EdpmsXMLUpload.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action> -->
+            
+            <action name="fileDownloadHome" class="in.co.localization.action.FileUtilityAction" method="downloadLandingPage">
+                  <result name="success">/view/localization/reportFileDownload.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            <action name="edpmsfileDownloadHome" class="in.co.localization.action.FileUtilityAction" method="downloadedpmsLandingPage">
+                  <result name="success">/view/localization/EDPMSFilesDownload.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            <action name="advicesfileDownloadHome" class="in.co.localization.action.FileUtilityAction" method="downloadAdvocesLandingPage">
+                  <result name="success">/view/localization/advisesDownload.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            
+            <!-- <action name="xmlUpload" class="in.co.localization.action.EdpmsXMLUploadAction">
+                  <interceptor-ref name="basicStack" />
+                  <interceptor-ref name="fileUpload">
+                        <param name="maximumSize">26214400</param>
+                  </interceptor-ref>
+                  <result name="success">/view/localization/EdpmsXMLUpload.jsp</result>
+                  <result name="input" type="redirectAction">fileUploadError</result>
+            </action> -->
+      
+
+            <!-- TBML INWARD Download Starts -->
+                                    
+            <action name="tbmlIFileDownload" class="in.co.localization.action.FileUtilityAction" method ="downloadTBMLIFile">
+            <result name="success" type="stream">
+                        <param name="contentType">application/octet-stream</param>
+                        <param name="inputName">inputStream</param>
+                        <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                        <param name="bufferSize">4096</param>
+                  </result>
+                  <result name="nodatafound">/view/localization/reportFileDownload.jsp</result>
+                  <result name="error">/view/localization/reportFileDownload.jsp</result>
+            </action>   
+            
+            <!-- TBML INWARD Download Ends -->
+            
+            <!-- TBML OUTWARD Download Starts -->
+                                    
+            <action name="tbmlOFileDownload" class="in.co.localization.action.FileUtilityAction" method ="downloadTBMLOFile">
+            <result name="success" type="stream">
+                        <param name="contentType">application/octet-stream</param>
+                        <param name="inputName">inputStream</param>
+                        <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                        <param name="bufferSize">4096</param>
+                  </result>
+                  <result name="nodatafound">/view/localization/reportFileDownload.jsp</result>
+                  <result name="error">/view/localization/reportFileDownload.jsp</result>
+            </action>   
+            
+            <!-- TBML OUTWARD Download Ends -->
+            
+            <!-- DRI-INWARD Download Starts -->
+                                    
+            <action name="DRIFileDownload" class="in.co.localization.action.FileUtilityAction" method ="downloadDRI_INWARDFile">
+            <result name="success" type="stream">
+                        <param name="contentType">application/octet-stream</param>
+                        <param name="inputName">inputStream</param>
+                        <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                        <param name="bufferSize">4096</param>
+                  </result>
+                  <result name="nodatafound">/view/localization/reportFileDownload.jsp</result>
+                  <result name="error">/view/localization/reportFileDownload.jsp</result>
+            </action>   
+            
+            <!-- DRI-INWARD Download Ends -->
+            
+            <!-- ROD Download Starts -->
+                                    
+            <action name="rodFileDownload" class="in.co.localization.action.FileUtilityAction" method ="downloadRODFile">
+            <result name="success" type="stream">
+                        <param name="contentType">application/octet-stream</param>
+                        <param name="inputName">inputStream</param>
+                        <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                        <param name="bufferSize">4096</param>
+                  </result>
+                  <result name="nodatafound">/view/localization/EDPMSFilesDownload.jsp</result>
+                  <result name="error">/view/localization/EDPMSFilesDownload.jsp</result>
+            </action>   
+            
+            <!-- ROD Download Ends -->
+            
+            <!-- IRMADV Download Starts -->
+                                    
+            <action name="irmFileDownload" class="in.co.localization.action.FileUtilityAction" method ="downloadIRMFile">
+            <result name="success" type="stream">
+                        <param name="contentType">application/octet-stream</param>
+                        <param name="inputName">inputStream</param>
+                        <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                        <param name="bufferSize">4096</param>
+                  </result>
+                  <result name="nodatafound">/view/localization/EDPMSFilesDownload.jsp</result>
+                  <result name="error">/view/localization/EDPMSFilesDownload.jsp</result>
+            </action>   
+            
+            <!-- IRMADV Download Ends -->
+            
+            <!-- IRMB Download Starts -->
+            <!--                    
+            <action name="irmBillFileDownload" class="in.co.localization.action.FileUtilityAction" method ="downloadIRMBFile">
+            <result name="success" type="stream">
+                        <param name="contentType">application/octet-stream</param>
+                        <param name="inputName">inputStream</param>
+                        <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                        <param name="bufferSize">4096</param>
+                  </result>
+                  <result name="nodatafound">/view/localization/reportFileDownload.jsp</result>
+                  <result name="error">/view/localization/reportFileDownload.jsp</result>
+            </action>   
+            -->
+            <!-- IRMB Download Ends -->
+            
+            <!-- PRN Download Starts -->
+                                    
+            <action name="prnFileDownload" class="in.co.localization.action.FileUtilityAction" method ="downloadPRNFile">
+            <result name="success" type="stream">
+                        <param name="contentType">application/octet-stream</param>
+                        <param name="inputName">inputStream</param>
+                        <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                        <param name="bufferSize">4096</param>
+                  </result>
+                  <result name="nodatafound">/view/localization/EDPMSFilesDownload.jsp</result>
+                  <result name="error">/view/localization/EDPMSFilesDownload.jsp</result>
+            </action>   
+            
+            <!-- PRN Download Ends -->
+            
+            <!-- EBRC Download Starts -->
+                                    
+            <action name="ebrcFileDownload" class="in.co.localization.action.FileUtilityAction" method ="downloadEBRCFile">
+            <result name="success" type="stream">
+                        <param name="contentType">application/octet-stream</param>
+                        <param name="inputName">inputStream</param>
+                        <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                        <param name="bufferSize">4096</param>
+                  </result>
+                  <result name="nodatafound">/view/localization/EDPMSFilesDownload.jsp</result>
+                  <result name="error">/view/localization/EDPMSFilesDownload.jsp</result>
+            </action>   
+            
+            <!-- EBRC Download Ends -->
+            
+            <!-- CEBRC Download Starts -->
+                                    
+            <action name="cebrcFileDownload" class="in.co.localization.action.FileUtilityAction" method ="downloadCANEBRCFile">
+            <result name="success" type="stream">
+                        <param name="contentType">application/octet-stream</param>
+                        <param name="inputName">inputStream</param>
+                        <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                        <param name="bufferSize">4096</param>
+                  </result>
+                  <result name="nodatafound">/view/localization/EDPMSFilesDownload.jsp</result>
+                  <result name="error">/view/localization/EDPMSFilesDownload.jsp</result>
+            </action>   
+            
+            <!-- CEBRC Download Ends -->
+            
+            <!-- IRMDGFT Download Starts -->
+                                    
+            <action name="irmDgftFileDownload" class="in.co.localization.action.FileUtilityAction" method ="downloadIRMDGFTFile">
+            <result name="success" type="stream">
+                        <param name="contentType">application/octet-stream</param>
+                        <param name="inputName">inputStream</param>
+                        <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                        <param name="bufferSize">4096</param>
+                  </result>
+                  <result name="nodatafound">/view/localization/EDPMSFilesDownload.jsp</result>
+                  <result name="error">/view/localization/EDPMSFilesDownload.jsp</result>
+            </action>   
+            
+            <!-- IRMDGFT Download Ends -->
+            
+            <!-- ORMDGFT Download Starts -->
+                                    
+            <action name="ormDgftFileDownload" class="in.co.localization.action.FileUtilityAction" method ="downloadORMDGFTFile">
+            <result name="success" type="stream">
+                        <param name="contentType">application/octet-stream</param>
+                        <param name="inputName">inputStream</param>
+                        <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                        <param name="bufferSize">4096</param>
+                  </result>
+                  <result name="nodatafound">/view/localization/EDPMSFilesDownload.jsp</result>
+                  <result name="error">/view/localization/EDPMSFilesDownload.jsp</result>
+            </action>   
+            
+            <!-- IRMDGFT Download Ends -->
+            
+            <!-- IRMADV Download Starts -->
+                                    
+            <action name="advicesFileDownload" class="in.co.localization.action.FileUtilityAction" method ="downloadAdvicesFile">
+            <result name="success" type="stream">
+                        <param name="contentType">application/octet-stream</param>
+                        <param name="inputName">inputStream</param>
+                        <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                        <param name="bufferSize">4096</param>
+                  </result>
+                  <result name="nodatafound">/view/localization/advisesDownload.jsp</result>
+                  <result name="error">/view/localization/advisesDownload.jsp</result>
+            </action>   
+            
+            <!-- IRMADV Download Ends -->
+            
+            <!-- File Upload Start -->
+            
+            <action name="fileUploadHome" class="in.co.localization.action.FileUtilityAction" method="uploadLandingPage">
+                  <result name="success">/view/localization/fileUpload.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            <action name="uploadFile" class="in.co.localization.action.FileUtilityAction"
+                  method="insertExcelData">
+                  <result name="success">/view/localization/fileUpload.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            <!-- File Upload Ends -->
+            
+            <!-- UID Management Start -->
+            
+            <action name="uidManagementHome" class="in.co.localization.action.FileUtilityAction" method="uidManagementHomeLandingPage">
+                  <result name="success">/view/localization/uidManagement.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            <action name="updateUidMailData" class="in.co.localization.action.FileUtilityAction" method="updateUidMailDataHomeLandingPage">
+                  <result name="success">/view/localization/updateUID_MailData.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            <action name="updateUIDDataProcedure" class="in.co.localization.action.FileUtilityAction" method="updateUIDDataProcedure">
+                  <result name="success">/view/localization/updateUID_MailData.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            <action name="modifyCIF" class="in.co.localization.action.FileUtilityAction" method="modifyCIFHomeLandingPage">
+                  <result name="success">/view/localization/modifyCIF.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            <action name="modifyInsertCif" class="in.co.localization.action.FileUtilityAction" method="modifyInsertCIF">
+                  <result name="success">/view/localization/modifyCIF.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            
+            <action name="uidWithoutCIF" class="in.co.localization.action.FileUtilityAction" method="uidWithouCIFHomeLandingPage">
+                  <result name="success">/view/localization/uidWithoutCIF.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            <action name="searchUidWithoutCIF" class="in.co.localization.action.FileUtilityAction" method="searchUidWithoutCIF">
+                  <result name="success">/view/localization/uidWithoutCIF.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            <action name="cifWithoutMailId" class="in.co.localization.action.FileUtilityAction" method="cifWithoutMailIdHomeLandingPage">
+                  <result name="success">/view/localization/cifWithotMail.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            <action name="searchCifWithoutMailId" class="in.co.localization.action.FileUtilityAction" method="searchCifWithoutMailId">
+                  <result name="success">/view/localization/cifWithotMail.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            <action name="sendMailCustNBrnch" class="in.co.localization.action.FileUtilityAction" method="sendMailHomeLandingPage">
+                  <result name="success">/view/localization/sendMail.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            <action name="triggerMailCustNBrnch" class="in.co.localization.action.FileUtilityAction" method="triggerMailCustNBrnch">
+                  <result name="success">/view/localization/sendMail.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+                        
+            <action name="sendMailToBrnch" class="in.co.localization.action.FileUtilityAction" method="sendBranchMailHomeLandingPage">
+                  <result name="success">/view/localization/sendBranchMail.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            <action name="triggerMailToBrnch" class="in.co.localization.action.FileUtilityAction" method="triggerMailToBrnch">
+                  <result name="success">/view/localization/sendBranchMail.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            <action name="mailStatusNotSucceeded" class="in.co.localization.action.FileUtilityAction" method="mailStsHomeLandingPage">
+                  <result name="success">/view/localization/mailStatus.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            
+            <action name="searchMailStatusNotSucceeded" class="in.co.localization.action.FileUtilityAction" method="searchMailStatusNotSucceeded">
+                  <result name="success">/view/localization/mailStatus.jsp</result>
+                  <result name="fail">/view/localization/fail.jsp</result>
+            </action>
+            <!-- UID Management Ends -->
+            
+            <action name="closeWindow" class="in.co.localization.action.FileUtilityAction"
+                  method="closeWindow">
+            </action>
+            
+            
+            <action name="fileutltOnlineFileDownload" class="in.co.localization.action.FileUtilityAction" method="downloadLandingPage">
+                  <result name="success">/view/localization/reportFileDownload.jsp</result>
+                  <!-- <result name="fail">/view/localization/fail.jsp</result> -->
+            </action>
+            
+      </package>
+</struts>

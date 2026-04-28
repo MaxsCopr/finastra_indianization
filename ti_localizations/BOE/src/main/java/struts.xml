@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+   "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+<constant name="struts.devMode" value="false" />
+<constant name="struts.custom.i18n.resources" value="in.co.boe.resources.ApplicationResources" />
+<constant name="struts.ui.theme" value="simple" />
+<constant name="struts.multipart.maxSize" value="52428800" /> <!-- Total 50 MB -->
+ 
+	<package name="default" extends="struts-default,json-default"
+		namespace="/">
+ 
+		<global-results>
+<result name="Exception">/view/common/system_error.jsp</result>
+<result name="redirectPaid">/view/payment/paid.jsp</result>
+</global-results>
+ 
+		<global-exception-mappings>
+<exception-mapping exception="in.co.boe.dao.exception.ApplicationException"
+				result="Exception" />
+</global-exception-mappings>
+ 
+ 
+		 <action name="home" class="in.co.boe.action.BOEHomeAction" method="landingPage"> 
+<result name="success">/view/maker_checker_home.jsp</result>
+</action>
+ 
+		<action name="makerProcess" class="in.co.boe.action.BOEHomeAction"
+			method="makerProcess">
+<result name="success">/view/home.jsp</result>
+<result name="fail">/view/fail.jsp</result>
+</action>
+ 
+		<action name="checkerProcess" class="in.co.boe.action.BOEHomeAction"
+			method="checkerProcess">
+<result name="success">/view/boe_checker_home.jsp</result>
+<result name="fail">/view/fail.jsp</result>
+</action>
+ 
+		<!-- Bill vs Multiple BOE Starts -->
+ 
+		<action name="BillEnteryForm"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="landingPage">
+<result name="success">/view/billEnteryForm.jsp</result>
+</action>
+<action name="outstandingORM"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="getOutstandingORM">
+<result name="success">/view/ormOutstandingSelection.jsp</result>
+</action>
+<action name="fetchoutstandingORM"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="fetchoutstandingORMList">
+<result name="success">/view/ormOutstandingSelection.jsp</result>
+<result name="fail">/view/portcodefail.jsp</result>
+</action>
+<action name="outStandingORMToORM"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="outStandingORMToORM">
+<result name="success">/view/billEnteryForm.jsp</result>
+</action>
+<action name="fetchPayRefNo"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="landingPage">
+<result name="success">/view/billEnteryForm.jsp</result>
+</action>
+ 
+		<action name="del_Bill_vs_Multiple_BOEs" class="in.co.boe.action.BOERejectedAction"
+			method="del_Bill_vs_Multiple_BOEs">
+<result name="success">/view/billEnteryForm.jsp</result>
+</action>
+ 
+ 
+		<action name="paymentDataFromView"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="retriveDataFromTI">
+<result name="success">/view/billEnteryForm.jsp</result>
+</action>
+ 
+ 
+		<action name="paymentReferenceToManyBillNo"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="getDataFromTIForSecond">
+<result name="success">/view/paymentRefereceToManyBillNumbers.jsp
+</result>
+</action>
+ 
+		<!-- Added on 12/04/2018 allow to modify the BOE Payment Details Starts -->
+<action name="deleteBOEData"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="deleteBOEData">
+<result name="success">/view/billEnteryForm.jsp</result>
+</action>
+<action name="getBoePaymentData"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="getDataFromTIForSecond">
+<result name="success">/view/paymentRefereceToManyBillNumbers.jsp
+</result>
+ 
+		</action>
+ 
+		<!-- New Modification 03-05-2018 -->
+<!-- <action name="getBoePaymentData" class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" 
+			method="getDataFromTIForSecond"> <result name="success">/view/paymentRefereceToManyBillNumbers.jsp</result> 
+</action> -->
+<!-- Ends -->
+ 
+		<action name="retriveDataBasedOnBillNO"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="retriveDataBasedOnBillNO">
+<result name="success">/view/paymentRefereceToManyBillNumbers.jsp
+</result>
+</action>
+ 
+		<!-- 03-05-2018 BOE MODIFICATION -->
+ 
+		<action name="boe_modification"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="boe_modification">
+<result name="success">/view/paymentRefereceToManyBillNumbers.jsp
+</result>
+</action>
+ 
+		<action name="fetchAllocateInvoice"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="fetchAllocateInvoice">
+<result name="success">/view/paymentRefereceToManyBillNumbers.jsp
+</result>
+</action>
+ 
+ 
+		<!-- 03-05-2018 BOE MODIFICATION -->
+<action name="fetchAllocateInvoice_M"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="fetchAllocateInvoice">
+<result name="success">/view/BillvsMultipleBOEs_MOdification.jsp
+</result>
+</action>
+ 
+ 
+		<action name="updateWarning"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="updateWarning">
+<result name="success">/view/paymentRefereceToManyBillNumbers.jsp
+</result>
+</action>
+ 
+ 
+		<action name="storeBillData"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="storeBOEData">
+<result name="success">/view/billEnteryForm.jsp</result>
+<result name="reject">/view/viewRejectedBoe.jsp</result>
+<result name="error">/view/paymentRefereceToManyBillNumbers.jsp
+</result>
+</action>
+ 
+ 
+		<!-- Bill Vs Multiple BOE Modification -->
+ 
+		<action name="storeBillData_M"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="storeBOEData">
+<result name="success">/view/billEnteryForm.jsp</result>
+<result name="reject">/view/viewRejectedBoe.jsp</result>
+<result name="error">/view/BillvsMultipleBOEs_MOdification.jsp
+</result>
+</action>
+ 
+		<action name="insertInvoiceData"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="invoiceData">
+<result name="success">/view/insertInvoicePage.jsp
+</result>
+</action>
+ 
+ 
+		<action name="backBOEData"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="backBOEData">
+<result name="success">/view/paymentRefereceToManyBillNumbers.jsp
+</result>
+</action>
+ 
+ 
+		<!-- Cross Currency Starts -->
+ 
+		<action name="crossCurrencyPage"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="crossCurrencyPage">
+<result name="success">/view/invoiceCrossCurrency.jsp</result>
+</action>
+ 
+		<action name="updateCrossCurrencyValues"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="updateCrossCurrencyValues">
+<result name="error">/view/invoiceCrossCurrency.jsp</result>
+<result name="success">/view/paymentRefereceToManyBillNumbers.jsp
+</result>
+</action>
+ 
+		<action name="backCrossCurrencyData"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="backBOEData">
+<result name="success">/view/paymentRefereceToManyBillNumbers.jsp
+</result>
+</action>
+ 
+		<!-- Cross Currency Ends -->
+ 
+ 
+		<!-- Bill vs Multiple BOE Ends -->
+ 
+ 
+		<!-- BOE vs Multiple Bills Starts -->
+ 
+		<action name="billNoToManyPaymentReference"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="landingPage">
+<result name="success">/view/billNumberToManyPaymentReference.jsp
+</result>
+</action>
+ 
+		<action name="fetchBOEDetails"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="retriveDataBasedOnBOE">
+<result name="success">/view/billNumberToManyPaymentReference.jsp
+</result>
+</action>
+ 
+		<action name="fetchPaymentData"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="fetchPaymentData">
+<result name="success">/view/billNumberToManyPaymentReference.jsp
+</result>
+</action>
+ 
+		<action name="billNoToManyPayAction"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="storeManyBillData">
+<result name="success">/view/billNumberToManyPaymentReference.jsp
+</result>
+<!-- <result name="error">/view/billNumberToManyPaymentReference.jsp</result> -->
+</action>
+ 
+		<!-- 2-05-2018 BOE Modfication -->
+<action name="store_boe_modification"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="store_boe_modification">
+<result name="success">/view/billNumberToManyPaymentReference.jsp
+</result>
+<result name="error">/view/billNumberToManyPaymentReference.jsp
+</result>
+</action>
+ 
+		<action name="insertInvoiceManyBill"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="invoiceData">
+<result name="success">/view/insertInvoiceManyBill.jsp</result>
+</action>
+ 
+		<action name="backManyBillData"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="backManyBillData">
+<result name="success">/view/billNumberToManyPaymentReference.jsp
+</result>
+</action>
+<!-- Added on 25/04/2018 Starts -->
+ 
+		<action name="deleteBOEMBData"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="deleteBOEMBData">
+<result name="success">/view/boesuccess.jsp</result>
+</action>
+<action name="getBoePaymentMBData"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="retriveDataBasedOnBOE">
+<result name="success">/view/billNumberToManyPaymentReference.jsp
+</result>
+</action>
+ 
+ 
+		<!-- Added on 25/04/2018 Starts -->
+<!-- Cross Currency Starts -->
+
+<action name="crossCurrencyManyBill"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="crossCurrencyPage">
+<result name="success">/view/invoiceCrossCurrencyManyBill.jsp</result>
+</action>
+ 
+		<action name="updateCrossCurrencyManyBill"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="updateCrossCurrencyValues">
+<result name="error">/view/invoiceCrossCurrencyManyBill.jsp</result>
+<result name="success">/view/billNumberToManyPaymentReference.jsp
+</result>
+</action>
+ 
+		<action name="backCrossCurrencyManyBill"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="backManyBillData">
+<result name="success">/view/billNumberToManyPaymentReference.jsp
+</result>
+</action>
+ 
+		<!-- Cross Currency Ends -->
+ 
+ 
+		<!-- BOE vs Multiple Bills Ends -->
+ 
+ 
+		<!-- checker is begain -->
+ 
+ 
+		<action name="checker_multi_paymentReferences" class="in.co.boe.action.BoeCheckerAction"
+			method="loadMultiPaymentReferenceData">
+<result name="success">/view/checker_multi_paymentReference_numbers.jsp
+</result>
+</action>
+ 
+		<action name="checker_multi_bills" class="in.co.boe.action.BoeCheckerAction"
+			method="loadMultiBillNumbersData">
+<result name="success">/view/checker_multi_bill_numbers.jsp</result>
+</action>
+ 
+ 
+		<action name="updateStatusAction" class="in.co.boe.action.BoeCheckerAction"
+			method="updateStatus">
+<result name="success">/view/checker_multi_paymentReference_numbers.jsp
+</result>
+</action>
+ 
+		<action name="resetBOEDetails" class="in.co.boe.action.BoeCheckerAction"
+			method="resetBOEDetails">
+<result name="success">/view/checker_multi_paymentReference_numbers.jsp
+</result>
+</action>
+ 
+ 
+		<action name="boeDataView" class="in.co.boe.action.BoeCheckerAction"
+			method="boeDataView">
+<result name="success">/view/viewerPayment.jsp</result>
+</action>
+ 
+ 
+		<!-- checker is ended -->
+ 
+ 
+		<!-- Actions for rejected transactions -->
+ 
+		<action name="viewRejectedTransactions" class="in.co.boe.action.BOERejectedAction">
+<result name="success">/view/viewRejectedBoe.jsp</result>
+</action>
+ 
+ 
+		<action name="viewRejectedRecords" class="in.co.boe.action.BOERejectedAction"
+			method="showRejectedRecords">
+<result name="success">/view/viewRejectedBoe.jsp</result>
+</action>
+ 
+ 
+		<!-- Delete Button Provided for JIRA 4785 28_03_2018 -->
+ 
+		<action name="delRejRecords" class="in.co.boe.action.BOERejectedAction"
+			method="delRejRecords">
+<result name="success">/view/viewRejectedBoe.jsp</result>
+</action>
+ 
+		<action name="boeRejDataSingleView" class="in.co.boe.action.BOERejectedAction"
+			method="showRejectedRecordSingleBill">
+<result name="success">/view/paymentRefereceToManyBillNumbers.jsp
+</result>
+</action>
+ 
+		<action name="boeRejDataMultipleView" class="in.co.boe.action.BOERejectedAction"
+			method="showRejectedRecordManyBill">
+<result name="success">/view/billNumberToManyPaymentReference.jsp
+</result>
+</action>
+ 
+		<action name="deleteBoeDetails" class="in.co.boe.action.BOERejectedAction"
+			method="deleteRejectedRecords">
+<result name="success">/view/viewRejectedBoe.jsp</result>
+</action>
+ 
+		<!-- Ends here -->
+ 
+		<!-- Manual BOE Starts -->
+ 
+		<!-- HOme Page -->
+ 
+		<action name="manualBOE" class="in.co.boe.action.ManualBOEAction"
+			method="manualBOE">
+<result name="success">/view/manualBOE.jsp</result>
+</action>
+ 
+		<!-- Retrive Mannual Data -->
+ 
+		<action name="retriveBOEData" class="in.co.boe.action.ManualBOEAction"
+			method="retriveBOEData">
+<result name="success">/view/manualBOE.jsp</result>
+</action>
+ 
+		<!-- Inserting Mannual Invoice Data -->
+<action name="manualInvoiceDatas" class="in.co.boe.action.ManualBOEAction"
+			method="manualInvoiceData">
+<result name="success">/view/insertManualInvoice.jsp</result>
+<result name="error">/view/manualBOE.jsp</result>
+</action>
+ 
+		<action name="storeManualBOEData" class="in.co.boe.action.ManualBOEAction"
+			method="storeManualBOEData">
+<result name="success">/view/manualBOE.jsp</result>
+</action>
+ 
+		<action name="insertManualInvoiceData" class="in.co.boe.action.ManualBOEAction"
+			method="insertManualInvoiceData">
+<result name="success">/view/manualBOE.jsp</result>
+<result name="error">/view/insertManualInvoice.jsp</result>
+</action>
+<!-- for delete -->
+ 
+		<action name="manualInvoiceDatadelete" class="in.co.boe.action.ManualBOEAction"
+			method="manualInvoiceData">
+ 
+			<result name="success">/view/manualBOE.jsp</result>
+ 
+		</action>
+ 
+		<!-- for update -->
+ 
+		<action name="manualInvoiceDataupdates" class="in.co.boe.action.ManualBOEAction"
+			method="manualInvoiceData">
+<result name="success">/view/updatemanualinvoice.jsp</result>
+</action>
+ 
+		<!-- Added by thomas Start Here -->
+<!-- for Edit/Update/delete Invoice -->
+ 
+		<action name="editInvoiceDatas" class="in.co.boe.action.ManualBOEAction"
+			method="manualInvoiceData">
+<result name="success">/view/editmanualinvoice.jsp</result>
+<result name="error">/view/manualBOE.jsp</result>
+</action>
+ 
+ 
+		<action name="updateInvoiceDate" class="in.co.boe.action.ManualBOEAction"
+			method="updateManualInvoiceData">
+<result name="success">/view/manualBOE.jsp</result>
+<result name="error">/view/editmanualinvoice.jsp</result>
+</action>
+ 
+		<action name="updateEditedBOEData" class="in.co.boe.action.ManualBOEAction"
+			method="manualInvoiceData">
+<result name="success">/view/manualBOE.jsp</result>
+<result name="error">/view/manualBOE.jsp</result>
+</action>
+<action name="deleteBOEdata" class="in.co.boe.action.ManualBOEAction"
+			method="manualInvoiceData">
+<result name="success">/view/manualBOE.jsp</result>
+</action>
+<!-- Added by thomas End Here -->
+ 
+		<action name="manualPopCIFDetails" class="in.co.boe.action.ManualBOEAction"
+			method="manualPopCIFDetails">
+<result name="success">/view/manualBOE.jsp</result>
+</action>
+ 
+ 
+		<action name="manualCloseButton" class="in.co.boe.action.ManualBOEAction"
+			method="backBOEData">
+<result name="success">/view/manualBOE.jsp</result>
+</action>
+ 
+ 
+		<action name="checkBOEStatus" class="in.co.boe.action.ManualBOEAction"
+			method="checkBOEStatus">
+<result type="json" />
+</action>
+ 
+ 
+		<action name="checkerManualBOE" class="in.co.boe.action.ManualBOEAction"
+			method="manualBOE">
+<result name="success">/view/manualBOEChecker.jsp</result>
+</action>
+ 
+		<action name="fetchCheckerManualBOE" class="in.co.boe.action.ManualBOEAction"
+			method="fetchCheckerManualBOE">
+<result name="success">/view/manualBOEChecker.jsp</result>
+</action>
+ 
+		<action name="manualBoeDataView" class="in.co.boe.action.ManualBOEAction"
+			method="getBoeDetails">
+<result name="success">/view/BOEView.jsp</result>
+</action>
+ 
+		<action name="updateManualBOE" class="in.co.boe.action.ManualBOEAction"
+			method="updateManualBOE">
+<result name="success">/view/manualBOEChecker.jsp</result>
+</action>
+ 
+		<!-- Manual BOE Ends -->
+ 
+ 
+		<!-- Close URL -->
+ 
+		<action name="closeWindow" class="in.co.boe.action.BOEHomeAction"
+			method="closeWindow">
+ 
+		</action>
+ 
+		<action name="closeBOEWindow" class="in.co.boe.action.BOEHomeAction"
+			method="closeBOEWindow">
+<result name="success">/view/maker_checker_home.jsp</result>
+</action>
+ 
+		<!-- Manual BOE Search Starts -->
+ 
+		<action name="manualBOESearch" class="in.co.boe.action.ManualBOEAction"
+			method="manualBOESearch">
+<result name="success">/view/manualBOESearch.jsp</result>
+</action>
+ 
+		<action name="getManualBoeDetails" class="in.co.boe.action.ManualBOEAction"
+			method="getManualBoeDetails">
+<result name="success">/view/manualBOEView.jsp</result>
+</action>
+ 
+ 
+		<!-- Manual BOE Search Ends -->
+ 
+ 
+		<!-- Manual BOE Bulk upload -->
+ 
+ 
+		<action name="manualBOEBulkUpload" class="in.co.boe.action.ManualBOEBulkUploadAction" 
+			method="manualBOEBlk"> <result name="success">/view/manualBOEBulkUpload.jsp</result> 
+<result name="fail">/view/common/fail.jsp</result> </action>
+ 
+		
+<action name="listofinvoice" class="in.co.boe.action.ManualBOEBulkUploadAction"
+			method="excelValidate">
+<result name="success">/view/manualBOEBulkUpload.jsp</result>
+<result name="fail">/view/common/fail.jsp</result>
+</action>
+ 
+		<action name="manualMakerExcel" class="in.co.boe.action.ManualBOEBulkUploadAction"
+			method="excelDownload">
+<result name="download1" type="stream">
+<param name="contentType">"application/vnd.ms-excel"</param>
+<param name="inputName">excelStream</param>
+<param name="contentDisposition">contentDisposition</param>
+<param name="bufferSize">1024</param>
+</result>
+</action>
+<action name="manualerrorlistExcel" class="in.co.boe.action.ManualBOEBulkUploadAction"
+			method="manualErrorlistExcelDownload">
+<result name="download1" type="stream">
+<param name="contentType">"application/vnd.ms-excel"</param>
+<param name="inputName">excelStream</param>
+<param name="contentDisposition">contentDisposition</param>
+<param name="bufferSize">1024</param>
+</result>
+</action>
+ 
+		<action name="rejectData" class="in.co.boe.action.ManualBOEBulkUploadAction"
+			method="rejectData">
+<result name="success">/view/manualBOEBulkUpload.jsp</result>
+<result name="fail">/view/common/fail.jsp</result>
+</action>
+ 
+		<action name="uploadData" class="in.co.boe.action.ManualBOEBulkUploadAction"
+			method="uploadData">
+<result name="success">/view/success.jsp</result>
+<result name="fail">/view/common/fail.jsp</result>
+<result name="cancel">/view/manualBOEBulkUpload.jsp</result>
+</action>
+ 
+		<!-- Manual BOE Search Ends -->
+ 
+ 
+		<!-- OBB Bulk upload Starts 22/01/2018 -->
+<action name="OBBBulkUpload" class="in.co.boe.action.OBBBulkUploadAction"
+			method="OBBBulkUpload">
+<result name="success">/view/OBBBulkUpload.jsp</result>
+<result name="fail">/view/common/fail.jsp</result>
+</action>
+ 
+		<action name="OBBlistofinvoice" class="in.co.boe.action.OBBBulkUploadAction"
+			method="excelValidate">
+<result name="success">/view/OBBBulkUpload.jsp</result>
+<result name="fail">/view/common/fail.jsp</result>
+</action>
+<action name="OBBListExcel" class="in.co.boe.action.OBBBulkUploadAction"
+			method="OBBExcelDownload">
+<result name="download" type="stream">
+<param name="contentType">"application/vnd.ms-excel"</param>
+<param name="inputName">excelStream</param>
+<param name="contentDisposition">contentDisposition</param>
+<param name="bufferSize">1024</param>
+</result>
+</action>
+<action name="csvAction" class="in.co.boe.action.OBBBulkUploadAction"
+			method="OBBCSVDownload">
+<result name="success">/view/obbsuccess.jsp</result>
+</action>
+ 
+		<action name="OBBrejectData" class="in.co.boe.action.OBBBulkUploadAction"
+			method="rejectData">
+<result name="success">/view/OBBBulkUpload.jsp</result>
+<result name="fail">/view/common/fail.jsp</result>
+</action>
+ 
+		<action name="OBBuploadData" class="in.co.boe.action.OBBBulkUploadAction"
+			method="uploadData">
+<result name="success">/view/obbsuccess.jsp</result>
+<result name="fail">/view/common/fail.jsp</result>
+<result name="cancel">/view/OBBBulkUpload.jsp</result>
+</action>
+ 
+		<!-- OBB Bulk Upload Ends -->
+ 
+ 
+		<!-- BOE Utility Bulk Upload 09/02/2018 -->
+ 
+		<action name="BOEBlk" class="in.co.boe.action.BOEBulkUploadAction"
+			method="BOEBlk">
+<result name="success">/view/boeBulkUpload.jsp</result>
+<result name="fail">/view/fail.jsp</result>
+</action>
+ 
+		<action name="boeListofinvoice" class="in.co.boe.action.BOEBulkUploadAction"
+			method="excelValidate">
+<result name="success">/view/boeBulkUpload.jsp</result>
+<result name="fail">/view/fail.jsp</result>
+</action>
+ 
+		<action name="makerExcel" class="in.co.boe.action.BOEBulkUploadAction"
+			method="excelDownload">
+<result name="download" type="stream">
+<param name="contentType">"application/vnd.ms-excel"</param>
+<param name="inputName">excelStream</param>
+<param name="contentDisposition">contentDisposition</param>
+<param name="bufferSize">1024</param>
+</result>
+</action>
+<action name="errorlistExcel" class="in.co.boe.action.BOEBulkUploadAction"
+			method="errorlistExcelDownload">
+<result name="download" type="stream">
+<param name="contentType">"application/vnd.ms-excel"</param>
+<param name="inputName">excelStream</param>
+<param name="contentDisposition">contentDisposition</param>
+<param name="bufferSize">1024</param>
+</result>
+</action>
+ 
+		<action name="boeRejectData" class="in.co.boe.action.BOEBulkUploadAction"
+			method="rejectData">
+<result name="success">/view/boeBulkUpload.jsp</result>
+<result name="fail">/view/common/fail.jsp</result>
+</action>
+ 
+		<action name="boeUploadData" class="in.co.boe.action.BOEBulkUploadAction"
+			method="uploadData">
+<result name="success">/view/boesuccess.jsp</result>
+<result name="fail">/view/boeBulkUpload.jsp</result>
+<result name="cancel">/view/boeBulkUpload.jsp</result>
+</action>
+<!-- BOE Bulk Upload Ends -->
+ 
+		<!-- Look Up for Port of Shipment Starts -->
+<action name="getPortOfShipment" class="in.co.boe.action.ManualBOEAction"
+			method="getPortOfShipmentList">
+<result name="success">/view/portSelection.jsp</result>
+</action>
+ 
+		<action name="fetchPortCodeList" class="in.co.boe.action.ManualBOEAction"
+			method="fetchPortOfShipmentList">
+<result name="success">/view/portSelection.jsp</result>
+<result name="fail">/view/portcodefail.jsp</result>
+</action>
+ 
+		<action name="portOfShipmentToBOE" class="in.co.boe.action.ManualBOEAction"
+			method="portOfShipmentToBOE">
+<result name="success">/view/manualBOE.jsp</result>
+</action>
+ 
+		<!-- Ends -->
+ 
+ 
+		<!-- Look Up for Port of Shipment Starts -->
+<action name="getPortOfDischarge" class="in.co.boe.action.ManualBOEAction"
+			method="getPortOfDischarge">
+<result name="success">/view/dischargePortSelection.jsp</result>
+</action>
+ 
+		<action name="fetchDischargePortList" class="in.co.boe.action.ManualBOEAction"
+			method="fetchDischargePortList">
+<result name="success">/view/dischargePortSelection.jsp</result>
+<result name="fail">/view/portcodefail.jsp</result>
+</action>
+ 
+		<action name="portOfDischargeToBOE" class="in.co.boe.action.ManualBOEAction"
+			method="portOfDischargeToBOE">
+<result name="success">/view/manualBOE.jsp</result>
+</action>
+ 
+		<!-- Ends -->
+ 
+		<!-- Look Up for Port of Discharge Single BOE Starts -->
+ 
+		<action name="getPortOfDischargeSB"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="getPortOfDischarge">
+<result name="success">/view/dischargePortSelectionSB.jsp</result>
+</action>
+ 
+		<action name="fetchDischargePortListSB"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="fetchDischargePortList">
+<result name="success">/view/dischargePortSelectionSB.jsp</result>
+<result name="fail">/view/portcodefail.jsp</result>
+</action>
+ 
+		<action name="portOfDischargeToBOESB"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="portOfDischargeToBOE">
+<result name="success">/view/paymentRefereceToManyBillNumbers.jsp
+</result>
+</action>
+ 
+		<!-- Ends -->
+ 
+		<!-- Look Up for Port of Shipment Single BOE Starts -->
+<action name="getPortOfShipmentSB"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="getPortOfShipmentList">
+<result name="success">/view/portSelectionSB.jsp</result>
+</action>
+ 
+		<action name="fetchPortCodeListSB"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="fetchPortOfShipmentList">
+<result name="success">/view/portSelectionSB.jsp</result>
+<result name="fail">/view/portcodefail.jsp</result>
+</action>
+ 
+		<action name="portOfShipmentToBOESB"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="portOfShipmentToBOE">
+<result name="success">/view/paymentRefereceToManyBillNumbers.jsp
+</result>
+</action>
+ 
+		<!-- Ends -->
+ 
+		<!-- Look Up for Port of Discharge Many BOE Starts -->
+ 
+		<action name="getPortOfDischargeMB"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="getPortOfDischarge">
+<result name="success">/view/dischargePortSelectionMB.jsp</result>
+</action>
+ 
+		<action name="fetchDischargePortListMB"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="fetchDischargePortList">
+<result name="success">/view/dischargePortSelectionMB.jsp</result>
+<result name="fail">/view/portcodefail.jsp</result>
+</action>
+ 
+		<action name="portOfDischargeToBOEMB"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="portOfDischargeToBOE">
+<result name="success">/view/billNumberToManyPaymentReference.jsp
+</result>
+</action>
+ 
+		<!-- Ends -->
+<!-- Look Up for Port of Shipment Many BOE Starts -->
+<action name="getPortOfShipmentMB"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="getPortOfShipmentList">
+<result name="success">/view/portSelectionMB.jsp</result>
+</action>
+ 
+		<action name="fetchPortCodeListMB"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="fetchPortOfShipmentList">
+<result name="success">/view/portSelectionMB.jsp</result>
+<result name="fail">/view/portcodefail.jsp</result>
+</action>
+ 
+		<action name="portOfShipmentToBOEMB"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="portOfShipmentToBOE">
+<result name="success">/view/billNumberToManyPaymentReference.jsp
+</result>
+</action>
+ 
+		<!-- Ends -->
+<!-- Look Up for OS BOE Starts -->
+<action name="getOutstandingBOE"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="getOutstandingBOEList">
+<result name="success">/view/boeOutstandingSelection.jsp</result>
+</action>
+ 
+		<action name="fetchOutstandingBOE"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="fetchOutstandingBOEList">
+<result name="success">/view/boeOutstandingSelection.jsp</result>
+<result name="fail">/view/portcodefail.jsp</result>
+</action>
+ 
+		<action name="outstandingBOEToBOE"
+			class="in.co.boe.action.BillNoToManyPaymentReferenceAction" method="outstandingBOEToBOE">
+<result name="success">/view/billNumberToManyPaymentReference.jsp
+</result>
+</action>
+ 
+		<action name="getOutstandingBOE1"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="getOutstandingBOEList1">
+<result name="success">/view/boeOutstandingSelectionSB.jsp</result>
+</action>
+<action name="fetchOutstandingBOE1"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="fetchOutstandingBOEList1">
+<result name="success">/view/boeOutstandingSelectionSB.jsp</result>
+<result name="fail">/view/portcodefail.jsp</result>
+</action>
+<action name="outstandingBOEToBOE1"
+			class="in.co.boe.action.PaymentReferenceTOManyBillNoAction" method="outstandingBOEToBOE1">
+<result name="success">/view/paymentRefereceToManyBillNumbers.jsp
+</result>
+</action>
+<!-- Ends -->
+</package>
+</struts>

@@ -1,0 +1,47 @@
+@CHARSET "ISO-8859-1";
+ 
+/*  Disable search box default ,.dataTables_info*/
+.dataTables_filter {
+	display: none;
+}
+ 
+/* Bootstrap Compatible */
+div.dataTables_length label {
+	width: 100%;
+	float: left;
+	text-align: left;
+}
+ 
+div.dataTables_length select {
+	width: 75px;
+}
+ 
+div.dataTables_filter label {
+	float: right;
+	width: 460px;
+}
+ 
+div.dataTables_info {
+	padding-top: 8px;
+	float:left;
+}
+ 
+div.dataTables_paginate {
+	float: right;
+	margin: 0;
+}
+ 
+table {
+	margin: 1em 0;
+	clear: both;
+}
+ 
+/* Custom */
+.dataTables_wrapper label {
+	float: right !important;
+	width: auto !important;
+}
+ 
+.dataTables_processing {
+	text-align: center;
+}

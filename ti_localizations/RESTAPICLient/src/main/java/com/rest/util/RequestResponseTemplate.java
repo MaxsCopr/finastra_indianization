@@ -1,0 +1,54 @@
+package com.rest.util;
+
+public class RequestResponseTemplate
+{
+  public static String BANK_REQUEST_ACCOUNT_AVAILBAL = "BankRequest_AccountAvailBal_Template.xml";
+  public static String BANK_REQUEST_BACKOFFICE_VERIFY = "BankRequest_BackOfficeVerify_Template.xml";
+  public static String BANK_REQUEST_BACKOFFICE_POSTING = "BankRequest_BackOfficePosting_Template.xml";
+  public static String BANK_REQUEST_NCIF_WATCHLIST = "BankRequest_WatchList_NCIF_Template.xml";
+  public static String BANK_REQUEST_ACCOUNT_ENQUIRY = "BankRequest_AccountEnquiry_Template.xml";
+  public static String BANK_REQUEST_CUSTOMER_PROPAGATE = "BankRequest_Customer_Propagate_Template.xml";
+  public static String BANK_REQUEST_FDLIEN_ENQUIRY = "BankRequest_FD_Lien_Enquiry_Template.xml";
+  public static String BANK_REQUEST_FDLIEN_ADD = "BankRequest_FD_Lien_Addition_Template.xml";
+  public static String BANK_REQUEST_FDLIEN_MODIFY = "BankRequest_FD_Lien_Modification_Template.xml";
+  public static String BANK_REQUEST_FDLIEN_REMOVAL = "BankRequest_FD_Lien_Removal_Template.xml";
+  public static String BANK_REQUEST_FDLIEN_ACCOUNT_ENQ = "BankRequest_Cust_Account_Enquiry_Template.xml";
+  public static String BANK_REQUEST_LIMIT_CRN_FACILITIES = "BankRequest_LimitFacilities_CRN_Template.xml";
+  public static String BANK_REQUEST_LIMIT_NODE_FACILITIES = "BankRequest_LimitNodeFacilities_Template.xml";
+  public static String BANK_REQUEST_LIMIT_UML_RESERVATIONS = "BankRequest_LimitReservations_Template.xml";
+  public static String BANK_REQUEST_LIMIT_UML_REVERSAL = "BankRequest_LimitReversal_Template.xml";
+  public static String BANK_REQUEST_LIMIT_EXPOSURE_RESERVATION = "BankRequest_LimitExposure_Reservation_Template.xml";
+  public static String BANK_REQUEST_LIMIT_EXPOSURE_REVERSAL = "BankRequest_LimitExposure_Reversal_Template.xml";
+  public static String BANK_REQUEST_LIMIT_SHIFT_UML_REVERSAL = "BankRequest_LimitShift_UML_Reversal_Template.xml";
+  public static String BANK_REQUEST_LIMIT_REVALUATION = "BankRequest_Limit_Revaluation_Template.xml";
+  public static String TI_RESPONSE_DEFAULT_ALL = "TIResponse_Default_Template.xml";
+  public static String TI_RESPONSE_ACCOUNT_AVAILBAL = "TIResponse_AccountAvailBal_Template.xml";
+  public static String TI_RESPONSE_BACKOFFICE_BATCH = "TIResponse_BackOfficeBatch_Template.xml";
+  public static String TI_RESPONSE_BACKOFFICE_VERIFY_NEW = "TIResponse_BackOfficeVerifyNew_Template.xml";
+  public static String TI_RESPONSE_LIMIT_FACILITIES = "TIResponse_LimitFacilities_Template.xml";
+  public static String TI_RESPONSE_LIMIT_NODE_FACILITIES = "TIResponse_LimitNodeFacilities_Template.xml";
+  public static String TI_RESPONSE_LIMIT_UML_RESERVATIONS = "TIResponse_LimitReservations_Template.xml";
+  public static String TI_RESPONSE_LIMIT_UML_REVERSAL = "TIResponse_LimitReversal_Template.xml";
+  public static String TI_RESPONSE_BACKOFFICE_EXPOSURE = "TIResponse_BackOfficeExposure_Template.xml";
+  public static String TI_RESPONSE_LIMIT_EXPOSURE = "TIResponse_Limit_Exposure_Template.xml";
+  public static String TI_RESPONSE_LIMIT_ELIGIBILITY = "TIResponse_LimitEligibility_Template.xml";
+  public static String TI_RESPONSE_FXOPTIONS_SEARCH = "TIResponse_FXOptions_Search_Template.xml";
+  public static String TI_RESPONSE_FXOPTIONS_SEARCH_LIST = "TIResponse_FXOptions_SearchList_Template.xml";
+  public static String TI_RESPONSE_FXCONTRACTS_SEARCH = "TIResponse_FXContracts_Search_Template.xml";
+  public static String TI_RESPONSE_GATEWAY_SMS = "TIResponse_Gateway_SMS_Template.xml";
+  public static String TI_RESPONSE_GATEWAY_NEFT_RTGS = "TIResponse_Gateway_NeftRtgs_Template.xml";
+  public static String TI_RESPONSE_SWIFT_SWIFTOUT = "TIResponse_SwiftOutNew_Template.xml";
+  public static String TI_RESPONSE_NOTIFICATIONS = "TIResponse_Notifications_Template.xml";
+  public static String TI_RESPONSE_GATEWAY_DOCUMENTS = "TIResponse_Gateway_Documents_Template.xml";
+  public static String TI_REQUEST_NCIF_WATCHLIST = "TIRequest_WatchList_NCIF_Template.xml";
+  public static String TI_REQUEST_SWIFT_IN = "TIRequest_SwiftIn_Template.xml";
+  public static String TI_REQUEST_PRESHIP_TFELCPYR = "TIRequest_Preship_Repay_Template.xml";
+  public static String TI_REQUEST_760COV_TFEGTNEW = "TIRequest_760COV_TFEGTNEW_Template.xml";
+  public static String TI_REQUEST_767COV_TFEGTAMD = "TIRequest_767COV_TFEGTAMD_Template.xml";
+  public static String TI_REQUEST_BASE_RATE_IN = "TIRequest_Base_Rate_Template.xml";
+  public static String TI_REQUEST_CARD_RATE_IN = "TIRequest_Card_Rate_Template.xml";
+  public static String TI_REQUEST_SPOT_RATE_IN = "TIRequest_Spot_Rate_Template.xml";
+  public static String TI_REQUEST_COR_CRE_IN = "TIRequest_TI_COR_CRE_Template.xml";
+  public static String TI_REQUEST_ACCOUNT_DATA_IN = "TIRequest_Account_Data_Template.xml";
+  public static String TI_REQUEST_CUSTOMER_DATA_IN = "TIRequest_Customer_Data_Template.xml";
+}

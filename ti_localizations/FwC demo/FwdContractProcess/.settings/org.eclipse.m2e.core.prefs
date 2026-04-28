@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+org.eclipse.m2e.artifact.validation.enabled=true
+org.eclipse.m2e.displayname.artifactId=true
+org.eclipse.m2e.displayname.groupId=true
+org.eclipse.m2e.displayname.version=true
+org.eclipse.m2e.enabled=true
+org.eclipse.m2e.jdt.compileOnworkspace=false
+org.eclipse.m2e.jdt.enableJdtExtension=false
+org.eclipse.m2e.jdt.updateClasspathContainer=true
+org.eclipse.m2e.launchConfig.contribution=true
+org.eclipse.m2e.launchConfig.extendExternalJars=false
+org.eclipse.m2e.launchConfig.useWorkspaceJars=false
+org.eclipse.m2e.maven.indexer.enabled=true
+org.eclipse.m2e.model.edit.project.enablement=true
+org.eclipse.m2e.project.configurator.override=true
+org.eclipse.m2e.relativeProjectPath=true

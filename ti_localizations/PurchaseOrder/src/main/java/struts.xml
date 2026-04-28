@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+   "http://struts.apache.org/dtds/struts-2.3.dtd"> 
+<struts>
+<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+<constant name="struts.devMode" value="false" />
+<constant name="struts.custom.i18n.resources"
+		value="in.co.myshare.resources.ApplicationResources, in.co.myshare.resources.RepAppResources,in.co.myshare.resources.NGOAppResources, in.co.myshare.resources.Displaytag" />
+<constant name="struts.ui.theme" value="simple" />
+ 
+	<package name="default" extends="struts-default,json-default"
+		namespace="/">
+<global-results>
+<result name="Exception">/view/common/system_error.jsp</result>
+<result name="redirectPaid">/view/payment/paid.jsp</result>
+</global-results>
+ 
+		<global-exception-mappings>
+<exception-mapping exception="in.co.barcode.dao.exception.ApplicationException"
+				result="Exception" />
+</global-exception-mappings>
+<action name="home" class="in.co.chargeSchedule.action.ChargeScheduleAction" method="landingPage">
+<result name="maker" type="redirectAction">makerProcess</result>
+<result name="checker" type="redirectAction">checkerProcess</result>
+<result name="both">/view/maker_checker_home.jsp</result>
+<!-- <result name="viewer">/view/maker_checker_home.jsp</result> -->
+<result name="fail">/view/fail.jsp</result>
+</action>
+ 
+		<action name="makerProcess" class="in.co.chargeSchedule.action.ChargeScheduleAction" >
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+<action name="checkerProcess" class="in.co.chargeSchedule.action.ChargeScheduleAction" 	method="loadMultiPaymentReferenceData">
+<result name="success">/view/checker_Po.jsp</result>
+</action>
+ 
+		<!-- TODO changes starts here -->
+ 
+		<action name="enquiryProcess" class="in.co.chargeSchedule.action.ChargeScheduleAction" 	method="loadEnquiryProcessData">
+<result name="success">/view/enquiryProcess.jsp</result>
+</action>
+ 
+		<action name="enquiryProcessDataView" class="in.co.chargeSchedule.action.ChargeScheduleAction" 	method="showEnquiryRecordDetails">
+<result name="success">/view/poEnquiryDetailsView.jsp</result>
+</action>
+ 
+		<action name="checkerProcessDataView" class="in.co.chargeSchedule.action.ChargeScheduleAction" 	method="showCheckerRecordDetails">
+<result name="success">/view/poCheckerDetailsView.jsp</result>
+</action>
+ 
+		<action name="approveSinglePO" class="in.co.chargeSchedule.action.ChargeScheduleAction" method="approveSinglePO">
+<result name="success">/view/checker_Po.jsp</result>
+</action>
+ 
+		<action name="rejectSinglePO" class="in.co.chargeSchedule.action.ChargeScheduleAction" method="rejectSinglePO">
+<result name="success">/view/checker_Po.jsp</result>
+</action>
+ 
+		<action name="gotoPurchaseOrderScreen" class="in.co.chargeSchedule.action.ChargeScheduleAction" method="gotoPurchaseOrderScreen">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+ 
+		<!-- TODO changes ends here -->
+ 
+		<action name="customerCifCode" class="in.co.chargeSchedule.action.ChargeScheduleAction" method="customerCifCode">
+<result name="success">/view/customerSelection.jsp</result>
+</action>
+<action name="incoTerms" class="in.co.chargeSchedule.action.ChargeScheduleAction" 	method="incoTerms">
+<result name="success">/view/IncoTerms.jsp</result>
+</action>
+<action name="goodsCode" class="in.co.chargeSchedule.action.ChargeScheduleAction" 	method="goodsCode">
+<result name="success">/view/customerSelection.jsp</result>
+</action>
+<action name="fetchGoodsCode" class="in.co.chargeSchedule.action.ChargeScheduleAction">
+<result name="success">/view/goodsCodeSelection.jsp</result>
+</action>
+ 
+		<action name="searchGoodsCode" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="searchGoodsCode">
+<result name="success">/view/goodsCodeSelection.jsp</result>
+</action>
+ 
+		<action name="goToInwardPage" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="goToInwardPage">
+<result name="success">/view/inwardCustomerDetails.jsp</result>
+</action>
+ 
+		<action name="fetchInwardDetails" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="fetchInwardDetails">
+<result name="success">/view/inwardCustomerDetails.jsp</result>
+</action>
+ 
+		<action name="setMasterDetails" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="setMasterDetails">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+ 
+		<action name="setGoodsCodeValue" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="setGoodsCodeValue">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+ 
+		<action name="fetchCustomer" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="fetchCustomer">
+<result name="success">/view/customerSelection.jsp</result>
+</action>
+ 
+ 
+		<action name="fetchIncoTerms" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="fetchIncoTerms">
+<result name="success">/view/IncoTerms.jsp</result>
+</action>
+ 
+		<action name="calculate" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="calculate">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+ 
+		<action name="fetchBenName" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="fetchBenName">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+ 
+		<action name="searchpurchaseorder" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="searchPurchaseOrder">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+<action name="fetchPurchaseOrder" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="fetchPurchaseOrder">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+ 
+		<action name="gotoHome" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="gotoHome">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+<action name="chargeType" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="chargeType">
+<result name="success">/view/ChargeSelection.jsp</result>
+</action>
+ 
+		<action name="fetchChargeList" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="fetchChargeList">
+<result name="success">/view/ChargeSelection.jsp</result>
+</action>
+ 
+		<action name="productType" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="productType">
+<result name="success">/view/productSelection.jsp</result>
+</action>
+ 
+		<action name="fetchProductList" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="fetchProductList">
+<result name="success">/view/productSelection.jsp</result>
+</action>
+ 
+		<action name="fetchChargeScheduleList" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="fetchChargeScheduleList">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+ 
+ 
+		<action name="newChargeSchedule" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="newChargeSchedule">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+ 
+		<action name="updateChargeSchedule" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="updateChargeSchedule">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+ 
+		<action name="deleteChargeSchedule" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="deleteChargeSchedule">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+<action name="close" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="closeWindow">
+<result></result>
+</action>
+<action name="reset" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="resetval">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+<action name="validateExportDetails" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="purchaseOrderValidations">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+<action name="copyPurchaseOrderDetails" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="copyPurchaseOrderDetails">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+<action name="insertExport" class="in.co.chargeSchedule.action.ChargeScheduleAction" method="insertExport">
+<result name="success">/view/chargeSchedule.jsp</result>
+</action>
+<action name="updateStatusAction" class="in.co.chargeSchedule.action.ChargeScheduleAction"
+			method="updateStatusAction">
+<interceptor-ref name="token"></interceptor-ref>
+<interceptor-ref name="defaultStack"></interceptor-ref>
+<interceptor-ref name="basicStack"></interceptor-ref>
+<result name="invalid.token">/view/fail.jsp</result> 
+<result name="success">/view/checker_Po.jsp</result>
+</action>
+<!-- Getting Destination country -->
+<!-- <action name="getDestinationcountry" class="in.co.chargeSchedule.action.ChargeScheduleAction" method="getDestinationcountry">
+<result name="success">/view/destinationCountry.jsp</result>
+</action> -->
+ 
+ 
+	</package>
+</struts>
