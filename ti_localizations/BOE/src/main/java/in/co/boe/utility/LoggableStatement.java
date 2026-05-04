@@ -396,14 +396,12 @@ public class LoggableStatement
 		      try
 		      {
 		        Object value;
-		        Object value;
 		        if (this.parameterValues.size() > 1 + qMarkCount)
 		        {
 		          value = this.parameterValues.get(1 + qMarkCount++);
 		        }
 		        else
 		        {
-		          Object value;
 		          if (tok.hasMoreTokens()) {
 		            value = null;
 		          } else {
@@ -423,14 +421,12 @@ public class LoggableStatement
 		  private void saveQueryParamValue(int position, Object obj)
 		  {
 		    String strValue;
-		    String strValue;
 		    if (((obj instanceof String)) || ((obj instanceof java.util.Date)))
 		    {
 		      strValue = "'" + obj + "'";
 		    }
 		    else
 		    {
-		      String strValue;
 		      if (obj == null) {
 		        strValue = "null";
 		      } else {

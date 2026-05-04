@@ -23,6 +23,7 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.struts2.ServletActionContext;
@@ -122,19 +123,19 @@ public class Test
             logger.info("saccNo---" + saccNo);
             logger.info("sclosBal---" + sclosBal);
             if ((sdate != null) && 
-              (sdate.getCellType() != 3))
+              (sdate.getCellType() != CellType.BLANK))
             {
               date = formatter.formatCellValue(sdate);
               date = date.trim();
             }
             if ((saccNo != null) && 
-              (saccNo.getCellType() != 3))
+              (saccNo.getCellType() != CellType.BLANK))
             {
               accNo = formatter.formatCellValue(saccNo);
               accNo = accNo.trim();
             }
             if ((sclosBal != null) && 
-              (sclosBal.getCellType() != 3))
+              (sclosBal.getCellType() != CellType.BLANK))
             {
               closBal = 
                 formatter.formatCellValue(sclosBal);

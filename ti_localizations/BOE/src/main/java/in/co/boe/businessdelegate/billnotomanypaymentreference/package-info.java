@@ -1,3 +1,3 @@
 package in.co.boe.businessdelegate.billnotomanypaymentreference;
 
-abstract interface package-info {}
+//abstract interface package-info {}

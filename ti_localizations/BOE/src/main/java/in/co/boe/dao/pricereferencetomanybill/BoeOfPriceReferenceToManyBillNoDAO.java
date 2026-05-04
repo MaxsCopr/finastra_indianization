@@ -3800,13 +3800,13 @@ public class BoeOfPriceReferenceToManyBillNoDAO
 								    							      pst1 = new LoggableStatement(con, sBOEModificationQuery);
 								    							      pst1.setString(1, commonMethods.getEmptyIfNull(boeVO.getBoeDate()).trim());
 								    							      pst1.setString(2, CommonMethods.setDefaultAmount(boeVO.getPaymentAmount()));
-								    							      pst1.setString(3, CommonMethods.setDefaultAmount(dPayEndorseAmt));
-								    							      pst1.setString(4, CommonMethods.setDefaultAmount(dPayEDSFcAmt));
-								    							      pst1.setString(5, CommonMethods.setDefaultAmount(dPayOSFcAmt));
+								    							      pst1.setString(3, CommonMethods.setDefaultAmount(String.valueOf(dPayEndorseAmt)));
+								    							      pst1.setString(4, CommonMethods.setDefaultAmount(String.valueOf(dPayEDSFcAmt)));
+								    							      pst1.setString(5, CommonMethods.setDefaultAmount(String.valueOf(dPayOSFcAmt)));
 								    							      pst1.setString(6, commonMethods.getEmptyIfNull(boeVO.getFullyAlloc()).trim());
 								    							      pst1.setString(7, commonMethods.getEmptyIfNull(boeVO.getPaymentCurr()).trim());
 								    							      pst1.setString(8, commonMethods.getEmptyIfNull(boeVO.getBillAmt()).trim());
-								    							      pst1.setString(9, CommonMethods.setDefaultAmount(dEndorsedAmt));
+								    							      pst1.setString(9, CommonMethods.setDefaultAmount(String.valueOf(dEndorsedAmt)));
 								    							      pst1.setString(10, loginedUserId);
 								    							      pst1.setString(11, "P");
 								    							      pst1.setString(12, commonMethods.getEmptyIfNull(boeVO.getRemarks()).trim());
@@ -3815,7 +3815,7 @@ public class BoeOfPriceReferenceToManyBillNoDAO
 								    							      pst1.setString(15, commonMethods.getEmptyIfNull(boeVO.getTransType()).trim());
 								    							      pst1.setString(16, "S");
 								    							      pst1.setString(17, commonMethods.getEmptyIfNull(boeVO.getBoeBesSBInd()).trim());
-								    							      pst1.setString(18, CommonMethods.setDefaultAmount(dPreEndorsedAmt));
+								    							      pst1.setString(18, CommonMethods.setDefaultAmount(String.valueOf(dPreEndorsedAmt)));
 								    							      pst1.setString(19, commonMethods.getEmptyIfNull(boeVO.getPaymentRefNo()).trim());
 								    							      pst1.setString(20, commonMethods.getEmptyIfNull(boeVO.getPartPaymentSlNo()).trim());
 								    							      pst1.setString(21, commonMethods.getEmptyIfNull(boeVO.getBoeNo()).trim());
@@ -3831,9 +3831,9 @@ public class BoeOfPriceReferenceToManyBillNoDAO
 								    							      {
 								    							        pst1.close();
 								    							      }
-								    							      catch (SQLException e)
+								    							      catch (SQLException e1)
 								    							      {
-								    							        e.printStackTrace();
+								    							        e1.printStackTrace();
 								    							      }
 								    							    }
 								    							    finally
@@ -3936,9 +3936,9 @@ public class BoeOfPriceReferenceToManyBillNoDAO
 								    							      {
 								    							        pst1.close();
 								    							      }
-								    							      catch (SQLException e)
+								    							      catch (SQLException e1)
 								    							      {
-								    							        e.printStackTrace();
+								    							        e1.printStackTrace();
 								    							      }
 								    							    }
 								    							    finally

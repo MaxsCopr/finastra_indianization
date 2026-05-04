@@ -1,3 +1,3 @@
 package in.co.boe.businessdelegate;
 
-abstract interface package-info {}
+//abstract interface package-info {}

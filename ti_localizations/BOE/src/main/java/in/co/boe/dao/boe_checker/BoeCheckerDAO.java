@@ -1,6 +1,6 @@
 package in.co.boe.dao.boe_checker;
 
-import com.bs.wiseConnect.tiemail.notification.ExtEmailNotificationClient;
+//import com.bs.wiseConnect.tiemail.notification.ExtEmailNotificationClient;
 import in.co.boe.dao.AbstractDAO;
 import in.co.boe.dao.exception.DAOException;
 import in.co.boe.utility.ActionConstants;
@@ -1230,7 +1230,7 @@ public class BoeCheckerDAO
     	      }
     	      if (emailAddr != null)
     	      {
-    	        ExtEmailNotificationClient emailObj = new ExtEmailNotificationClient();
+    	       // ExtEmailNotificationClient emailObj = new ExtEmailNotificationClient();
     	        File file = new File(ActionConstants.FILE_LOCATION + fileName + ".pdf");
     	        byte[] attachData = fileToArrayOfBytes(file);
     	        String emailSubject = "Bill of Entry Acknowledgement for " + fileName;
@@ -1242,10 +1242,10 @@ public class BoeCheckerDAO
     	 
     	 
     	        String tempFileName = fileName + "_BOEAck.pdf";
-    	        emailStaus = emailObj.sendExternalEmailNotification(boeVO.getPaymentRefNo(), 
-    	          boeVO.getPartPaymentSlNo(), boeVO.getCifNo(), emailSubject, emailBodyText, tempFileName, 
-    	          emailAddr, null, null, "", attachData);
-    	        logger.info("BOE Advice Email Status------>" + emailStaus);
+//    	        emailStaus = emailObj.sendExternalEmailNotification(boeVO.getPaymentRefNo(), 
+//    	          boeVO.getPartPaymentSlNo(), boeVO.getCifNo(), emailSubject, emailBodyText, tempFileName, 
+//    	          emailAddr, null, null, "", attachData);
+//    	        logger.info("BOE Advice Email Status------>" + emailStaus);
     	      }
     	    }
     	    catch (Exception exception)
@@ -1279,9 +1279,9 @@ public class BoeCheckerDAO
     	        {
     	          fileInputStream.close();
     	        }
-    	        catch (IOException e)
+    	        catch (IOException e1)
     	        {
-    	          e.printStackTrace();
+    	          e1.printStackTrace();
     	        }
     	      }
     	    }

@@ -12,10 +12,10 @@
 	<package name="default" extends="struts-default,json-default"
 		namespace="/">
  
-		<global-results>
+<!-- 		<global-results>
 <result name="Exception">/view/common/system_error.jsp</result>
 <result name="redirectPaid">/view/payment/paid.jsp</result>
-</global-results>
+</global-results> -->
  
 		<global-exception-mappings>
 <exception-mapping exception="in.co.boe.dao.exception.ApplicationException"

@@ -526,7 +526,7 @@ public class BoeBillNoToManyPaymentReferenceDAO
 
 				 
 				 
-				              paymentVO.setBoeAllocAmt(dBoeAllocAmt);
+				              paymentVO.setBoeAllocAmt(String.valueOf(dBoeAllocAmt));
 				            }
 				            String tempVal = commonMethods.getEmptyIfNull(rs.getString("PD_TXN_REF")).trim() + 
 				              ":" + commonMethods.getEmptyIfNull(rs.getString("PD_PART_PAY_REF")).trim();
@@ -581,7 +581,7 @@ public class BoeBillNoToManyPaymentReferenceDAO
 
 				 
 				 
-				                  paymentVO.setBoeAllocAmt(dBoeAllocAmt);
+				                  paymentVO.setBoeAllocAmt(String.valueOf(dBoeAllocAmt));
 				                }
 				                String tempVal = commonMethods.getEmptyIfNull(rs.getString("PD_TXN_REF")).trim() + 
 				                  ":" + commonMethods.getEmptyIfNull(rs.getString("PD_PART_PAY_REF")).trim();
@@ -2058,15 +2058,15 @@ public class BoeBillNoToManyPaymentReferenceDAO
 										      logger.info("This 204");
 										      pst = new LoggableStatement(con, sqlQuery);
 										      pst.setString(1, commonMethods.getEmptyIfNull(boeVO.getBoeDate()).trim());
-										      pst.setString(2, CommonMethods.setDefaultAmount(dPayFcAmt));
-										      pst.setString(3, CommonMethods.setDefaultAmount(dPayEndorseAmt));
-										      pst.setString(4, CommonMethods.setDefaultAmount(dPayEndorseAmt));
-										      pst.setString(5, CommonMethods.setDefaultAmount(dPayEDSFcAmt));
-										      pst.setString(6, CommonMethods.setDefaultAmount(dPayOSFcAmt));
+										      pst.setString(2, CommonMethods.setDefaultAmount(String.valueOf(dPayFcAmt)));
+										      pst.setString(3, CommonMethods.setDefaultAmount(String.valueOf(dPayEndorseAmt)));
+										      pst.setString(4, CommonMethods.setDefaultAmount(String.valueOf(dPayEndorseAmt)));
+										      pst.setString(5, CommonMethods.setDefaultAmount(String.valueOf(dPayEDSFcAmt)));
+										      pst.setString(6, CommonMethods.setDefaultAmount(String.valueOf(dPayOSFcAmt)));
 										      pst.setString(7, commonMethods.getEmptyIfNull(boeVO.getFullyAlloc()).trim());
 										      pst.setString(8, commonMethods.getEmptyIfNull(boeVO.getPaymentCurr()).trim());
 										      pst.setString(9, commonMethods.getEmptyIfNull(boeVO.getBillAmt()).trim());
-										      pst.setString(10, CommonMethods.setDefaultAmount(dEndorsedAmt));
+										      pst.setString(10, CommonMethods.setDefaultAmount(String.valueOf(dEndorsedAmt)));
 										      pst.setString(11, commonMethods.getEmptyIfNull(boeVO.getPortCode().trim()));
 										      pst.setString(12, loginedUserId);
 										      pst.setString(13, "P");
@@ -2076,7 +2076,7 @@ public class BoeBillNoToManyPaymentReferenceDAO
 										      pst.setString(17, commonMethods.getEmptyIfNull(boeVO.getTransType()).trim());
 										      pst.setString(18, "M");
 										      pst.setString(19, commonMethods.getEmptyIfNull(boeVO.getBoeBesSBInd()).trim());
-										      pst.setString(20, CommonMethods.setDefaultAmount(dPreEndorsedAmt));
+										      pst.setString(20, CommonMethods.setDefaultAmount(String.valueOf(dPreEndorsedAmt)));
 										      pst.setString(21, commonMethods.getEmptyIfNull(boeVO.getPaymentRefNo()).trim());
 										      pst.setString(22, commonMethods.getEmptyIfNull(boeVO.getPartPaymentSlNo()).trim());
 										      pst.setString(23, commonMethods.getEmptyIfNull(boeVO.getBoeNo()).trim());
@@ -2192,9 +2192,9 @@ public class BoeBillNoToManyPaymentReferenceDAO
 										      {
 										        pst1.close();
 										      }
-										      catch (SQLException e)
+										      catch (SQLException e1)
 										      {
-										        e.printStackTrace();
+										        e1.printStackTrace();
 										      }
 										    }
 										    finally
@@ -2215,6 +2215,7 @@ public class BoeBillNoToManyPaymentReferenceDAO
 										  {
 										    logger.info("Entering Method");
 										    int iRet = 0;
+										    
 										    double dPayFcAmt = 0.0D;
 										    double dPayEndorseAmt = 0.0D;
 										    double dPayEDSFcAmt = 0.0D;
@@ -2242,6 +2243,7 @@ public class BoeBillNoToManyPaymentReferenceDAO
 										        for (int i = 0; i < chkPayList.length; i++)
 										        {
 										          int insCount = 0;
+										          int iReturn = 0;
 										          String[] s = chkPayList[i].split(":");
 										          String sPaymentRefNo = commonMethods.getEmptyIfNull(s[0]).trim();
 										          String sPaymentSrlNo = commonMethods.getEmptyIfNull(s[1]).trim();
@@ -2282,11 +2284,11 @@ public class BoeBillNoToManyPaymentReferenceDAO
 										 
 										              ls1 = new LoggableStatement(con, sqlQuery);
 										              ls1.setString(1, commonMethods.getEmptyIfNull(boeVO.getBoeDate()).trim());
-										              ls1.setString(2, CommonMethods.setDefaultAmount(dPayFcAmt));
+										              ls1.setString(2, CommonMethods.setDefaultAmount(String.valueOf(dPayFcAmt)));
 										              ls1.setDouble(3, allocateAmt);
 										              ls1.setDouble(4, allocateAmt);
 										              ls1.setDouble(5, allocateAmt);
-										              ls1.setString(6, CommonMethods.setDefaultAmount(dPayOSFcAmt));
+										              ls1.setString(6, CommonMethods.setDefaultAmount(String.valueOf(dPayOSFcAmt)));
 										              ls1.setString(7, commonMethods.getEmptyIfNull(boeVO.getFullyAlloc()).trim());
 										              ls1.setString(8, commonMethods.getEmptyIfNull(boeVO.getBillAmt()).trim());
 										              ls1.setDouble(9, allocateAmt);
@@ -2331,7 +2333,7 @@ public class BoeBillNoToManyPaymentReferenceDAO
 										              ls1.executeUpdate();
 										              ls1.close();
 										            }
-										            int iReturn = deleteInvoiceDetails(con, boeVO, chkInvoiceVal);
+										            iReturn = deleteInvoiceDetails(con, boeVO, chkInvoiceVal);
 										          }
 										        }
 										      }
@@ -2345,9 +2347,9 @@ public class BoeBillNoToManyPaymentReferenceDAO
 										        loggableStatement.close();
 										        con.close();
 										      }
-										      catch (SQLException e)
+										      catch (SQLException e1)
 										      {
-										        e.printStackTrace();
+										        e1.printStackTrace();
 										      }
 										    }
 										    finally
@@ -2414,10 +2416,10 @@ public class BoeBillNoToManyPaymentReferenceDAO
 										            dRealModAmt -= dRealModAmt;
 										            sQuery = "UPDATE ETT_BOE_INV_PAYMENT SET REAL_AMT = ?, REAL_ORM_AMT = ?, REAL_MOD_AMT = ?, REAL_ORM_MOD_AMT = ? WHERE BOE_NO = ? AND BOE_DATE = TO_DATE(?,'DD/MM/YYYY') AND PORTCODE = ? AND INV_SNO = ? AND INV_NO = ? AND EOD_STATUS IS NULL";
 										            ls1 = new LoggableStatement(con, sQuery);
-										            ls1.setString(1, dRealAmt);
-										            ls1.setString(2, dRealOrmAmt);
-										            ls1.setString(3, dRealModAmt);
-										            ls1.setString(4, dRealOrmModAmt);
+										            ls1.setString(1, String.valueOf(dRealAmt));
+										            ls1.setString(2, String.valueOf(dRealOrmAmt));
+										            ls1.setString(3, String.valueOf(dRealModAmt));
+										            ls1.setString(4, String.valueOf(dRealOrmModAmt));
 										            ls1.setString(5, boeVO.getBoeNo());
 										            ls1.setString(6, boeVO.getBoeDate());
 										            ls1.setString(7, boeVO.getPortCode());
@@ -2460,9 +2462,9 @@ public class BoeBillNoToManyPaymentReferenceDAO
 										        rs.close();
 										        loggableStatement.close();
 										      }
-										      catch (SQLException e)
+										      catch (SQLException e1)
 										      {
-										        e.printStackTrace();
+										        e1.printStackTrace();
 										      }
 										    }
 										    finally

@@ -1,7 +1,5 @@
 package in.co.boe.businessdelegate.boe_viewer;
 
-package in.co.boe.businessdelegate.boe_viewer;
-
 import in.co.boe.businessdelegate.BaseBusinessDelegate;
 
 import in.co.boe.businessdelegate.exception.BusinessException;

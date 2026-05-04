@@ -1,2 +1,2 @@
 package in.co.boe.dao.billnotomanypricereference;
-abstract interface package-info {}
+//abstract interface package-info {}

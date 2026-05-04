@@ -41,7 +41,6 @@ public class CommonMethods
         int length;
         while ((length = inStream.read(buffer)) > 0)
         {
-          int length;
           outStream.write(buffer, 0, length);
         }
         inStream.close();

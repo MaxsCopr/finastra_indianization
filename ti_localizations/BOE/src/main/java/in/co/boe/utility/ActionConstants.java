@@ -194,14 +194,14 @@ public abstract interface ActionConstants
   public static final String AUDIT_ACTION_TWINTY = "20";
   public static final String ETT_BOE_DELETED_RECORDS = "ETT_BOE_DELETED_RECORDS(?, ?, ?, ?, ?)";
   public static final String sMoreThanOutStAmt = "Amount In Payment Currency Should Not Exceed Outstanding Payment Amount";
-  public static final Map<String, String> BANK_NAME = Collections.unmodifiableMap(new ActionConstants.1());
-  public static final Map<String, String> FIRM_TYPE = Collections.unmodifiableMap(new ActionConstants.2());
-  public static final Map<String, String> TRANS_TYPE = Collections.unmodifiableMap(new ActionConstants.3());
-  public static final Map<String, String> PRODUCT_LIST = Collections.unmodifiableMap(new ActionConstants.4());
-  public static final Map<String, String> IMPORT_AGENCY = Collections.unmodifiableMap(new ActionConstants.5());
-  public static final Map<String, String> RECORD_IND = Collections.unmodifiableMap(new ActionConstants.6());
-  public static final Map<String, String> INVOICE_TERMS = Collections.unmodifiableMap(new ActionConstants.7());
-  public static final Map<String, String> BOE_STATUS = Collections.unmodifiableMap(new ActionConstants.8());
-  public static final Map<String, String> BESSB_IND = Collections.unmodifiableMap(new ActionConstants.9());
-  public static final Map<String, String> BESMB_IND = Collections.unmodifiableMap(new ActionConstants.10());
+  public static final Map<String, String> BANK_NAME = Collections.unmodifiableMap(new ActionConstants1());
+  public static final Map<String, String> FIRM_TYPE = Collections.unmodifiableMap(new ActionConstants2());
+  public static final Map<String, String> TRANS_TYPE = Collections.unmodifiableMap(new ActionConstants3());
+  public static final Map<String, String> PRODUCT_LIST = Collections.unmodifiableMap(new ActionConstants4());
+  public static final Map<String, String> IMPORT_AGENCY = Collections.unmodifiableMap(new ActionConstants5());
+  public static final Map<String, String> RECORD_IND = Collections.unmodifiableMap(new ActionConstants6());
+  public static final Map<String, String> INVOICE_TERMS = Collections.unmodifiableMap(new ActionConstants7());
+  public static final Map<String, String> BOE_STATUS = Collections.unmodifiableMap(new ActionConstants8());
+  public static final Map<String, String> BESSB_IND = Collections.unmodifiableMap(new ActionConstants9());
+  public static final Map<String, String> BESMB_IND = Collections.unmodifiableMap(new ActionConstants10());
 }

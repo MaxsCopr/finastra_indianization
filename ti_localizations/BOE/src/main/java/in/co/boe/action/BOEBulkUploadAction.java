@@ -525,7 +525,7 @@ public class BOEBulkUploadAction
 		      for (TransactionBoeBlkVO obj : aaData)
 		      {
 		        HSSFRow row = sheet.createRow(rowIndex);
-		        int cellIndex = 0;
+		        cellIndex = 0;
 		        row.createCell(cellIndex++).setCellValue(obj.getPaymentRefNo());
 		        row.createCell(cellIndex++).setCellValue(obj.getEventRefNo());
 		        row.createCell(cellIndex++).setCellValue(obj.getPaymentAmnt());
@@ -656,7 +656,7 @@ public class BOEBulkUploadAction
 
 		        HSSFRow row = sheet.createRow(rowIndex);
 
-		        int cellIndex = 0;
+		        cellIndex = 0;
 
 		        row.createCell(cellIndex++).setCellValue(
 

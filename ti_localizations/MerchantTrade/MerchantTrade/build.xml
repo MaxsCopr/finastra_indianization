@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="merchant trade" default="war" basedir=".">
+  <property name="src.dir" value="src"/>
+  <property name="web.dir" value="."/>
+  <property name="build.dir" value="build"/>
+  <property name="classes.dir" value="${build.dir}/classes"/>
+  <property name="dist.dir" value="dist"/>
+  <property name="war.name" value="MerchantTrade.war"/>
+
+  <path id="compile.classpath">
+    <fileset dir="lib" includes="**/*.jar"/>
+  </path>
+
+  <target name="clean">
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+  </target>
+
+  <target name="init">
+    <mkdir dir="${classes.dir}"/>
+    <mkdir dir="${dist.dir}"/>
+  </target>
+
+  <target name="compile" depends="init">
+    <javac srcdir="${src.dir}"
+           destdir="${classes.dir}"
+           includeantruntime="false"
+           source="8"
+           target="8">
+      <classpath refid="compile.classpath"/>
+    </javac>
+  </target>
+
+  <target name="war" depends="compile">
+    <war destfile="${dist.dir}/${war.name}" webxml="lib/web.xml">
+      <fileset dir="${web.dir}">
+        <include name="Welcome.jsp"/>
+        <include name="success.jsp"/>
+        <include name="lib/struts.xml"/>
+      </fileset>
+      <lib dir="lib"/>
+      <classes dir="${classes.dir}"/>
+    </war>
+  </target>
+</project>

@@ -29,6 +29,7 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.struts2.ServletActionContext;
@@ -139,20 +140,20 @@ public class BOEBulkUploadDAO
               sPaymentAmnt);
             logger.info("paymentrefno---" + sPaymentRefNo);
             if ((sPaymentRefNo != null) && 
-              (sPaymentRefNo.getCellType() != 3))
+              (sPaymentRefNo.getCellType() !=  CellType.BLANK))
             {
               paymentRefNo = 
                 formatter.formatCellValue(sPaymentRefNo);
               paymentRefNo = paymentRefNo.trim();
             }
             if ((sEventRefNo != null) && 
-              (sEventRefNo.getCellType() != 3))
+              (sEventRefNo.getCellType() !=  CellType.BLANK))
             {
               eventRefNo = formatter.formatCellValue(sEventRefNo);
               eventRefNo = eventRefNo.trim();
             }
             if ((sPaymentAmnt != null) && 
-              (sPaymentAmnt.getCellType() != 3))
+              (sPaymentAmnt.getCellType() !=  CellType.BLANK))
             {
               paymentAmnt = 
                 formatter.formatCellValue(sPaymentAmnt);
@@ -161,91 +162,91 @@ public class BOEBulkUploadDAO
                 paymentAmnt);
             }
             if ((sPayAmntCurr != null) && 
-              (sPayAmntCurr.getCellType() != 3))
+              (sPayAmntCurr.getCellType() !=  CellType.BLANK))
             {
               payAmntCurr = 
                 formatter.formatCellValue(sPayAmntCurr);
               payAmntCurr = payAmntCurr.trim();
             }
             if ((billEntryNo != null) && 
-              (billEntryNo.getCellType() != 3))
+              (billEntryNo.getCellType() !=  CellType.BLANK))
             {
               boeNo = formatter.formatCellValue(billEntryNo);
               boeNo = boeNo.trim();
             }
             if ((billEntryDate != null) && 
-              (billEntryDate.getCellType() != 3))
+              (billEntryDate.getCellType() !=  CellType.BLANK))
             {
               boeDate = billEntryDate.toString().trim();
               boeDate = boeDate.trim();
             }
             if ((portCode != null) && 
-              (portCode.getCellType() != 3))
+              (portCode.getCellType() !=  CellType.BLANK))
             {
               portDischarge = formatter.formatCellValue(portCode);
               portDischarge = portDischarge.trim();
             }
             if ((billEntryAmnt != null) && 
-              (billEntryAmnt.getCellType() != 3))
+              (billEntryAmnt.getCellType() !=  CellType.BLANK))
             {
               boeAmnt = formatter.formatCellValue(billEntryAmnt);
               boeAmnt = boeAmnt.trim();
             }
             if ((billEntryAmntCurr != null) && 
-              (billEntryAmntCurr.getCellType() != 3))
+              (billEntryAmntCurr.getCellType() !=  CellType.BLANK))
             {
               boeAmntCurr = 
                 formatter.formatCellValue(billEntryAmntCurr);
               boeAmntCurr = boeAmntCurr.trim();
             }
             if ((sboeAmntEndorse != null) && 
-              (sboeAmntEndorse.getCellType() != 3))
+              (sboeAmntEndorse.getCellType() !=  CellType.BLANK))
             {
               boeAmntEndorse = 
                 formatter.formatCellValue(sboeAmntEndorse);
               boeAmntEndorse = boeAmntEndorse.trim();
             }
             if ((sboeAllocAmnt != null) && 
-              (sboeAllocAmnt.getCellType() != 3))
+              (sboeAllocAmnt.getCellType() !=  CellType.BLANK))
             {
               boeAllocAmnt = 
                 formatter.formatCellValue(sboeAllocAmnt);
               boeAllocAmnt = boeAllocAmnt.trim();
             }
             if ((sChangeIeCode != null) && 
-              (sChangeIeCode.getCellType() != 3))
+              (sChangeIeCode.getCellType() !=  CellType.BLANK))
             {
               changeIeCode = 
                 formatter.formatCellValue(sChangeIeCode);
               changeIeCode = changeIeCode.trim();
             }
             if ((sbesRecInd != null) && 
-              (sbesRecInd.getCellType() != 3))
+              (sbesRecInd.getCellType() !=  CellType.BLANK))
             {
               besRecInd = formatter.formatCellValue(sbesRecInd);
               besRecInd = besRecInd.trim();
             }
             if ((sInvoiceSerNo != null) && 
-                    (sInvoiceSerNo.getCellType() != 3))
+                    (sInvoiceSerNo.getCellType() !=  CellType.BLANK))
                   {
                     invoiceSerNo = 
                       formatter.formatCellValue(sInvoiceSerNo);
                     invoiceSerNo = invoiceSerNo.trim();
                   }
                   if ((sInvoiceNo != null) && 
-                    (sInvoiceNo.getCellType() != 3))
+                    (sInvoiceNo.getCellType() !=  CellType.BLANK))
                   {
                     invoiceNo = formatter.formatCellValue(sInvoiceNo);
                     invoiceNo = invoiceNo.trim();
                   }
                   if ((sInvRelAmt != null) && 
-                    (sInvRelAmt.getCellType() != 3))
+                    (sInvRelAmt.getCellType() !=  CellType.BLANK))
                   {
                     invRelAmt = formatter.formatCellValue(sInvRelAmt);
                     invRelAmt = invRelAmt.trim();
                   }
                   if ((sRemarks != null) && 
-                    (sRemarks.getCellType() != 3))
+                    (sRemarks.getCellType() !=  CellType.BLANK))
                   {
                     remarks = formatter.formatCellValue(sRemarks);
                     remarks = remarks.trim();

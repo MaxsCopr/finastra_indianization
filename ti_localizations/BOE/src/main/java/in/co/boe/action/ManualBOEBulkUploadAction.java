@@ -537,7 +537,7 @@ public class ManualBOEBulkUploadAction
       for (TransactionVO obj : aaData)
       {
         HSSFRow row = sheet.createRow(rowIndex);
-        int cellIndex = 0;
+        cellIndex = 0;
         row.createCell(cellIndex++).setCellValue(obj.getBoeNo());
         row.createCell(cellIndex++).setCellValue(obj.getBoeDate());
         row.createCell(cellIndex++).setCellValue(obj.getPortCode());
@@ -606,7 +606,7 @@ public class ManualBOEBulkUploadAction
       workbook = new HSSFWorkbook();
       HSSFSheet sheet = workbook.createSheet("Manual_BOE_Bulkupload_Error_List");
       int rowIndex = 2;
-      int cellIndex;
+      int cellIndex = 0;
       if ((aaData != null) && (aaData.size() > 0))
       {
         HSSFRow headingRow = sheet.createRow(0);
@@ -660,7 +660,7 @@ public class ManualBOEBulkUploadAction
       for (ManualBOEBulkUploadVO obj : aaData)
       {
         HSSFRow row = sheet.createRow(rowIndex);
-        int cellIndex = 0;
+        //int cellIndex = 0;
         row.createCell(cellIndex++).setCellValue(obj.getBoeNo());
         row.createCell(cellIndex++).setCellValue(obj.getBoeDate());
         row.createCell(cellIndex++).setCellValue(obj.getPortCode());

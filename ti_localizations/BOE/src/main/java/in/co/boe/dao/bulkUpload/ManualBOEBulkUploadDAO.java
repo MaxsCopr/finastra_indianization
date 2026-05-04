@@ -29,6 +29,7 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.struts2.ServletActionContext;
@@ -218,229 +219,229 @@ public class ManualBOEBulkUploadDAO
             HSSFCell thirdAddr = rowObject.getCell(37);
             HSSFCell thirdCty = rowObject.getCell(38);
             if ((billEntryNo != null) && 
-                    (billEntryNo.getCellType() != 3))
+                    (billEntryNo.getCellType() != CellType.BLANK))
                   {
                     boeNo = formatter.formatCellValue(billEntryNo);
                     boeNo = boeNo.trim();
                   }
                   if ((billEntryDate != null) && 
-                    (billEntryDate.getCellType() != 3)) {
+                    (billEntryDate.getCellType() != CellType.BLANK)) {
                     boeDate = billEntryDate.toString().trim();
                   }
                   if ((portofCode != null) && 
-                    (portofCode.getCellType() != 3))
+                    (portofCode.getCellType() != CellType.BLANK))
                   {
                     portCode = formatter.formatCellValue(portofCode);
                     portCode = portCode.trim();
                   }
                   if ((importAgency != null) && 
-                    (importAgency.getCellType() != 3))
+                    (importAgency.getCellType() != CellType.BLANK))
                   {
                     impagc = formatter.formatCellValue(importAgency);
                     impagc = impagc.trim();
                   }
                   if ((recInd != null) && 
-                    (recInd.getCellType() != 3))
+                    (recInd.getCellType() != CellType.BLANK))
                   {
                     RecordInd = formatter.formatCellValue(recInd);
                     RecordInd = RecordInd.trim();
                   }
                   if ((boeAdcode != null) && 
-                    (boeAdcode.getCellType() != 3))
+                    (boeAdcode.getCellType() != CellType.BLANK))
                   {
                     adCode = formatter.formatCellValue(boeAdcode);
                     adCode = adCode.trim();
                   }
                   if ((boeGP != null) && 
-                    (boeGP.getCellType() != 3))
+                    (boeGP.getCellType() != CellType.BLANK))
                   {
                     govprv = formatter.formatCellValue(boeGP);
                     govprv = govprv.trim();
                   }
                   if ((boeIeCode != null) && 
-                    (boeIeCode.getCellType() != 3))
+                    (boeIeCode.getCellType() != CellType.BLANK))
                   {
                     ieCode = formatter.formatCellValue(boeIeCode);
                     ieCode = ieCode.trim();
                   }
                   if ((portOfShipment != null) && 
-                    (portOfShipment.getCellType() != 3))
+                    (portOfShipment.getCellType() != CellType.BLANK))
                   {
                     porshp = formatter.formatCellValue(portOfShipment);
                     porshp = porshp.trim();
                   }
                   if ((boeIgmNo != null) && 
-                    (boeIgmNo.getCellType() != 3))
+                    (boeIgmNo.getCellType() != CellType.BLANK))
                   {
                     igmNumber = formatter.formatCellValue(boeIgmNo);
                     igmNumber = igmNumber.trim();
                   }
                   if ((boeIgmDate != null) && 
-                    (boeIgmDate.getCellType() != 3))
+                    (boeIgmDate.getCellType() != CellType.BLANK))
                   {
                     igmDate = boeIgmDate.toString().trim();
                     igmDate = igmDate.trim();
                   }
                   if ((boeMblNo != null) && 
-                    (boeMblNo.getCellType() != 3))
+                    (boeMblNo.getCellType() != CellType.BLANK))
                   {
                     mblNumber = formatter.formatCellValue(boeMblNo);
                     mblNumber = mblNumber.trim();
                   }
                   if ((boeMblDate != null) && 
-                    (boeMblDate.getCellType() != 3)) {
+                    (boeMblDate.getCellType() != CellType.BLANK)) {
                     mblDate = boeMblDate.toString().trim();
                   }
                   if ((boeHblNo != null) && 
-                    (boeHblNo.getCellType() != 3))
+                    (boeHblNo.getCellType() != CellType.BLANK))
                   {
                     hblNumber = formatter.formatCellValue(boeHblNo);
                     hblNumber = hblNumber.trim();
                   }
                   if ((boeHblDate != null) && 
-                    (boeHblDate.getCellType() != 3)) {
+                    (boeHblDate.getCellType() != CellType.BLANK)) {
                     hblDate = boeHblDate.toString().trim();
                   }
                   if ((invoiceSNo != null) && 
-                    (invoiceSNo.getCellType() != 3))
+                    (invoiceSNo.getCellType() != CellType.BLANK))
                   {
                     invSNo = formatter.formatCellValue(invoiceSNo);
                     invSNo = invSNo.trim();
                   }
                   if ((invoiceNo != null) && 
-                    (invoiceNo.getCellType() != 3))
+                    (invoiceNo.getCellType() != CellType.BLANK))
                   {
                     invNo = formatter.formatCellValue(invoiceNo);
                     invNo = invNo.trim();
                   }
                   if ((termsInv != null) && 
-                    (termsInv.getCellType() != 3))
+                    (termsInv.getCellType() != CellType.BLANK))
                   {
                     termsofInvoice = formatter.formatCellValue(termsInv);
                     termsofInvoice = termsofInvoice.trim();
                   }
                   if ((invoiceAmt != null) && 
-                    (invoiceAmt.getCellType() != 3))
+                    (invoiceAmt.getCellType() != CellType.BLANK))
                   {
                     invAmt = formatter.formatCellValue(invoiceAmt);
                     invAmt = invAmt.trim();
                   }
                   if ((invoiceCurr != null) && 
-                    (invoiceCurr.getCellType() != 3))
+                    (invoiceCurr.getCellType() != CellType.BLANK))
                   {
                     invCurr = formatter.formatCellValue(invoiceCurr);
                     invCurr = invCurr.trim();
                   }
                   if ((freAmt != null) && 
-                    (freAmt.getCellType() != 3))
+                    (freAmt.getCellType() != CellType.BLANK))
                   {
                     freightAmount = formatter.formatCellValue(freAmt);
                     freightAmount = freightAmount.trim();
                   }
                   if ((freCurr != null) && 
-                    (freCurr.getCellType() != 3))
+                    (freCurr.getCellType() != CellType.BLANK))
                   {
                     freightCurrencyCode = formatter.formatCellValue(freCurr);
                     freightCurrencyCode = freightCurrencyCode.trim();
                   }
                   if ((insAmt != null) && 
-                    (insAmt.getCellType() != 3))
+                    (insAmt.getCellType() != CellType.BLANK))
                   {
                     insuranceAmount = formatter.formatCellValue(insAmt);
                     insuranceAmount = insuranceAmount.trim();
                   }
                   if ((insCurr != null) && 
-                    (insCurr.getCellType() != 3))
+                    (insCurr.getCellType() != CellType.BLANK))
                   {
                     insuranceCurrencyCode = formatter.formatCellValue(insCurr);
                     insuranceCurrencyCode = insuranceCurrencyCode.trim();
                   }
                   if ((agencyComm != null) && 
-                    (agencyComm.getCellType() != 3))
+                    (agencyComm.getCellType() != CellType.BLANK))
                   {
                     agencyCommission = formatter.formatCellValue(agencyComm);
                     agencyCommission = agencyCommission.trim();
                   }
                   if ((agencyCurr != null) && 
-                    (agencyCurr.getCellType() != 3))
+                    (agencyCurr.getCellType() != CellType.BLANK))
                   {
                     agencyCurrency = formatter.formatCellValue(agencyCurr);
                     agencyCurrency = agencyCurrency.trim();
                   }
                   if ((disAmt != null) && 
-                    (disAmt.getCellType() != 3))
+                    (disAmt.getCellType() != CellType.BLANK))
                   {
                     discountCharges = formatter.formatCellValue(disAmt);
                     discountCharges = discountCharges.trim();
                   }
                   if ((disCurr != null) && 
-                    (disCurr.getCellType() != 3))
+                    (disCurr.getCellType() != CellType.BLANK))
                   {
                     discountCurrency = formatter.formatCellValue(disCurr);
                     discountCurrency = discountCurrency.trim();
                   }
                   if ((miscAmt != null) && 
-                    (miscAmt.getCellType() != 3))
+                    (miscAmt.getCellType() != CellType.BLANK))
                   {
                     miscellaneousCharges = formatter.formatCellValue(miscAmt);
                     miscellaneousCharges = miscellaneousCharges.trim();
                   }
                   if ((miscCurr != null) && 
-                    (miscCurr.getCellType() != 3))
+                    (miscCurr.getCellType() != CellType.BLANK))
                   {
                     miscellaneousCurrency = formatter.formatCellValue(miscCurr);
                     miscellaneousCurrency = miscellaneousCurrency.trim();
                   }
                   if ((suppName != null) && 
-                    (suppName.getCellType() != 3))
+                    (suppName.getCellType() != CellType.BLANK))
                   {
                     supplierName = formatter.formatCellValue(suppName);
                     supplierName = supplierName.trim();
                   }
                   if ((suppAddr != null) && 
-                    (suppAddr.getCellType() != 3))
+                    (suppAddr.getCellType() != CellType.BLANK))
                   {
                     supplierAddress = formatter.formatCellValue(suppAddr);
                     supplierAddress = supplierAddress.trim();
                   }
                   if ((suppCty != null) && 
-                    (suppCty.getCellType() != 3))
+                    (suppCty.getCellType() != CellType.BLANK))
                   {
                     supplierCountry = formatter.formatCellValue(suppCty);
                     supplierCountry = supplierCountry.trim();
                   }
                   if ((sellName != null) && 
-                    (sellName.getCellType() != 3))
+                    (sellName.getCellType() != CellType.BLANK))
                   {
                     sellerName = formatter.formatCellValue(sellName);
                     sellerName = sellerName.trim();
                   }
                   if ((sellAddr != null) && 
-                    (sellAddr.getCellType() != 3))
+                    (sellAddr.getCellType() != CellType.BLANK))
                   {
                     sellerAddress = formatter.formatCellValue(sellAddr);
                     sellerAddress = sellerAddress.trim();
                   }
                   if ((sellCty != null) && 
-                    (sellCty.getCellType() != 3))
+                    (sellCty.getCellType() != CellType.BLANK))
                   {
                     sellerCountry = formatter.formatCellValue(sellCty);
                     sellerCountry = sellerCountry.trim();
                   }
                   if ((thirdName != null) && 
-                    (thirdName.getCellType() != 3))
+                    (thirdName.getCellType() != CellType.BLANK))
                   {
                     thirdPartyName = formatter.formatCellValue(thirdName);
                     thirdPartyName = thirdPartyName.trim();
                   }
                   if ((thirdAddr != null) && 
-                    (thirdAddr.getCellType() != 3))
+                    (thirdAddr.getCellType() != CellType.BLANK))
                   {
                     ThirdPartyAddress = formatter.formatCellValue(thirdAddr);
                     ThirdPartyAddress = ThirdPartyAddress.trim();
                   }
                   if ((thirdCty != null) && 
-                    (thirdCty.getCellType() != 3))
+                    (thirdCty.getCellType() != CellType.BLANK))
                   {
                     thirdPartyCountry = formatter.formatCellValue(thirdCty);
                     thirdPartyCountry = thirdPartyCountry.trim();

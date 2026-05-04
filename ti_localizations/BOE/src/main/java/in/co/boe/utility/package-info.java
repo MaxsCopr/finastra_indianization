@@ -1,3 +1,3 @@
 package in.co.boe.utility;
 
-abstract interface package-info {}
+//abstract interface package-info {}

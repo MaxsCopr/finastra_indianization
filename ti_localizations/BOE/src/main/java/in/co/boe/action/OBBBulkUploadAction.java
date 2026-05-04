@@ -408,7 +408,7 @@ public class OBBBulkUploadAction
       for (TransactionVO obj : aaData)
       {
         HSSFRow row = sheet.createRow(rowIndex);
-        int cellIndex = 0;
+        cellIndex = 0;
         row.createCell(cellIndex++).setCellValue(obj.getBoeNo());
         row.createCell(cellIndex++).setCellValue(obj.getBoeDate());
         row.createCell(cellIndex++).setCellValue(obj.getPortCode());

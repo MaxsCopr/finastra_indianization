@@ -1,3 +1,3 @@
 package in.co.boe.dao.pricereferencetomanybill;
 
-abstract interface package-info {}
+//abstract interface package-info {}
