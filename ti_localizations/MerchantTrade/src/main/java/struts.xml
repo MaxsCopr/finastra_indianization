@@ -4,214 +4,214 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-      <constant name="struts.enable.DynamicMethodInvocation" value="false" />
-      <constant name="struts.devMode" value="false" />
-      <constant name="struts.custom.i18n.resources"
-            value="CLF" />
-      <constant name="struts.ui.theme" value="simple" />
+      <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+      <constant name="struts.devMode" value="false" />
+      <constant name="struts.custom.i18n.resources"
+            value="CLF" />
+      <constant name="struts.ui.theme" value="simple" />
 
-      <package name="default" extends="struts-default,json-default"
-            namespace="/">
-                  
-            <global-exception-mappings>
-                  <exception-mapping exception="in.co.ebrc.dao.exception.ApplicationException"
-                        result="Exception" />
-            </global-exception-mappings>  
-            
-            <action name="home"
-                  class="in.co.mttenquiry.action.MTTHomeAction" method="homelandingPage">
-                  <result name="success">/view/maker_checker_home.jsp</result>
-            </action>
-            
-            <!-- MTT Maker Process Starts -->
-            <action name="makerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="makercheckerlandingPage">
-                  <result name="success">/view/maker_home.jsp</result>
-                  <result name="fail">/view/fail.jsp</result>
-            </action>
-            <!-- MTT Status Maker Process Starts -->
-            <action name="mttstatusMakerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="statusMakerLandingPage">
-                  <result name="success">/view/mttStatusAmendMaker.jsp</result>
-            </action>
-            <action name="fetchStatusForMTT" class="in.co.mttenquiry.action.MTTHomeAction" method="fetchStatusForMTT">
-                  <result name="success">/view/mttStatusAmendMaker.jsp</result>
-            </action>
-            <action name="changeStatus" class="in.co.mttenquiry.action.MTTHomeAction" method="changeStatusForMTT">
-                  <result name="success">/view/mttStatusAmendMaker.jsp</result>
-            </action>
-            <!-- MTT Status Maker Process Ends -->
-            <!-- MTT Number Maker Process Starts -->
-            <action name="mttNumberMakerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="numberMakerLandingPage">
-                  <result name="success">/view/mttNumberAmendMaker.jsp</result>
-            </action>
-            <action name="fetchMTTNumberData" class="in.co.mttenquiry.action.MTTHomeAction" method="fetchTIDataForAmend">
-                  <result name="success">/view/mttNumberAmendMaker.jsp</result>
-            </action>
-            <action name="mttNumberDeleteMakerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="deleteMttNumber">
-                  <result name="success">/view/mttNumberAmendMaker.jsp</result>
-            </action>
-            <action name="mttNumberCheckMasterRef" class="in.co.mttenquiry.action.MTTHomeAction" method="mttNumberCheckMasterRef">
-                  <result name="success">/view/mttNumberAmendMaker.jsp</result>
-            </action>
-            <action name="mttNumberCheckMTTNum" class="in.co.mttenquiry.action.MTTHomeAction" method="mttNumberCheckMTTNum">
-                  <result name="success">/view/mttNumberAmendMaker.jsp</result>
-            </action>
-            <action name="mttNumberAddMasterRef" class="in.co.mttenquiry.action.MTTHomeAction" method="mttNumberAddMasterRef">
-                  <result name="success">/view/mttNumberAmendMaker.jsp</result>
-            </action>
-            <!-- MTT Number Maker Process Ends -->
-            <!-- MTT Split Maker Process Starts -->
-            <action name="mttNumberSplitMakerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="mttNumberSplitMakerLandingPage">
-                  <result name="success">/view/mttNumberSplitAmendMaker.jsp</result>
-                  <result name="fail">/view/fail.jsp</result>
-            </action>
-            <action name="fetchMTTNumberOnMasterRef" class="in.co.mttenquiry.action.MTTHomeAction" method="fetchMTTNumberOnMasterRef">
-                  <result name="success">/view/mttNumberSplitAmendMaker.jsp</result>
-            </action>
-            <action name="mttNumberCheckMTTNum1" class="in.co.mttenquiry.action.MTTHomeAction" method="mttNumberCheckMTTNum1">
-                  <result name="success">/view/mttNumberSplitAmendMaker.jsp</result>
-            </action>
-            <action name="submitMttNumberSplit" class="in.co.mttenquiry.action.MTTHomeAction" method="submitMTTNumberSplit">
-                  <result name="success">/view/mttNumberSplitAmendMaker.jsp</result>
-            </action>
-            <!-- MTT Split Maker Process Ends -->
-            <!-- MTT Maker Process Ends -->
-            
-            <!-- MTT Checker Process Starts -->
-            <action name="checkerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="makercheckerlandingPage">
-                  <result name="success">/view/checker_home.jsp</result>
-                  <result name="fail">/view/fail.jsp</result>
-            </action>
-            <!-- MTT Status Checker Process Starts -->
-            <action name="mttstatusCheckerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="statusCheckerLandingPage">
-                  <result name="success">/view/mttStatusAmendChecker.jsp</result>
-            </action>
-            <action name="mttfetchstatusCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="fetchStatusCheckerData">
-                  <result name="success">/view/mttStatusAmendChecker.jsp</result>
-            </action>
-            <action name="approveStatusCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="updateStatusCheckerData">
-                  <result name="success">/view/mttStatusAmendChecker.jsp</result>
-            </action>
-            <action name="rejectStatusCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="updateStatusCheckerData">
-                  <result name="success">/view/mttStatusAmendChecker.jsp</result>
-            </action>
-            <!-- MTT Status Checker Process Ends -->
-            <!-- MTT Number Checker Process Starts -->
-            <action name="mttNumberCheckerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="numberCheckerLandingPage">
-                  <result name="success">/view/mttNumberAmendChecker.jsp</result>
-            </action>
-            <action name="fetchMttNumberCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="fetchMttNumberCheckerDataForAmend">
-                  <result name="success">/view/mttNumberAmendChecker.jsp</result>
-            </action>
-            <action name="approveMttNumberCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="amendMTTNumberCheckerData">
-                  <result name="success">/view/mttNumberAmendChecker.jsp</result>
-            </action>
-            <action name="rejectMttNumberCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="amendMTTNumberCheckerData">
-                  <result name="success">/view/mttNumberAmendChecker.jsp</result>
-            </action>
-            <action name="approveMttNumberAddCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="amendMTTNumberAddCheckerData">
-                  <result name="success">/view/mttNumberAmendChecker.jsp</result>
-            </action>
-            <action name="rejectMttNumberAddCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="amendMTTNumberAddCheckerData">
-                  <result name="success">/view/mttNumberAmendChecker.jsp</result>
-            </action>
-            <!-- MTT Number Checker Process Ends -->
-            <!-- MTT Split Checker Process Starts -->
-            <action name="mttNumberSplitCheckerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="mttNumberSplitCheckerLandingPage">
-                  <result name="success">/view/mttNumberSplitAmendChecker.jsp</result>
-                  <result name="fail">/view/fail.jsp</result>
-            </action>
-            <action name="mttfetchSplitCheckerDataForApproval" class="in.co.mttenquiry.action.MTTHomeAction" method="fetchSplitDataForApproval">
-                  <result name="success">/view/mttNumberSplitAmendChecker.jsp</result>
-            </action>
-            <action name="approveSplitCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="amendSplitCheckerData">
-                  <result name="success">/view/mttNumberSplitAmendChecker.jsp</result>
-            </action>
-            <action name="rejectSplitCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="amendSplitCheckerData">
-                  <result name="success">/view/mttNumberSplitAmendChecker.jsp</result>
-            </action>
-            <!-- MTT Split Checker Process Ends -->
-            
-            <!-- MTT Checker Process Ends -->
-            <!-- MTT Enquiry Starts -->
-            <action name="enquiryProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="enquirylandingPage">
-                  <result name="success">/view/mttSearch.jsp</result>
-            </action>
-            
-            <action name="fetchTIData" class="in.co.mttenquiry.action.MTTHomeAction" method="fetchTIData">
-                  <result name="success">/view/mttSearch.jsp</result>
-            </action>
-            <!-- MTT Enquiry Ends -->
-            
-            <!-- MTT Staging Starts -->
-            <action name="stagingProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="mttProcessStaginglandingPage">
-                  <result name="success">/view/mttStaging.jsp</result>
-                  <result name="fail">/view/fail.jsp</result>
-            </action>
-            <action name="processData" class="in.co.mttenquiry.action.MTTHomeAction" method="processStagingData">
-                  <result name="success">/view/mttStaging.jsp</result>
-                  <result name="fail">/view/fail.jsp</result>
-            </action>
-            <!-- MTT Staging Ends -->
-            
-            <!-- MTT REPORTS Starts -->
-            <action name="reportsProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="mttProcessReportlandingPage">
-                  <result name="success">/view/mttReports.jsp</result>
-                  <result name="fail">/view/fail.jsp</result>
-            </action>
-            
-                  <!-- MTT ANNEX II Download Starts -->
-                  <action name="mttAnnexIIDownload" class="in.co.mttenquiry.action.MTTHomeAction" method ="downloadANNEXIIFile">
-                  <result name="success" type="stream">
-                              <param name="contentType">application/octet-stream</param>
-                              <param name="inputName">inputStream</param>
-                              <param name="contentDisposition">attachment;filename="${fileName}"</param>
-                              <param name="bufferSize">4096</param>
-                        </result>
-                        <result name="nodatafound">/view/mttReports.jsp</result>
-                        <result name="error">/view/mttReports.jsp</result>
-                  </action>   
-                  
-                  <!-- MTT ANNEX II Download Ends -->
-                  
-                  <!-- MTT ANNEX III Download Starts -->
-                                          
-                  <action name="mttAnnexIIIDownload" class="in.co.mttenquiry.action.MTTHomeAction" method ="downloadANNEXIIIFile">
-                  <result name="success" type="stream">
-                              <param name="contentType">application/octet-stream</param>
-                              <param name="inputName">inputStream</param>
-                              <param name="contentDisposition">attachment;filename="${fileName}"</param>
-                              <param name="bufferSize">4096</param>
-                        </result>
-                        <result name="nodatafound">/view/mttReports.jsp</result>
-                        <result name="error">/view/mttReports.jsp</result>
-                  </action>   
-                  
-                  <!-- MTT ANNEX III Download Ends -->
-                  
-                  <!-- MTT RBI REPORT Download Starts -->
-                                          
-                  <action name="mttRBIDownload" class="in.co.mttenquiry.action.MTTHomeAction" method ="downloadRBIFile">
-                  <result name="success" type="stream">
-                              <param name="contentType">application/octet-stream</param>
-                              <param name="inputName">inputStream</param>
-                              <param name="contentDisposition">attachment;filename="${fileName}"</param>
-                              <param name="bufferSize">4096</param>
-                        </result>
-                        <result name="nodatafound">/view/mttReports.jsp</result>
-                        <result name="error">/view/mttReports.jsp</result>
-                  </action>   
-                  
-                  <!-- MTT RBI REPORT Download Ends -->
-                  
-            <!-- MTT REPORTS Ends -->
-            
-            <!-- Close URL -->
-            
-            <action name="closeurl" class="in.co.mttenquiry.action.MTTHomeAction" method="closeUrl">
-                  <result name="redirect" type="redirect">${url}</result>
-            </action>
-            
-            <!-- Close URL -->
-            
-      </package>
+      <package name="default" extends="struts-default,json-default"
+            namespace="/">
+                  
+            <global-exception-mappings>
+                  <exception-mapping exception="in.co.ebrc.dao.exception.ApplicationException"
+                        result="Exception" />
+            </global-exception-mappings>  
+            
+            <action name="home"
+                  class="in.co.mttenquiry.action.MTTHomeAction" method="homelandingPage">
+                  <result name="success">/view/maker_checker_home.jsp</result>
+            </action>
+            
+            <!-- MTT Maker Process Starts -->
+            <action name="makerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="makercheckerlandingPage">
+                  <result name="success">/view/maker_home.jsp</result>
+                  <result name="fail">/view/fail.jsp</result>
+            </action>
+            <!-- MTT Status Maker Process Starts -->
+            <action name="mttstatusMakerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="statusMakerLandingPage">
+                  <result name="success">/view/mttStatusAmendMaker.jsp</result>
+            </action>
+            <action name="fetchStatusForMTT" class="in.co.mttenquiry.action.MTTHomeAction" method="fetchStatusForMTT">
+                  <result name="success">/view/mttStatusAmendMaker.jsp</result>
+            </action>
+            <action name="changeStatus" class="in.co.mttenquiry.action.MTTHomeAction" method="changeStatusForMTT">
+                  <result name="success">/view/mttStatusAmendMaker.jsp</result>
+            </action>
+            <!-- MTT Status Maker Process Ends -->
+            <!-- MTT Number Maker Process Starts -->
+            <action name="mttNumberMakerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="numberMakerLandingPage">
+                  <result name="success">/view/mttNumberAmendMaker.jsp</result>
+            </action>
+            <action name="fetchMTTNumberData" class="in.co.mttenquiry.action.MTTHomeAction" method="fetchTIDataForAmend">
+                  <result name="success">/view/mttNumberAmendMaker.jsp</result>
+            </action>
+            <action name="mttNumberDeleteMakerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="deleteMttNumber">
+                  <result name="success">/view/mttNumberAmendMaker.jsp</result>
+            </action>
+            <action name="mttNumberCheckMasterRef" class="in.co.mttenquiry.action.MTTHomeAction" method="mttNumberCheckMasterRef">
+                  <result name="success">/view/mttNumberAmendMaker.jsp</result>
+            </action>
+            <action name="mttNumberCheckMTTNum" class="in.co.mttenquiry.action.MTTHomeAction" method="mttNumberCheckMTTNum">
+                  <result name="success">/view/mttNumberAmendMaker.jsp</result>
+            </action>
+            <action name="mttNumberAddMasterRef" class="in.co.mttenquiry.action.MTTHomeAction" method="mttNumberAddMasterRef">
+                  <result name="success">/view/mttNumberAmendMaker.jsp</result>
+            </action>
+            <!-- MTT Number Maker Process Ends -->
+            <!-- MTT Split Maker Process Starts -->
+            <action name="mttNumberSplitMakerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="mttNumberSplitMakerLandingPage">
+                  <result name="success">/view/mttNumberSplitAmendMaker.jsp</result>
+                  <result name="fail">/view/fail.jsp</result>
+            </action>
+            <action name="fetchMTTNumberOnMasterRef" class="in.co.mttenquiry.action.MTTHomeAction" method="fetchMTTNumberOnMasterRef">
+                  <result name="success">/view/mttNumberSplitAmendMaker.jsp</result>
+            </action>
+            <action name="mttNumberCheckMTTNum1" class="in.co.mttenquiry.action.MTTHomeAction" method="mttNumberCheckMTTNum1">
+                  <result name="success">/view/mttNumberSplitAmendMaker.jsp</result>
+            </action>
+            <action name="submitMttNumberSplit" class="in.co.mttenquiry.action.MTTHomeAction" method="submitMTTNumberSplit">
+                  <result name="success">/view/mttNumberSplitAmendMaker.jsp</result>
+            </action>
+            <!-- MTT Split Maker Process Ends -->
+            <!-- MTT Maker Process Ends -->
+            
+            <!-- MTT Checker Process Starts -->
+            <action name="checkerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="makercheckerlandingPage">
+                  <result name="success">/view/checker_home.jsp</result>
+                  <result name="fail">/view/fail.jsp</result>
+            </action>
+            <!-- MTT Status Checker Process Starts -->
+            <action name="mttstatusCheckerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="statusCheckerLandingPage">
+                  <result name="success">/view/mttStatusAmendChecker.jsp</result>
+            </action>
+            <action name="mttfetchstatusCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="fetchStatusCheckerData">
+                  <result name="success">/view/mttStatusAmendChecker.jsp</result>
+            </action>
+            <action name="approveStatusCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="updateStatusCheckerData">
+                  <result name="success">/view/mttStatusAmendChecker.jsp</result>
+            </action>
+            <action name="rejectStatusCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="updateStatusCheckerData">
+                  <result name="success">/view/mttStatusAmendChecker.jsp</result>
+            </action>
+            <!-- MTT Status Checker Process Ends -->
+            <!-- MTT Number Checker Process Starts -->
+            <action name="mttNumberCheckerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="numberCheckerLandingPage">
+                  <result name="success">/view/mttNumberAmendChecker.jsp</result>
+            </action>
+            <action name="fetchMttNumberCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="fetchMttNumberCheckerDataForAmend">
+                  <result name="success">/view/mttNumberAmendChecker.jsp</result>
+            </action>
+            <action name="approveMttNumberCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="amendMTTNumberCheckerData">
+                  <result name="success">/view/mttNumberAmendChecker.jsp</result>
+            </action>
+            <action name="rejectMttNumberCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="amendMTTNumberCheckerData">
+                  <result name="success">/view/mttNumberAmendChecker.jsp</result>
+            </action>
+            <action name="approveMttNumberAddCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="amendMTTNumberAddCheckerData">
+                  <result name="success">/view/mttNumberAmendChecker.jsp</result>
+            </action>
+            <action name="rejectMttNumberAddCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="amendMTTNumberAddCheckerData">
+                  <result name="success">/view/mttNumberAmendChecker.jsp</result>
+            </action>
+            <!-- MTT Number Checker Process Ends -->
+            <!-- MTT Split Checker Process Starts -->
+            <action name="mttNumberSplitCheckerProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="mttNumberSplitCheckerLandingPage">
+                  <result name="success">/view/mttNumberSplitAmendChecker.jsp</result>
+                  <result name="fail">/view/fail.jsp</result>
+            </action>
+            <action name="mttfetchSplitCheckerDataForApproval" class="in.co.mttenquiry.action.MTTHomeAction" method="fetchSplitDataForApproval">
+                  <result name="success">/view/mttNumberSplitAmendChecker.jsp</result>
+            </action>
+            <action name="approveSplitCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="amendSplitCheckerData">
+                  <result name="success">/view/mttNumberSplitAmendChecker.jsp</result>
+            </action>
+            <action name="rejectSplitCheckerData" class="in.co.mttenquiry.action.MTTHomeAction" method="amendSplitCheckerData">
+                  <result name="success">/view/mttNumberSplitAmendChecker.jsp</result>
+            </action>
+            <!-- MTT Split Checker Process Ends -->
+            
+            <!-- MTT Checker Process Ends -->
+            <!-- MTT Enquiry Starts -->
+            <action name="enquiryProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="enquirylandingPage">
+                  <result name="success">/view/mttSearch.jsp</result>
+            </action>
+            
+            <action name="fetchTIData" class="in.co.mttenquiry.action.MTTHomeAction" method="fetchTIData">
+                  <result name="success">/view/mttSearch.jsp</result>
+            </action>
+            <!-- MTT Enquiry Ends -->
+            
+            <!-- MTT Staging Starts -->
+            <action name="stagingProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="mttProcessStaginglandingPage">
+                  <result name="success">/view/mttStaging.jsp</result>
+                  <result name="fail">/view/fail.jsp</result>
+            </action>
+            <action name="processData" class="in.co.mttenquiry.action.MTTHomeAction" method="processStagingData">
+                  <result name="success">/view/mttStaging.jsp</result>
+                  <result name="fail">/view/fail.jsp</result>
+            </action>
+            <!-- MTT Staging Ends -->
+            
+            <!-- MTT REPORTS Starts -->
+            <action name="reportsProcess" class="in.co.mttenquiry.action.MTTHomeAction" method="mttProcessReportlandingPage">
+                  <result name="success">/view/mttReports.jsp</result>
+                  <result name="fail">/view/fail.jsp</result>
+            </action>
+            
+                  <!-- MTT ANNEX II Download Starts -->
+                  <action name="mttAnnexIIDownload" class="in.co.mttenquiry.action.MTTHomeAction" method ="downloadANNEXIIFile">
+                  <result name="success" type="stream">
+                              <param name="contentType">application/octet-stream</param>
+                              <param name="inputName">inputStream</param>
+                              <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                              <param name="bufferSize">4096</param>
+                        </result>
+                        <result name="nodatafound">/view/mttReports.jsp</result>
+                        <result name="error">/view/mttReports.jsp</result>
+                  </action>   
+                  
+                  <!-- MTT ANNEX II Download Ends -->
+                  
+                  <!-- MTT ANNEX III Download Starts -->
+                                          
+                  <action name="mttAnnexIIIDownload" class="in.co.mttenquiry.action.MTTHomeAction" method ="downloadANNEXIIIFile">
+                  <result name="success" type="stream">
+                              <param name="contentType">application/octet-stream</param>
+                              <param name="inputName">inputStream</param>
+                              <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                              <param name="bufferSize">4096</param>
+                        </result>
+                        <result name="nodatafound">/view/mttReports.jsp</result>
+                        <result name="error">/view/mttReports.jsp</result>
+                  </action>   
+                  
+                  <!-- MTT ANNEX III Download Ends -->
+                  
+                  <!-- MTT RBI REPORT Download Starts -->
+                                          
+                  <action name="mttRBIDownload" class="in.co.mttenquiry.action.MTTHomeAction" method ="downloadRBIFile">
+                  <result name="success" type="stream">
+                              <param name="contentType">application/octet-stream</param>
+                              <param name="inputName">inputStream</param>
+                              <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                              <param name="bufferSize">4096</param>
+                        </result>
+                        <result name="nodatafound">/view/mttReports.jsp</result>
+                        <result name="error">/view/mttReports.jsp</result>
+                  </action>   
+                  
+                  <!-- MTT RBI REPORT Download Ends -->
+                  
+            <!-- MTT REPORTS Ends -->
+            
+            <!-- Close URL -->
+            
+            <action name="closeurl" class="in.co.mttenquiry.action.MTTHomeAction" method="closeUrl">
+                  <result name="redirect" type="redirect">${url}</result>
+            </action>
+            
+            <!-- Close URL -->
+            
+      </package>
 </struts>
