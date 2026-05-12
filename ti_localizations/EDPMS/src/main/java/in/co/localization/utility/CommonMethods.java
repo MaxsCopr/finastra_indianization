@@ -68,7 +68,6 @@ public class CommonMethods
 
         {
 
-          int length;
 
           outStream.write(buffer, 0, length);
 
@@ -483,7 +482,7 @@ public class CommonMethods
 
       case 3: 
 
-        rupeeValue = k[0] + k[1] + k[2];
+        rupeeValue = "" + k[0] + k[1] + k[2];
 
         break;
 

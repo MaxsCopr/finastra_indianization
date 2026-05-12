@@ -1,4 +1,4 @@
-poackage in.co.localization.utility;
+package in.co.localization.utility;
  
 public abstract interface ActionConstantsQuery
 

@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/com.misys.tiplus2.enigma.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-io-2.21.0.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jsch-0.1.42.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/log4j-api-2.8.2.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/log4j-core-2.8.2.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/poi-3.6.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/servlet-api-2.5.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/slf4j-api-1.7.12.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/struts2-core-2.3.35.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/xwork-core-2.3.35.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/org.apache.log4j-1.2.15.v201012070815.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/cas-client-core-3.2.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/struts2-json-plugin-2.3.15.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

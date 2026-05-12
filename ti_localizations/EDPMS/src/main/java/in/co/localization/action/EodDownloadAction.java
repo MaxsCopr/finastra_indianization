@@ -388,8 +388,6 @@ public class EodDownloadAction
 
         {
 
-          int len;
-
           zos.write(buffer, 0, len);
 
         }

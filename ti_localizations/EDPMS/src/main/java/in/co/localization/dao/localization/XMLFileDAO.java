@@ -34,6 +34,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 public class XMLFileDAO
@@ -409,7 +411,7 @@ public class XMLFileDAO
                   xmlFileVO.setResult("F");
                   String Shipno = null;
                   String Frmno = null;
-                  setVal = 0;
+                  int setVal = 0;
                   if (chkRod > 1200)
                   {
                     String UPDATE_ROD_XML_DATA = "UPDATE ETT_SHP_ROD_ACK_STG SET EXPORTTYPE=?, RECORDINDICATOR=?, LEODATE=TO_DATE(?, 'DD-MM-YYYY'), IECODE=?, CHANGEDIECODE=?, ADCODE=?, ADEXPORTAGENCY=?, DIRECTDISPATCHINDICATOR=?, ADBILLNO=?, DATEOFNEGOTIATION=TO_DATE(?, 'DD-MM-YYYY'), BUYERNAME=?, BUYERCOUNTRY=?, FILE_NO=?,ERRORCODES=?  WHERE  SHIPPINGBILLDATE=? AND PORTCODE=?";
@@ -2019,7 +2021,7 @@ public class XMLFileDAO
         if (firstPersonNode.getNodeType() != 1)
         {
           DBConnectionUtility.surrenderDB(con, pst, rs);
-          break label775;
+//          break;
         }
         Element firstPersonElement2 = (Element)firstPersonNode;
        
@@ -2129,7 +2131,7 @@ public class XMLFileDAO
     {
       DBConnectionUtility.surrenderDB(con, pst, rs);
     }
-    label775:
+//    label775:
     logger.info("Exiting Method");
     return xmlFileVO;
   }
@@ -2163,7 +2165,7 @@ public class XMLFileDAO
         if (firstPersonNode.getNodeType() != 1)
         {
           DBConnectionUtility.surrenderDB(con, pst, rs);
-          break label629;
+//          break label629;
         }
         Element firstPersonElement2 = (Element)firstPersonNode;
        
@@ -2248,7 +2250,7 @@ public class XMLFileDAO
     {
       DBConnectionUtility.surrenderDB(con, pst, rs);
     }
-    label629:
+//    label629:
     logger.info("Exiting Method");
     return xmlFileVO;
   }
@@ -2282,7 +2284,7 @@ public class XMLFileDAO
         if (firstPersonNode.getNodeType() != 1)
         {
           DBConnectionUtility.surrenderDB(con, pst, rs);
-          break label621;
+//          break label621;
         }
         Element firstPersonElement2 = (Element)firstPersonNode;
        
@@ -2987,7 +2989,7 @@ public class XMLFileDAO
         if (firstPersonNode.getNodeType() != 1)
         {
           DBConnectionUtility.surrenderDB(con, pst, rs);
-          break label621;
+//          break label621;
         }
         Element firstPersonElement2 = (Element)firstPersonNode;
        
@@ -3073,7 +3075,7 @@ public class XMLFileDAO
     {
       DBConnectionUtility.surrenderDB(con, pst, rs);
     }
-    label621:
+//    label621:
     logger.info("Exiting Method");
     return xmlFileVO;
   }
@@ -3176,7 +3178,7 @@ public class XMLFileDAO
         if (firstPersonNode.getNodeType() != 1)
         {
           DBConnectionUtility.surrenderDB(con, pst, rs);
-          break label1146;
+//          break label1146;
         }
         Element firstPersonElement2 = (Element)firstPersonNode;
        
@@ -6410,39 +6412,54 @@ public class XMLFileDAO
       SAXParserFactory factory = SAXParserFactory.newInstance();
       SAXParser saxParser = factory.newSAXParser();
      
-      DefaultHandler handler = new XMLFileDAO.1(this);
-     
+      DefaultHandler handler = new DefaultHandler() {
 
+          @Override
+          public void startElement(String uri,
+                                   String localName,
+                                   String qName,
+                                   Attributes attributes)
+                  throws SAXException {
 
+              xmlFileVO1 = new XMLFileVO();
 
+              logger.info("Reading-------------------------Tags");
+              logger.info("XML Start Element----------------- :" + qName);
 
+              try {
+                  xmlFileVO1.setTagName(qName);
 
+              } catch (Exception ex) {
 
+                  logger.info("Exception in Reading Start Tags " + ex);
 
+                  throw new SAXException(qName);
+              }
+          }
 
+          @Override
+          public void endElement(String uri,
+                                 String localName,
+                                 String qName)
+                  throws SAXException {
 
+              xmlFileVO1 = new XMLFileVO();
 
+              logger.info("XML End Element :" + qName);
 
+              try {
 
+                  xmlFileVO1.setTagName(qName);
 
+              } catch (Exception ex) {
 
+                  logger.info("Exception in Reading End Tags " + ex);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                  throw new SAXException(qName);
+              }
+          }
+      };
+      
       saxParser.parse(xmlFileUpload, handler);
       this.xmlFileVO1.setStatusRes("true");
     }
