@@ -21,6 +21,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
+
  
 public class DBConnectionUtility
 
@@ -51,20 +52,29 @@ public class DBConnectionUtility
       try
 
       {
+            //Old Code
+			/*
+			 * Properties param = new Properties();
+			 * 
+			 * param.put("java.naming.factory.initial",
+			 * "com.ibm.websphere.naming.WsnInitialContextFactory");
+			 * 
+			 * Context initialContext = new InitialContext(param);
+			 * 
+			 * logger.info("Setting Values-----------jdbc/zone---------");
+			 * 
+			 * DataSource dataSource = (DataSource)initialContext.lookup("jdbc/zone");
+			 * 
+			 * logger.info("dataSource-----------------Name--------------" + dataSource);
+			 * 
+			 * connection = dataSource.getConnection();
+			 */
+    	  Properties prop = ProbUtil.getPropertiesValue();
+          String jndiName = prop.getProperty("JndiNameZone");
 
-        Properties param = new Properties();
-
-        param.put("java.naming.factory.initial", "com.ibm.websphere.naming.WsnInitialContextFactory");
-
-        Context initialContext = new InitialContext(param);
-
-        logger.info("Setting Values-----------jdbc/zone---------");
-
-        DataSource dataSource = (DataSource)initialContext.lookup("jdbc/zone");
-
-        logger.info("dataSource-----------------Name--------------" + dataSource);
-
-        connection = dataSource.getConnection();
+          Context initialContext = new InitialContext();
+          DataSource dataSource = (DataSource) initialContext.lookup(jndiName);
+          connection = dataSource.getConnection();
 
       }
 
@@ -90,33 +100,12 @@ public class DBConnectionUtility
 
         String driver = "oracle.jdbc.driver.OracleDriver";
 
- 
- 
- 
- 
- 
- 
- 
         String url = "jdbc:oracle:thin:@10.10.20.137:1530/orcl";
 
         String userName = "TIZONE";
 
         String password = "tizone_1234";
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
         logger.info("This is Inside of DB Connection");
 
         Class.forName(driver);
@@ -159,16 +148,24 @@ public class DBConnectionUtility
 
         logger.info("DBConnectionUtility ------------true----------global---------- state started!");
 
-        Properties param = new Properties();
+		/*
+		 * Properties param = new Properties();
+		 * 
+		 * param.put("java.naming.factory.initial",
+		 * 
+		 * "com.ibm.websphere.naming.WsnInitialContextFactory");
+		 * 
+		 * Context initialContext = new InitialContext(param);
+		 * 
+		 * DataSource dataSource = (DataSource)initialContext.lookup("jdbc/global");
+		 * 
+		 * connection = dataSource.getConnection();
+		 */
+        Properties prop = ProbUtil.getPropertiesValue();
+        String jndiName = prop.getProperty("JndiNameGlobal");
 
-        param.put("java.naming.factory.initial", 
-
-          "com.ibm.websphere.naming.WsnInitialContextFactory");
-
-        Context initialContext = new InitialContext(param);
-
-        DataSource dataSource = (DataSource)initialContext.lookup("jdbc/global");
-
+        Context initialContext = new InitialContext();
+        DataSource dataSource = (DataSource) initialContext.lookup(jndiName);
         connection = dataSource.getConnection();
 
       }
@@ -191,33 +188,12 @@ public class DBConnectionUtility
 
         String driver = "oracle.jdbc.driver.OracleDriver";
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
         String url = "jdbc:oracle:thin:@10.10.20.137:1528/orcl1";
 
         String userName = "TIGLOBAL";
 
         String password = "tiglobal_1234";
 
- 
- 
- 
- 
- 
- 
- 
         Class.forName(driver);
 
         connection = DriverManager.getConnection(url, userName, password);

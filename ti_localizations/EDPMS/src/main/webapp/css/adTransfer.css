@@ -1,0 +1,190 @@
+/* =========================================================
+   AD TRANSFER PAGE
+========================================================= */
+
+
+/* =========================================================
+   LEFT ACTION BUTTONS
+========================================================= */
+
+.action-section{
+    margin-top:10px;
+    text-align:center;
+}
+
+.side-btn{
+    width:95px;
+    background:#dcdcdc;
+    border:1px solid #bdbdbd;
+    color:#444444;
+    font-size:10px;
+    padding:3px;
+    margin-bottom:4px;
+    cursor:pointer;
+}
+
+.side-btn:hover{
+    background:#cfcfcf;
+}
+
+
+/* =========================================================
+   MAIN PANEL
+========================================================= */
+
+.ad-panel{
+    background:#ffffff;
+    border:1px solid #dcdcdc;
+    padding:8px;
+    min-height:350px;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.section-header{
+    background:#d9edf7;
+    border:1px solid #c7dfea;
+    color:#2693c5;
+    font-size:11px;
+    font-weight:bold;
+    padding:4px 8px;
+    margin-bottom:8px;
+}
+
+
+/* =========================================================
+   EXPAND ICON
+========================================================= */
+
+.expand-icon{
+    color:#2693c5;
+    margin-right:4px;
+    font-weight:bold;
+}
+
+
+/* =========================================================
+   FORM TABLE
+========================================================= */
+
+.form-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-bottom:15px;
+}
+
+.form-table td{
+    padding:4px 8px;
+    vertical-align:middle;
+}
+
+
+/* =========================================================
+   LABELS
+========================================================= */
+
+.label-field{
+    font-size:10px;
+    font-weight:bold;
+    color:#333333;
+    white-space:nowrap;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.textbox-field{
+    width:140px;
+    height:18px;
+    border:1px solid #c7c7c7;
+    background:#efefef;
+    font-size:10px;
+    padding-left:4px;
+}
+
+.textbox-field:focus{
+    outline:none;
+    border:1px solid #7db7e8;
+    background:#ffffff;
+}
+
+
+/* =========================================================
+   DROPDOWN
+========================================================= */
+
+.dropdown-field{
+    width:145px;
+    height:22px;
+    border:1px solid #c7c7c7;
+    background:#efefef;
+    font-size:10px;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
+
+.table-wrapper{
+    width:100%;
+    overflow-x:auto;
+    border:1px solid #d6d6d6;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.details-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:850px;
+    font-size:9px;
+}
+
+.details-table th{
+    background:#efefef;
+    border:1px solid #d0d0d0;
+    padding:4px;
+    text-align:left;
+    color:#333333;
+    font-weight:bold;
+}
+
+.details-table td{
+    border:1px solid #e0e0e0;
+    padding:4px;
+    background:#ffffff;
+    color:#444444;
+}
+
+
+/* =========================================================
+   EMPTY ROW
+========================================================= */
+
+.empty-row{
+    height:20px;
+}
+
+
+/* =========================================================
+   EDIT LINK
+========================================================= */
+
+.edit-link{
+    color:#3a87c7;
+    cursor:pointer;
+    font-size:10px;
+}
+
+.edit-link:hover{
+    text-decoration:underline;
+}

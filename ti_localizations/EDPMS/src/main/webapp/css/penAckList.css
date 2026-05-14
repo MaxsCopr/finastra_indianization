@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #022b67;
+}
+
+.main-wrapper {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.top-header {
+    height: 80px;
+    background: #022b67;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.left-logo,
+.right-logo {
+    height: 55px;
+}
+
+.header-title {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content-wrapper {
+    display: flex;
+}
+
+.left-panel {
+    width: 150px;
+    background: #022b67;
+    min-height: calc(100vh - 80px);
+    padding-top: 15px;
+}
+
+.system-date {
+    color: #ffffff;
+    font-size: 11px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+}
+
+.menu-btn {
+    width: 120px;
+    margin: 10px;
+    padding: 6px;
+    border: 1px solid #999;
+    background: #e6e6e6;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.main-content {
+    width: calc(100% - 150px);
+    background: #f2f2f2;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #b5b5b5;
+}
+
+fieldset {
+    border: 1px solid #b5c7de;
+    margin-bottom: 12px;
+    background: #ffffff;
+}
+
+legend {
+    color: #008080;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.form-table td {
+    padding: 5px;
+    font-size: 11px;
+}
+
+.label {
+    font-weight: bold;
+    color: #333333;
+    white-space: nowrap;
+}
+
+.input-box {
+    width: 140px;
+    height: 20px;
+    border: 1px solid #b5b5b5;
+    font-size: 11px;
+    padding-left: 4px;
+}
+
+.small-box {
+    width: 100px;
+}
+
+.refresh-btn {
+    background: #1f9bd1;
+    border: none;
+    color: #ffffff;
+    padding: 4px 10px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+
+.data-table th {
+    background: #e8edf5;
+    border: 1px solid #b5c7de;
+    padding: 5px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.data-table td {
+    border: 1px solid #d3d3d3;
+    padding: 4px;
+    white-space: nowrap;
+}
+
+.no-records {
+    text-align: left;
+    color: #000000;
+    padding: 10px;
+}

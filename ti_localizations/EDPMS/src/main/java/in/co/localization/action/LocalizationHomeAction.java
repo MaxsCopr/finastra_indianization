@@ -1,51 +1,49 @@
 package in.co.localization.action;
- 
+
 import in.co.localization.dao.exception.ApplicationException;
 
 import org.apache.log4j.Logger;
- 
+
 public class LocalizationHomeAction
 
-  extends LocalizationBaseAction
+		extends LocalizationBaseAction
 
 {
 
-  private static Logger logger = Logger.getLogger(LocalizationHomeAction.class
+	private static Logger logger = Logger.getLogger(LocalizationHomeAction.class.getName());
 
-    .getName());
+	private static final long serialVersionUID = 1L;
 
-  private static final long serialVersionUID = 1L;
+	public String landingPage()
 
-  public String landingPage()
+			throws ApplicationException
 
-    throws ApplicationException
+	{
 
-  {
+		logger.info("EDPMS PROJECT landingPage");
 
-    logger.info("EDPMS PROJECT landingPage");
+		try
 
-    try
+		{
 
-    {
+			isSessionAvailable();
 
-      isSessionAvailable();
+		}
 
-    }
+		catch (Exception exception)
 
-    catch (Exception exception)
+		{
 
-    {
+			logger.info("EDPMS PROJECT landingPage---Exception---------");
 
-      logger.info("EDPMS PROJECT landingPage---Exception---------");
+			throwApplicationException(exception);
 
-      throwApplicationException(exception);
+		}
 
-    }
+		logger.info("Exiting Method");
 
-    logger.info("Exiting Method");
+		return "success";
 
-    return "success";
-
-  }
+	}
 
 }
