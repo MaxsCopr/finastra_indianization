@@ -129,3 +129,7 @@ body{
     clear:both;
     height:40px;
 }
+
+/* Union module shared styles */
+.union-hidden{display:none;}
+.union-container{box-sizing:border-box;}

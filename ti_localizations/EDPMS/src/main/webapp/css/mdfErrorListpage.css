@@ -1,0 +1,10 @@
+.page-shell{margin:20px auto;max-width:1200px;background:#f4f4f4;padding:12px;min-height:480px;}
+.page-header h2{margin:0 0 12px;color:#0b6c1d;font-size:16px;}
+.module-box{border:1px solid #cfe8f3;margin:10px 0;background:#fff;}
+.module-box legend{color:#178ed0;font-size:12px;padding:0 6px;}
+.grid-row{display:grid;grid-template-columns:120px 1fr 80px 1fr 120px 1fr;gap:8px;align-items:center;padding:12px;}
+.grid-row input{height:22px;border:1px solid #aac8de;}
+.btn-row{padding:0 12px 12px;}
+.refresh-btn{background:#11a7df;color:#fff;border:0;padding:4px 10px;cursor:pointer;}
+.module-table{width:100%;border-collapse:collapse;font-size:12px;}
+.module-table th,.module-table td{border:1px solid #ddd;padding:6px;text-align:left;}
